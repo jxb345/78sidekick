@@ -61,7 +61,7 @@ function no longer needed
  */
 
  handleRandomButtons() {
-   if (genreButton) {
+   if (this.genreButton) {
        this.setState ( { genreButtonOn: !this.state.genreButtonOn }, () => {
       console.log('this.state.genreButtonOn', this.state.genreButtonOn);
     })
@@ -79,7 +79,8 @@ function no longer needed
 }
 
   post() {
-    this.handleRandomButtons
+    this.handleRandomButtons()
+    console.log('this.state', this.state)
     $.ajax({
       url: '/query',
       method: 'POST',
@@ -120,6 +121,7 @@ function no longer needed
     const genreForm = document.getElementById("genreForm");
     genreForm.style.display = randomGenre.checked ? "none" : "block";
     this.genreButton = !this.genreButton;
+    console.log(this.genreButton, 'gB')
 
   }
 
