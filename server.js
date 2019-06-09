@@ -36,7 +36,7 @@ app.post('/query', (req, res) => {
 
   if (randomGenre === 'true') {
     console.log('randomGenre invoked!')
-    genre = models.generateRandomGenre(year);
+    genre = models.generateRandomGenre();
 
   }
   console.log('genre', genre);

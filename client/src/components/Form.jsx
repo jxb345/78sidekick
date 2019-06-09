@@ -25,7 +25,6 @@ class Form extends React.Component {
             Random Year
             </label>
         </div>
-        {/* if 'random year' is ON, then invoke randomYear, otherwise user can fill out from */}
         <div id="yearForm" style={divStyle}>
           <input type="text" name="year" value={this.props.year} onChange={this.props.handleChange}></input>
         </div>
@@ -38,7 +37,6 @@ class Form extends React.Component {
             Random Genre
             </label>
         </div>
-        {/* if 'random genre' is ON, then invoke randomGenre, otherwise user cna fill out form */}
         <div id="genreForm" style={divStyle}>
           <input type="text" name="genre" value={this.props.genre} onChange={this.props.handleChange}></input>
         </div>

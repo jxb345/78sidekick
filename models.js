@@ -36,12 +36,9 @@ let songUrl = `https://archive.org/advancedsearch.php?q=collection%3A%28georgebl
         // do something
       }
       let randomIndex = generateRandomIndex(totalResults);
-      // console.log('randomIndex', randomIndex);
       let identifier = myJson.response.docs[randomIndex].identifier ;
-      // console.log('identifer', identifier);
       fetchMetadata(identifier, (err, result) => {
         if (err) { throw err };
-        // console.log('result', result)
         let metadata = {};
         metadata.file = findFlac(result.files)
         metadata.creator = result.metadata.creator[0];
@@ -50,21 +47,12 @@ let songUrl = `https://archive.org/advancedsearch.php?q=collection%3A%28georgebl
         metadata.identifier = identifier;
         metadata.genre = genre;
         metadata.year = year;
-        // console.log('metadata------------------------', metadata)
         callback(null, metadata)
       });
     });
 }
 
-const generateRandomGenre = (year) => {
-  console.log('year', year)
-  // let result = [];
-  // genres.genres.forEach(genre => {
-  //   if (year <= genre.end && year >= genre.start) {
-  //     result.push(genre.name);
-  //   }
-  // })
-  // const length = result.length;
+const generateRandomGenre = () => {
   let randomIndex = Math.random() * (21 - 0) + 0;
   randomIndex = Math.floor(randomIndex);
   let randomGenre = genres.genres[randomIndex];
