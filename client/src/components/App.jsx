@@ -3,6 +3,7 @@ import { strictEqual } from 'assert';
 import MusicPlayer from './MusicPlayer.jsx';
 import MetaData from './MetaData.jsx'
 import Form from './Form.jsx'
+import { callbackify } from 'util';
 const $ = require('jquery');
 const genres = require('../genres.js');
 
@@ -23,15 +24,13 @@ class App extends React.Component {
       yearButtonOn: false,
     }
 
-    // remove
-    // this.convertToMilli = this.convertToMilli.bind(this);
     this.genreButton = false;
     this.yearButton = false;
+    this.ajaxCall = this.ajaxCall.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleRandomButtons = this.handleRandomButtons.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.post = this.post.bind(this);
-    // this.removeRandom = this.removeRandom.bind(this);
     this.showHideGenreForm = this.showHideGenreForm.bind(this);
     this.showHideYearForm = this.showHideYearForm.bind(this);
     this.url = this.url.bind(this);
@@ -47,77 +46,56 @@ class App extends React.Component {
     })
   }
 
-/*
-function no longer needed
-  calculation to milliseconds is not correct
-  convertToMilli(runtime) {
-    runtime = runtime.split(':');
-    let min = parseFloat(runtime[1]);
-    let sec = parseFloat(runtime[2]);
-    let milli = (min * 60) + (sec);
-    milli *= 1000;
-    return milli;
-  }
- */
+ ajaxCall() {
+  $.ajax({
+    url: '/query',
+    method: 'POST',
+    data: { data: this.state },
+    success: (data) => {
+      console.log('data', data)
+      this.setState({
+        year: data.year,
+        genre: data.genre,
+        identifier: data.identifier,
+        title: data.title,
+        creator: data.creator,
+        runtime: data.runtime,
+        audioFile: data.file,
+      },
+        () => {
+          this.url();
+          console.log('this.state', this.state);
+        })
+    }
+  })
+ }
 
- handleRandomButtons() {
+ handleRandomButtons(callback) {
    if (this.genreButton) {
        this.setState ( { genreButtonOn: !this.state.genreButtonOn }, () => {
       console.log('this.state.genreButtonOn', this.state.genreButtonOn);
+      callback()
     })
    }
    if (this.yearButton) {
     this.setState ( { yearButtonOn: !this.state.yearButtonOn }, () => {
       console.log('this.state.yearButtonOn', this.state.yearButtonOn);
+
     })
    }
-
  }
 
  handleSubmit(event) {
   event.preventDefault();
-  this.handleRandomButtons()
-  // !!!!!!! ajax call is being made before this.setState completes w/in handleRandomButtons !!!!!!
-  this.post();
+  this.post()
 }
 
   post() {
-    console.log('this.state', this.state)
-    $.ajax({
-      url: '/query',
-      method: 'POST',
-      data: { data: this.state },
-      success: (data) => {
-        console.log('data', data)
-        this.setState({
-          year: data.year,
-          genre: data.genre,
-          identifier: data.identifier,
-          title: data.title,
-          creator: data.creator,
-          runtime: data.runtime,
-          audioFile: data.file,
-        },
-          () => {
-            this.url();
-            // this.removeRandom();
-            console.log('this.state', this.state);
-            // let runtime = this.convertToMilli(this.state.runtime);
-            // setTimeout(() => { this.post()
-            // },
-            // runtime
-            // );
-          })
-      }
-    })
+    this.handleRandomButtons((err) => {
+      if (err) { throw err; }
+      this.ajaxCall();
+    });
   }
-
-  // removeRandom() {
-  //   this.setState( { year: ''});
-  //   this.setState( { genre: ''}, () => {
-  //     console.log('removeRandom state', this.state)
-  //   });
-  // }
 
   showHideGenreForm() {
     const genreForm = document.getElementById("genreForm");
@@ -136,8 +114,6 @@ function no longer needed
   url() {
     let id = this.state.identifier;
     let audioFile = this.state.audioFile;
-    console.log('id', id)
-    console.log('aF', audioFile);
     let fullUrl = `https://archive.org/download/${id}/${audioFile}`
     console.log('fullurl', fullUrl)
     this.setState( {url: fullUrl})
