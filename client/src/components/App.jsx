@@ -71,15 +71,17 @@ function no longer needed
       console.log('this.state.yearButtonOn', this.state.yearButtonOn);
     })
    }
+
  }
 
  handleSubmit(event) {
   event.preventDefault();
+  this.handleRandomButtons()
+  // !!!!!!! ajax call is being made before this.setState completes w/in handleRandomButtons !!!!!!
   this.post();
 }
 
   post() {
-    this.handleRandomButtons()
     console.log('this.state', this.state)
     $.ajax({
       url: '/query',
