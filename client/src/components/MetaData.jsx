@@ -9,6 +9,7 @@ class MetaData extends React.Component {
   render () {
     let detailsPage = `https://archive.org/details/${this.props.id}`
     return (
+      // displays fetched metadata for a given song
       <div>
         <span>TITLE: {this.props.title}</span>
         <br></br>

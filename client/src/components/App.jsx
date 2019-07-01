@@ -24,8 +24,6 @@ class App extends React.Component {
       yearButtonOn: false,
     }
 
-    this.genreButton = false;
-    this.yearButton = false;
     this.ajaxCall = this.ajaxCall.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleRandomButtons = this.handleRandomButtons.bind(this);
@@ -34,18 +32,13 @@ class App extends React.Component {
     this.showHideGenreForm = this.showHideGenreForm.bind(this);
     this.showHideYearForm = this.showHideYearForm.bind(this);
     this.url = this.url.bind(this);
+
+    this.genreButton = false;
+    this.yearButton = false;
   }
 
-  handleChange(event) {
-    let input = event.target.name;
-    let value = event.target.value
-    console.log('input', input)
-    console.log('value', value)
-    this.setState({
-      [input]: value
-    })
-  }
 
+// POST request to  '/query' endpoint in server.js; returns data and changes state
  ajaxCall() {
   $.ajax({
     url: '/query',
@@ -70,6 +63,18 @@ class App extends React.Component {
   })
  }
 
+ // updates state while user fills out 'genre' or 'year' form
+ handleChange(event) {
+  let input = event.target.name;
+  let value = event.target.value
+  console.log('input', input)
+  console.log('value', value)
+  this.setState({
+    [input]: value
+  })
+}
+
+ // checks if 'random year' or 'random genre' are click; if so, change state
  handleRandomButtons(callback) {
    if (this.genreButton) {
        this.setState ( { genreButtonOn: !this.state.genreButtonOn }, () => {
@@ -85,11 +90,13 @@ class App extends React.Component {
    }
  }
 
+ // when user clicks the 'submit' button
  handleSubmit(event) {
   event.preventDefault();
   this.post()
 }
 
+  // invokes handleRandomButtons before invoking the ajax call
   post() {
     this.handleRandomButtons((err) => {
       if (err) { throw err; }
@@ -97,6 +104,7 @@ class App extends React.Component {
     });
   }
 
+  // hide genre form if "random genre" switch is clicked
   showHideGenreForm() {
     const genreForm = document.getElementById("genreForm");
     genreForm.style.display = randomGenre.checked ? "none" : "block";
@@ -105,12 +113,14 @@ class App extends React.Component {
 
   }
 
+  // hide year form if "random year" switch is clicked
   showHideYearForm() {
     const yearForm = document.getElementById("yearForm");
     yearForm.style.display = randomYear.checked ? "none" : "block";
     this.yearButton = !this.yearButton;
   }
 
+  // concatenates id and audioFile to form complete URL of song file
   url() {
     let id = this.state.identifier;
     let audioFile = this.state.audioFile;

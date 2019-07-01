@@ -1,3 +1,6 @@
+
+// list of genres from IA that have the most items
+// NOTE: there's some confusion between the terms 'genre' and 'subject' on IA - need to handle this distinction better
 const genres = [
 
   'Popular Music',
