@@ -18,7 +18,7 @@ class Form extends React.Component {
     }
     return (
       <form onSubmit={this.props.handleSubmit}>
-        <div class="checkbox checkbox-switch switch-dark">
+        <div className="checkbox checkbox-switch switch-dark">
           <label>
             <input type="checkbox" id="randomYear" onClick={this.props.showHideYearForm}/>
             <span></span>
@@ -30,7 +30,7 @@ class Form extends React.Component {
         </div>
         <br></br>
         <br></br>
-        <div class="checkbox checkbox-switch switch-dark">
+        <div className="checkbox checkbox-switch switch-dark">
           <label>
             <input type="checkbox" id="randomGenre" onClick={this.props.showHideGenreForm}/>
             <span></span>

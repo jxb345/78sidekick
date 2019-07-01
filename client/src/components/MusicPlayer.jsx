@@ -4,6 +4,7 @@ class MusicPlayer extends React.Component {
   constructor(props) {
     super(props)
 
+    // provides DOM access to the 'audio' element
     this.audioPlayer = React.createRef();
   }
 
