@@ -79,7 +79,8 @@ class App extends React.Component {
    if (this.genreButton) {
        this.setState ( { genreButtonOn: !this.state.genreButtonOn }, () => {
       console.log('this.state.genreButtonOn', this.state.genreButtonOn);
-      callback()
+      // placement of this callback() invocation seems wrong
+      // callback()
     })
    }
    if (this.yearButton) {
@@ -88,6 +89,7 @@ class App extends React.Component {
 
     })
    }
+   callback(null);
  }
 
  // when user clicks the 'submit' button
@@ -132,6 +134,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <h1>78 Sidekick</h1>
         <Form year={this.state.year} genre={this.state.genre} handleChange={this.handleChange} handleSubmit={this.handleSubmit} showHideYearForm={this.showHideYearForm} showHideGenreForm={this.showHideGenreForm} />
         <br></br>
         <MetaData id={this.state.identifier} title={this.state.title} artist={this.state.creator} />

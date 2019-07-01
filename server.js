@@ -30,7 +30,7 @@ app.post('/query', (req, res) => {
   let randomGenre = req.body.data.genreButtonOn;
   console.log('randomGenre', randomGenre)
 
-  // opportunity for lines 34 to 43 to be its own function
+  // opportunity for lines 34 to 43 to be contained within its own function
   if (randomYear === 'true') {
     year = models.generateRandomYear();
     console.log('randomYear invoked!', year)
