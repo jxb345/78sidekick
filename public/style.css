@@ -1,5 +1,47 @@
 h1 {
   font-family: Arial, Helvetica, sans-serif;
-  text-transform: uppercase;
-  border-bottom: solid 2px;
+  border-bottom: solid 4px;
+  font-size: 40px;
+  width: 600px;
 }
+
+img {
+  float: left;
+  padding-left: 50px;
+}
+
+button {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 25px;
+  padding-right: 25px;
+  border-radius: 7px;
+  background-color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 13px;
+  color: white;
+  cursor: pointer;
+  margin-left: 60px;
+}
+
+input[type=text] {
+  width: 45%;
+  border-radius: 8px;
+  padding: 5px 10px 10px 15px;
+}
+
+label {
+  padding: 7px;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-container > div{
+  width: 400px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+

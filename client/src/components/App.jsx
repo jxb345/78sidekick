@@ -38,65 +38,65 @@ class App extends React.Component {
   }
 
 
-// POST request to  '/query' endpoint in server.js; returns data and changes state
- ajaxCall() {
-  $.ajax({
-    url: '/query',
-    method: 'POST',
-    data: { data: this.state },
-    success: (data) => {
-      console.log('data', data)
-      this.setState({
-        year: data.year,
-        genre: data.genre,
-        identifier: data.identifier,
-        title: data.title,
-        creator: data.creator,
-        runtime: data.runtime,
-        audioFile: data.file,
-      },
-        () => {
-          this.url();
-          console.log('this.state', this.state);
-        })
+  // POST request to  '/query' endpoint in server.js; returns data and changes state
+  ajaxCall() {
+    $.ajax({
+      url: '/query',
+      method: 'POST',
+      data: { data: this.state },
+      success: (data) => {
+        console.log('data', data)
+        this.setState({
+          year: data.year,
+          genre: data.genre,
+          identifier: data.identifier,
+          title: data.title,
+          creator: data.creator,
+          runtime: data.runtime,
+          audioFile: data.file,
+        },
+          () => {
+            this.url();
+            console.log('this.state', this.state);
+          })
+      }
+    })
+  }
+
+  // updates state while user fills out 'genre' or 'year' form
+  handleChange(event) {
+    let input = event.target.name;
+    let value = event.target.value
+    console.log('input', input)
+    console.log('value', value)
+    this.setState({
+      [input]: value
+    })
+  }
+
+  // checks if 'random year' or 'random genre' are click; if so, change state
+  handleRandomButtons(callback) {
+    if (this.genreButton) {
+      this.setState({ genreButtonOn: !this.state.genreButtonOn }, () => {
+        console.log('this.state.genreButtonOn', this.state.genreButtonOn);
+        // placement of this callback() invocation seems wrong
+        // callback()
+      })
     }
-  })
- }
+    if (this.yearButton) {
+      this.setState({ yearButtonOn: !this.state.yearButtonOn }, () => {
+        console.log('this.state.yearButtonOn', this.state.yearButtonOn);
 
- // updates state while user fills out 'genre' or 'year' form
- handleChange(event) {
-  let input = event.target.name;
-  let value = event.target.value
-  console.log('input', input)
-  console.log('value', value)
-  this.setState({
-    [input]: value
-  })
-}
+      })
+    }
+    callback(null);
+  }
 
- // checks if 'random year' or 'random genre' are click; if so, change state
- handleRandomButtons(callback) {
-   if (this.genreButton) {
-       this.setState ( { genreButtonOn: !this.state.genreButtonOn }, () => {
-      console.log('this.state.genreButtonOn', this.state.genreButtonOn);
-      // placement of this callback() invocation seems wrong
-      // callback()
-    })
-   }
-   if (this.yearButton) {
-    this.setState ( { yearButtonOn: !this.state.yearButtonOn }, () => {
-      console.log('this.state.yearButtonOn', this.state.yearButtonOn);
-
-    })
-   }
-   callback(null);
- }
-
- // when user clicks the 'submit' button
- handleSubmit(event) {
-  event.preventDefault();
-  this.post()
-}
+  // when user clicks the 'submit' button
+  handleSubmit(event) {
+    event.preventDefault();
+    this.post()
+  }
 
   // invokes handleRandomButtons before invoking the ajax call
   post() {
@@ -109,7 +109,7 @@ class App extends React.Component {
   // hide genre form if "random genre" switch is clicked
   showHideGenreForm() {
     const genreForm = document.getElementById("genreForm");
-    genreForm.style.display = randomGenre.checked ? "none" : "block";
+    genreForm.style.display = randomGenre.checked ? "none" : "inline";
     this.genreButton = !this.genreButton;
     console.log(this.genreButton, 'gB')
 
@@ -118,7 +118,7 @@ class App extends React.Component {
   // hide year form if "random year" switch is clicked
   showHideYearForm() {
     const yearForm = document.getElementById("yearForm");
-    yearForm.style.display = randomYear.checked ? "none" : "block";
+    yearForm.style.display = randomYear.checked ? "none" : "inline";
     this.yearButton = !this.yearButton;
   }
 
@@ -128,17 +128,26 @@ class App extends React.Component {
     let audioFile = this.state.audioFile;
     let fullUrl = `https://archive.org/download/${id}/${audioFile}`
     console.log('fullurl', fullUrl)
-    this.setState( {url: fullUrl})
+    this.setState({ url: fullUrl })
   }
 
   render() {
     return (
       <div>
-        <h1>78 Sidekick</h1>
-        <Form year={this.state.year} genre={this.state.genre} handleChange={this.handleChange} handleSubmit={this.handleSubmit} showHideYearForm={this.showHideYearForm} showHideGenreForm={this.showHideGenreForm} />
-        <br></br>
-        <MetaData id={this.state.identifier} title={this.state.title} artist={this.state.creator} />
-        <MusicPlayer url={this.state.url} post={this.post}/>
+        <img src="vinyl-record.jpg" alt="78 Record Plyaer" height="120" width="120"></img>
+        <h1>78 sideKick</h1>
+        <div className="flex-container">
+          <div>
+            <Form year={this.state.year} genre={this.state.genre} handleChange={this.handleChange} handleSubmit={this.handleSubmit} showHideYearForm={this.showHideYearForm} showHideGenreForm={this.showHideGenreForm} />
+
+          </div>
+        </div>
+          <div className="metaData">
+            <MetaData id={this.state.identifier} title={this.state.title} artist={this.state.creator} />
+          </div>
+          <div className="musicPlayer">
+            <MusicPlayer url={this.state.url} post={this.post} />
+          </div>
       </div>
     )
   }

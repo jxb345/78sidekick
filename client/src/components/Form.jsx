@@ -28,7 +28,7 @@ class Form extends React.Component {
         </div>
         {/* form to enter a year to be used in search */}
         <div id="yearForm" style={divStyle}>
-          <input type="text" name="year" value={this.props.year} onChange={this.props.handleChange}></input>
+          <input className="year" type="text" name="year" value={this.props.year} onChange={this.props.handleChange}></input>
         </div>
         <br></br>
         <br></br>
@@ -46,7 +46,7 @@ class Form extends React.Component {
         </div>
         <br></br>
         <br></br>
-        <button>Submit</button>
+        <button>PLAY</button>
       </form>
     )
   }
