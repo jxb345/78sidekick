@@ -34,6 +34,13 @@ input[type=text] {
   padding: 5px 10px 10px 15px;
 }
 
+select {
+  width: 220px;
+  height: 30px;
+  border-radius: 8px;
+  padding: 5px 10px 10px 15px;
+}
+
 label {
   padding: 7px;
   text-transform: uppercase;
