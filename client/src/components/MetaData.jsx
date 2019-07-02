@@ -16,8 +16,9 @@ class MetaData extends React.Component {
         // displays fetched metadata for a given song
         <div>
           <a href={detailsPage} target="_blank">
-          <span>"{this.props.title}" by</span>
-         <span> {this.props.artist}</span>
+          <span>"{this.props.title}"</span>
+          <br></br>
+         <span>by {this.props.artist}</span>
          </a>
         </div>
       )

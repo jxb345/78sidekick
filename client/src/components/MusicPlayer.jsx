@@ -9,15 +9,11 @@ class MusicPlayer extends React.Component {
   }
 
   componentDidUpdate() {
-    console.log('cDU')
-    this.audioPlayer.current.pause();
-    console.log('pause')
-    this.audioPlayer.current.load();
-    console.log('load')
-
-    this.audioPlayer.current.play();
-    console.log('play')
-
+    // need a conditional statement to see if user has click either of the switches so that the musicplayer will
+      console.log('cDU');
+      this.audioPlayer.current.pause();
+      this.audioPlayer.current.load();
+      this.audioPlayer.current.play();
   }
 
   render() {

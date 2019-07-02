@@ -140,7 +140,7 @@ class App extends React.Component {
     // this is only needed if handleRandomButtons function is kept
       // this.genreButton = !this.genreButton;
     this.setState( {genreButtonOn: !this.state.genreButtonOn}, () => {
-      console.log(this.state.genreButtonOn, 'gB')
+      console.log('this.state.genreButtonOn', this.state.genreButtonOn)
     })
   }
 
@@ -151,7 +151,7 @@ class App extends React.Component {
     // this is only needed if handleRandomButtons function is kept
       // this.yearButton = !this.yearButton;
       this.setState( { yearButtonOn: !this.state.yearButtonOn}, () => {
-        console.log(this.state.yearButtonOn, 'gB')
+        console.log('this.state.yearButtonOn', this.state.yearButtonOn)
       })  }
 
   // concatenates id and audioFile to form complete URL of song file
@@ -179,7 +179,10 @@ class App extends React.Component {
             showHideGenreForm={this.showHideGenreForm} />
           </div>
         <div className="musicPlayer">
-            <MusicPlayer url={this.state.url} post={this.post} />
+            <MusicPlayer
+            url={this.state.url} post={this.post}
+            genreButtonOn={this.state.genreButtonOn}  yearButtonOn={this.state.yearButtonOn}
+             />
           </div>
         </div>
 
