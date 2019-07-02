@@ -68,7 +68,7 @@ class Form extends React.Component {
             <option value="cowboy">Cowboy</option>
           </select>
         </div>
-        <button>PLAY</button>
+        <button className="play-button">PLAY</button>
       </form>
     )
   }
