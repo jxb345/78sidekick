@@ -14,12 +14,12 @@ class App extends React.Component {
     this.state = {
       year: '',
       genre: '',
-      identifier: '78_you-are-my-sunshine_paul-ric...sticker-rice-brothers-gang_gbia0000125a',
-      title: 'You Are My Sunshine',
-      creator: 'Paul Rice',
+      identifier: '',  // 78_you-are-my-sunshine_paul-ric...sticker-rice-brothers-gang_gbia0000125a
+      title: '',  // You Are My Sunshine
+      creator: '',  // Paul Rice
       runtime: '',
-      audioFile: '_78_you-are-my-sunshine_paul-ric...sticker-rice-brothers-gang_gbia0000125a_01_3.8-ct_eq.flac',
-      url: 'https://archive.org/download/78_you-are-my-sunshine_paul-ric...sticker-rice-brothers-gang_gbia0000125a/_78_you-are-my-sunshine_paul-ric...sticker-rice-brothers-gang_gbia0000125a_01_3.8-ct_eq.flac',
+      audioFile: '', // _78_you-are-my-sunshine_paul-ric...sticker-rice-brothers-gang_gbia0000125a_01_3.8-ct_eq.flac
+      url: '', // https://archive.org/download/78_you-are-my-sunshine_paul-ric...sticker-rice-brothers-gang_gbia0000125a/_78_you-are-my-sunshine_paul-ric...sticker-rice-brothers-gang_gbia0000125a_01_3.8-ct_eq.flac
       genreButtonOn: false,
       yearButtonOn: false,
     }
