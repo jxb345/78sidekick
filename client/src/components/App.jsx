@@ -84,8 +84,7 @@ class App extends React.Component {
   }
 
   handleChangeYear (e) {
-    let newYear = '19' + e.target.value;
-    this.setState( { year: newYear}, () => {
+    this.setState( { year: e.target.value}, () => {
       console.log('this.state.year', this.state.year);
     })
   }
@@ -93,31 +92,39 @@ class App extends React.Component {
   // checks if 'random year' or 'random genre' are click; if so, change state
   handleRandomButtons(callback) {
     if (this.genreButton) {
-      this.setState({ genreButtonOn: !this.state.genreButtonOn }, () => {
+      this.setState({ genreButtonOn: this.state.genreButtonOn }, () => {
         console.log('this.state.genreButtonOn', this.state.genreButtonOn);
         // placement of this callback() invocation seems wrong
         // callback()
       })
     }
     if (this.yearButton) {
-      this.setState({ yearButtonOn: !this.state.yearButtonOn }, () => {
+      console.log('handlebuttons detects YEAR button is ON!')
+      this.setState({ yearButtonOn: this.state.yearButtonOn }, () => {
         console.log('this.state.yearButtonOn', this.state.yearButtonOn);
 
       })
+    } else {
+      let newYear = '19' + this.state.year;
+      this.setState( { year: newYear }, () => {
+        console.log('this.state.year', this.state.year)
+      })
     }
+    console.log('inside of handleRadmon ()', this.state)
     callback(null);
   }
 
-  // when user clicks the 'submit' button
+  // when user clicks the 'play'/submit button
   handleSubmit(event) {
     event.preventDefault();
-    this.post()
+      this.post();
   }
 
   // invokes handleRandomButtons before invoking the ajax call
   post() {
     this.handleRandomButtons((err) => {
       if (err) { throw err; }
+
       this.ajaxCall();
     });
   }
@@ -125,7 +132,7 @@ class App extends React.Component {
   // hide genre form if "random genre" switch is clicked
   showHideGenreForm() {
     const genreForm = document.getElementById("genreForm");
-    genreForm.style.display = randomGenre.checked ? "none" : "inline";
+    genreForm.style.display = randomGenre.checked ? "none" : "block";
     this.genreButton = !this.genreButton;
     console.log(this.genreButton, 'gB')
 
@@ -134,8 +141,9 @@ class App extends React.Component {
   // hide year form if "random year" switch is clicked
   showHideYearForm() {
     const yearForm = document.getElementById("yearForm");
-    yearForm.style.display = randomYear.checked ? "none" : "inline";
+    yearForm.style.display = randomYear.checked ? "none" : "block";
     this.yearButton = !this.yearButton;
+    console.log(this.yearButton, 'yB');
   }
 
   // concatenates id and audioFile to form complete URL of song file

@@ -9,9 +9,15 @@ class MusicPlayer extends React.Component {
   }
 
   componentDidUpdate() {
+    console.log('cDU')
     this.audioPlayer.current.pause();
+    console.log('pause')
     this.audioPlayer.current.load();
+    console.log('load')
+
     this.audioPlayer.current.play();
+    console.log('play')
+
   }
 
   render() {
