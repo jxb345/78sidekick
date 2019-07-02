@@ -27,15 +27,17 @@ class App extends React.Component {
     this.ajaxCall = this.ajaxCall.bind(this);
     this.handleChangeGenre = this.handleChangeGenre.bind(this);
     this.handleChangeYear = this.handleChangeYear.bind(this);
-    this.handleRandomButtons = this.handleRandomButtons.bind(this);
+    // may not need this function
+      // this.handleRandomButtons = this.handleRandomButtons.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.post = this.post.bind(this);
     this.showHideGenreForm = this.showHideGenreForm.bind(this);
     this.showHideYearForm = this.showHideYearForm.bind(this);
     this.url = this.url.bind(this);
 
-    this.genreButton = false;
-    this.yearButton = false;
+     // this is only needed if handleRandomButtons function is kept
+      // this.genreButton = false;
+      // this.yearButton = false;
   }
 
 
@@ -90,29 +92,30 @@ class App extends React.Component {
   }
 
   // checks if 'random year' or 'random genre' are click; if so, change state
-  handleRandomButtons(callback) {
-    if (this.genreButton) {
-      this.setState({ genreButtonOn: this.state.genreButtonOn }, () => {
-        console.log('this.state.genreButtonOn', this.state.genreButtonOn);
-        // placement of this callback() invocation seems wrong
-        // callback()
-      })
-    }
-    if (this.yearButton) {
-      console.log('handlebuttons detects YEAR button is ON!')
-      this.setState({ yearButtonOn: this.state.yearButtonOn }, () => {
-        console.log('this.state.yearButtonOn', this.state.yearButtonOn);
+  // NOTE: the app may not need this function if setState is invoked within showGenreForm and showYearForm functions!!!
+    // handleRandomButtons(callback) {
+    //   if (this.genreButton) {
+    //     this.setState({ genreButtonOn: this.state.genreButtonOn }, () => {
+    //       console.log('this.state.genreButtonOn', this.state.genreButtonOn);
+    //       // placement of this callback() invocation seems wrong
+    //       // callback()
+    //     })
+    //   }
+    //   if (this.yearButton) {
+    //     console.log('handlebuttons detects YEAR button is ON!')
+    //     this.setState({ yearButtonOn: this.state.yearButtonOn }, () => {
+    //       console.log('this.state.yearButtonOn', this.state.yearButtonOn);
 
-      })
-    } else {
-      let newYear = '19' + this.state.year;
-      this.setState( { year: newYear }, () => {
-        console.log('this.state.year', this.state.year)
-      })
-    }
-    console.log('inside of handleRadmon ()', this.state)
-    callback(null);
-  }
+    //     })
+    //   } else {
+    //     let newYear = '19' + this.state.year;
+    //     this.setState( { year: newYear }, () => {
+    //       console.log('this.state.year', this.state.year)
+    //     })
+    //   }
+    //   console.log('inside of handleRadmon ()', this.state)
+    //   callback(null);
+    // }
 
   // when user clicks the 'play'/submit button
   handleSubmit(event) {
@@ -122,29 +125,34 @@ class App extends React.Component {
 
   // invokes handleRandomButtons before invoking the ajax call
   post() {
-    this.handleRandomButtons((err) => {
-      if (err) { throw err; }
+    // made not need this function
+      // this.handleRandomButtons((err) => {
+      //   if (err) { throw err; }
+      // });
 
-      this.ajaxCall();
-    });
+    this.ajaxCall();
   }
 
   // hide genre form if "random genre" switch is clicked
   showHideGenreForm() {
     const genreForm = document.getElementById("genreForm");
     genreForm.style.display = randomGenre.checked ? "none" : "block";
-    this.genreButton = !this.genreButton;
-    console.log(this.genreButton, 'gB')
-
+    // this is only needed if handleRandomButtons function is kept
+      // this.genreButton = !this.genreButton;
+    this.setState( {genreButtonOn: !this.state.genreButtonOn}, () => {
+      console.log(this.state.genreButtonOn, 'gB')
+    })
   }
 
   // hide year form if "random year" switch is clicked
   showHideYearForm() {
     const yearForm = document.getElementById("yearForm");
     yearForm.style.display = randomYear.checked ? "none" : "block";
-    this.yearButton = !this.yearButton;
-    console.log(this.yearButton, 'yB');
-  }
+    // this is only needed if handleRandomButtons function is kept
+      // this.yearButton = !this.yearButton;
+      this.setState( { yearButtonOn: !this.state.yearButtonOn}, () => {
+        console.log(this.state.yearButtonOn, 'gB')
+      })  }
 
   // concatenates id and audioFile to form complete URL of song file
   url() {

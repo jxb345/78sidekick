@@ -80,6 +80,7 @@ let songUrl = `https://archive.org/advancedsearch.php?q=collection%3A%28georgebl
         }
         // select a random item based on the number of available results
         let randomIndex = generateRandomIndex(totalResults);
+        console.log('randomIndex', randomIndex);
         let identifier = myJson.response.docs[randomIndex].identifier ;
         // fetch specific metadata of item and prepares 'metadata' object to send to client
         fetchMetadata(identifier, (err, result) => {
