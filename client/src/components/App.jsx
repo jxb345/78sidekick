@@ -136,18 +136,19 @@ class App extends React.Component {
       <div>
         <img src="vinyl-record.jpg" alt="78 Record Plyaer" height="120" width="120"></img>
         <h1>78 sideKick</h1>
+        <div className="metaData">
+            <MetaData id={this.state.identifier} title={this.state.title} artist={this.state.creator} />
+          </div>
         <div className="flex-container">
           <div>
             <Form year={this.state.year} genre={this.state.genre} handleChange={this.handleChange} handleSubmit={this.handleSubmit} showHideYearForm={this.showHideYearForm} showHideGenreForm={this.showHideGenreForm} />
 
           </div>
-        </div>
-          <div className="metaData">
-            <MetaData id={this.state.identifier} title={this.state.title} artist={this.state.creator} />
-          </div>
-          <div className="musicPlayer">
+        <div className="musicPlayer">
             <MusicPlayer url={this.state.url} post={this.post} />
           </div>
+        </div>
+
       </div>
     )
   }

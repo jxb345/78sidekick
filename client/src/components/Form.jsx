@@ -31,7 +31,6 @@ class Form extends React.Component {
           <input className="year" type="text" name="year" value={this.props.year} onChange={this.props.handleChange}></input>
         </div>
         <br></br>
-        <br></br>
         {/* switch for Random Genre */}
         <div class="checkbox checkbox-switch switch-dark">
           <label>
@@ -44,8 +43,6 @@ class Form extends React.Component {
         <div id="genreForm" style={divStyle}>
           <input type="text" name="genre" value={this.props.genre} onChange={this.props.handleChange}></input>
         </div>
-        <br></br>
-        <br></br>
         <button>PLAY</button>
       </form>
     )

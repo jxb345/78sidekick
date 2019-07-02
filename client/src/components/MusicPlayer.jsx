@@ -22,7 +22,7 @@ class MusicPlayer extends React.Component {
         <source src={this.props.url} crossOrigin="anonymous"></source>
       </audio>
       {/* make another POST request if user doesn't like song */}
-      <button onClick={() => {this.props.post()}}>SKIP</button>
+      {/* <button onClick={() => {this.props.post()}}>SKIP</button> */}
       </div>
     )
   }
