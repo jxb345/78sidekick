@@ -139,8 +139,8 @@ class App extends React.Component {
         <div className="metaData">
             <MetaData id={this.state.identifier} title={this.state.title} artist={this.state.creator} />
           </div>
-        <div className="flex-container">
-          <div>
+        <div className="form-player">
+          <div className="form">
             <Form year={this.state.year} genre={this.state.genre} handleChange={this.handleChange} handleSubmit={this.handleSubmit} showHideYearForm={this.showHideYearForm} showHideGenreForm={this.showHideGenreForm} />
 
           </div>
