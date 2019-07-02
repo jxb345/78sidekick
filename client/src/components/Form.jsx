@@ -23,12 +23,12 @@ class Form extends React.Component {
           <label>
             <input type="checkbox" id="randomYear" onClick={this.props.showHideYearForm} />
             <span></span>
-            random year
+            random year (1900 - 1960)
             </label>
         </div>
         {/* form to enter a year to be used in search */}
         <div id="yearForm" style={divStyle}>
-          <input className="year" type="text" name="year" value={this.props.year} onChange={this.props.handleChange}></input>
+          19<input className="year" type="text" name="year" value={this.props.year} onChange={this.props.handleChangeYear}></input>
         </div>
         <br></br>
         {/* switch for Random Genre */}
@@ -42,7 +42,7 @@ class Form extends React.Component {
         {/* form to enter a genre to be used in search */}
         <div id="genreForm" style={divStyle}>
           {/* <input type="text" name="genre" value={this.props.genre} onChange={this.props.handleChange}></input> */}
-          <select name="choice">
+          <select value={this.props.genre} onChange={this.props.handleChangeGenre}>
             <option value="default" defaultValue>Pick a Genre</option>
             <option value="popular-music">Popular Music</option>
             <option value="instrumental" >Instrumental</option>
@@ -57,7 +57,7 @@ class Form extends React.Component {
             <option value="dance" >dance</option>
             <option value="swing">Swing</option>
             <option value="ethnic">Ethnic</option>
-            <option value="folk" >Folk</option>
+            <option value="folk">Folk</option>
             <option value="novelty">Novelty</option>
             <option value="comedy">Comedy</option>
             <option value="orchestral" >Orchestral</option>

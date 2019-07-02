@@ -25,7 +25,8 @@ class App extends React.Component {
     }
 
     this.ajaxCall = this.ajaxCall.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+    this.handleChangeGenre = this.handleChangeGenre.bind(this);
+    this.handleChangeYear = this.handleChangeYear.bind(this);
     this.handleRandomButtons = this.handleRandomButtons.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.post = this.post.bind(this);
@@ -64,13 +65,28 @@ class App extends React.Component {
   }
 
   // updates state while user fills out 'genre' or 'year' form
-  handleChange(event) {
-    let input = event.target.name;
-    let value = event.target.value
-    console.log('input', input)
-    console.log('value', value)
-    this.setState({
-      [input]: value
+  // this handleChange is for use with the 'input' tag on the Form Component
+    // handleChange(event) {
+    //   let input = event.target.name;
+    //   let value = event.target.value
+    //   console.log('input', input)
+    //   console.log('value', value)
+    //   this.setState({
+    //     [input]: value
+    //   })
+    // }
+
+  // this handleChange is for use with the 'select' tag on the Form Componenet
+  handleChangeGenre(e) {
+    this.setState({genre: e.target.value}, () => {
+      console.log('this.state.genre', this.state.genre);
+    });
+  }
+
+  handleChangeYear (e) {
+    let newYear = '19' + e.target.value;
+    this.setState( { year: newYear}, () => {
+      console.log('this.state.year', this.state.year);
     })
   }
 
@@ -141,8 +157,10 @@ class App extends React.Component {
           </div>
         <div className="form-player">
           <div className="form">
-            <Form year={this.state.year} genre={this.state.genre} handleChange={this.handleChange} handleSubmit={this.handleSubmit} showHideYearForm={this.showHideYearForm} showHideGenreForm={this.showHideGenreForm} />
-
+            <Form
+            year={this.state.year} genre={this.state.genre} handleChangeGenre={this.handleChangeGenre}
+            handleChangeYear={this.handleChangeYear} handleSubmit={this.handleSubmit} showHideYearForm={this.showHideYearForm}
+            showHideGenreForm={this.showHideGenreForm} />
           </div>
         <div className="musicPlayer">
             <MusicPlayer url={this.state.url} post={this.post} />
