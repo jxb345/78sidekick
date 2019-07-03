@@ -9,9 +9,11 @@ class MusicPlayer extends React.Component {
   }
 
   componentDidUpdate() {
-    this.audioPlayer.current.pause();
-    this.audioPlayer.current.load();
-    this.audioPlayer.current.play();
+    // need a conditional statement to see if user has click either of the switches so that the musicplayer will
+      console.log('cDU');
+      this.audioPlayer.current.pause();
+      this.audioPlayer.current.load();
+      this.audioPlayer.current.play();
   }
 
   render() {
@@ -22,7 +24,9 @@ class MusicPlayer extends React.Component {
         <source src={this.props.url} crossOrigin="anonymous"></source>
       </audio>
       {/* make another POST request if user doesn't like song */}
-      {/* <button onClick={() => {this.props.post()}}>SKIP</button> */}
+      <div>
+      <button className="skip-button" onClick={() => {this.props.post()}}>SKIP</button>
+      </div>
       </div>
     )
   }

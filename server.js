@@ -23,6 +23,7 @@ app.get('/test', (req, res) => {
 });
 
 app.post('/query', (req, res) => {
+  let fetchWithYearFailed = false;
   console.log('req.body.data', req.body.data)
   let year = req.body.data.year;
   let genre = req.body.data.genre;
@@ -44,9 +45,21 @@ app.post('/query', (req, res) => {
   console.log('genre', genre);
   models.fetchSong(genre, year, (err, result) => {
     if (err) { throw err };
-    console.log('result', result);
-    result.url = `https://archive.org/embed/${result.identifer}`;
-    res.send(result);
+    console.log('result with year', result);
+    if (result !== undefined) {
+      result.url = `https://archive.org/embed/${result.identifer}`;
+      res.send(result);
+    } else {
+      let fetchWithYearFailed = true;
+    if (fetchWithYearFailed) {
+      models.fetchNoYearSong(genre, (err, result) => {
+        if (err) { throw err };
+      console.log('result withOUT year', result);
+      result.url = `https://archive.org/embed/${result.identifer}`;
+      res.send(result);
+      })
+    }
+    }
   })
 })
 

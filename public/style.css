@@ -12,7 +12,30 @@ img {
   padding-left: 50px;
 }
 
-button {
+input[type=text] {
+  width: 20px;
+  border-radius: 8px;
+  padding: 5px 10px 10px 15px;
+}
+
+select {
+  width: 220px;
+  height: 30px;
+  border-radius: 8px;
+  padding: 5px 10px 10px 15px;
+}
+
+label {
+  padding: 7px;
+  text-transform: uppercase;
+}
+
+a {
+  color: white;
+  cursor: pointer;
+}
+
+.play-button {
   padding-top: 12px;
   padding-bottom: 12px;
   padding-left: 25px;
@@ -28,20 +51,20 @@ button {
   margin-left: 70px;
 }
 
-input[type=text] {
-  width: 220px;
-  border-radius: 8px;
-  padding: 5px 10px 10px 15px;
-}
-
-label {
-  padding: 7px;
-  text-transform: uppercase;
-}
-
-a {
+.skip-button {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 25px;
+  padding-right: 25px;
+  border-radius: 7px;
+  background-color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 13px;
   color: white;
   cursor: pointer;
+  margin-left: 98px;
+  margin-top: 5px;
 }
 
 .form-player {
@@ -59,7 +82,7 @@ a {
   height: 50px;
   margin-left: 175px;
   margin-bottom: 25px;
-  padding-top: 30px;
+  padding-top: 20px;
   background-color: black;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 17px;

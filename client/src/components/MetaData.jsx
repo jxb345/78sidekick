@@ -8,15 +8,21 @@ class MetaData extends React.Component {
 
   render () {
     let detailsPage = `https://archive.org/details/${this.props.id}`
-    return (
-      // displays fetched metadata for a given song
-      <div>
-        <a href={detailsPage} target="_blank">
-        <span>"{this.props.title}" by</span>
-       <span> {this.props.artist}</span>
-       </a>
-      </div>
-    )
+
+    if (this.props.title === '' & this.props.artist === '') {
+      return <div>Select a Year and Genre or Just Click 'PLAY'!</div>
+    } else {
+      return (
+        // displays fetched metadata for a given song
+        <div>
+          <a href={detailsPage} target="_blank">
+          <span>"{this.props.title}"</span>
+          <br></br>
+         <span>by {this.props.artist}</span>
+         </a>
+        </div>
+      )
+    }
   }
 }
 
