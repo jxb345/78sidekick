@@ -43,7 +43,7 @@ class Form extends React.Component {
         <div id="genreForm" style={divStyle}>
           {/* <input type="text" name="genre" value={this.props.genre} onChange={this.props.handleChange}></input> */}
           <select value={this.props.genre} onChange={this.props.handleChangeGenre}>
-            <option value="default" defaultValue>Genre</option>
+            <option value="default" defaultValue>Select</option>
             <option value="popular-music">Popular Music</option>
             <option value="instrumental" >Instrumental</option>
             <option value="jazz">Jazz</option>

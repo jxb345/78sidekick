@@ -63,6 +63,12 @@ const fetchMetadata = (id, callback) => {
 
 // fetches items based on year and genre using the IA Advanced Search
 const fetchSong = (genre, year, callback) => {
+
+// prevents API call from failing if no year is passed in
+if (year === '') {
+  year = generateRandomYear();
+}
+
 // URL that fetches results from IA; NOTE: passed in variable for 'rows' is '10000' (is this number too high, maing the API call too "expensive?")
 let songUrl = `https://archive.org/advancedsearch.php?q=collection%3A%28georgeblood%29+AND+subject%3A%28${genre}%29+AND+YEAR%3A%28${year}%29&fl%5B%5D=identifier&sort%5B%5D=&sort%5B%5D=&sort%5B%5D=&rows=10000&page=1&output=json`
 
