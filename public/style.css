@@ -4,7 +4,7 @@ h1 {
   font-family: Arial, Helvetica, sans-serif;
   border-bottom: solid 4px;
   font-size: 38px;
-  width: 600px;
+  width: 550px;
 }
 
 img {
@@ -14,15 +14,28 @@ img {
 
 input[type=text] {
   width: 20px;
-  border-radius: 8px;
-  padding: 5px 10px 10px 15px;
+  border: solid 1px gray;
+  border-radius: 5px;
+  /* padding: 4px 10px 10px 20px; */
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  font-weight: bold;
 }
 
 select {
-  width: 220px;
+  width: 140px;
   height: 30px;
   border-radius: 8px;
   padding: 5px 10px 10px 15px;
+  margin-left: 50px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  text-align-last:center;
+
 }
 
 label {
@@ -78,8 +91,8 @@ a {
 .metaData {
   border: solid 2px;
   border-radius: 20px;
-  width:400px;
-  height: 50px;
+  width: 290px;
+  height: 60px;
   margin-left: 175px;
   margin-bottom: 25px;
   padding-top: 20px;
@@ -95,4 +108,13 @@ a {
 .musicPlayer {
   margin-top: 30px;
   margin-left: 160px;
+}
+
+#yearForm {
+  margin-left: 70px;
+  font-weight: bold;
+}
+
+.year {
+  margin-left: 4px;
 }

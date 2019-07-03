@@ -22,6 +22,7 @@ class App extends React.Component {
       url: '', // https://archive.org/download/78_you-are-my-sunshine_paul-ric...sticker-rice-brothers-gang_gbia0000125a/_78_you-are-my-sunshine_paul-ric...sticker-rice-brothers-gang_gbia0000125a_01_3.8-ct_eq.flac
       genreButtonOn: false,
       yearButtonOn: false,
+
     }
 
     this.ajaxCall = this.ajaxCall.bind(this);
@@ -129,14 +130,23 @@ class App extends React.Component {
       // this.handleRandomButtons((err) => {
       //   if (err) { throw err; }
       // });
-
-    this.ajaxCall();
+      if (this.state.year.length === 2) {
+        console.log('inside str length')
+        let newYear = '19' + this.state.year;
+        this.setState( { year: newYear }, () => {
+          console.log('this.state.year', this.state.year);
+          this.ajaxCall();
+        })
+      } else {
+        this.ajaxCall();
+      }
   }
 
   // hide genre form if "random genre" switch is clicked
   showHideGenreForm() {
     const genreForm = document.getElementById("genreForm");
     genreForm.style.display = randomGenre.checked ? "none" : "block";
+
     // this is only needed if handleRandomButtons function is kept
       // this.genreButton = !this.genreButton;
     this.setState( {genreButtonOn: !this.state.genreButtonOn}, () => {

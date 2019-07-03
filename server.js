@@ -23,13 +23,11 @@ app.get('/test', (req, res) => {
 });
 
 app.post('/query', (req, res) => {
-  let fetchWithYearFailed = false;
   console.log('req.body.data', req.body.data)
   let year = req.body.data.year;
   let genre = req.body.data.genre;
   let randomYear = req.body.data.yearButtonOn
   let randomGenre = req.body.data.genreButtonOn;
-  console.log('randomGenre', randomGenre)
 
   // opportunity for lines 34 to 43 to be contained within its own function
   if (randomYear === 'true') {
@@ -38,11 +36,10 @@ app.post('/query', (req, res) => {
   }
 
   if (randomGenre === 'true') {
-    console.log('randomGenre invoked!')
     genre = models.generateRandomGenre();
+    console.log('randomGenre invoked!')
   }
 
-  console.log('genre', genre);
   models.fetchSong(genre, year, (err, result) => {
     if (err) { throw err };
     console.log('result with year', result);
@@ -52,7 +49,7 @@ app.post('/query', (req, res) => {
     } else {
       let fetchWithYearFailed = true;
     if (fetchWithYearFailed) {
-      models.fetchNoYearSong(genre, (err, result) => {
+      models.fetchNoYearSong(genre, year, (err, result) => {
         if (err) { throw err };
       console.log('result withOUT year', result);
       result.url = `https://archive.org/embed/${result.identifer}`;

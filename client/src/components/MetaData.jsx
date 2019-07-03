@@ -10,7 +10,9 @@ class MetaData extends React.Component {
     let detailsPage = `https://archive.org/details/${this.props.id}`
 
     if (this.props.title === '' & this.props.artist === '') {
-      return <div>Select a Year and Genre or Just Click 'PLAY'!</div>
+      return <div>
+        {/* Pick a Year and Genre or Just Click 'PLAY'! */}
+        </div>
     } else {
       return (
         // displays fetched metadata for a given song
