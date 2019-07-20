@@ -99,7 +99,7 @@ class App extends React.Component {
 
   }
 
-  // checks if 'random year' or 'random genre' are click; if so, change state
+  // checks if 'random year' or 'random genre' are clicked; if so, change state
   // NOTE: the app may not need this function if setState is invoked within showGenreForm and showYearForm functions!!!
  handleGenreButton() {
    let genreButton = this.genreButton;
@@ -107,8 +107,8 @@ class App extends React.Component {
    return new Promise(function (resolve, reject) {
     if (genreButton) {
       console.log('handlebuttons detects Genre button is ON!')
-      that.setState({ genreButtonOn: that.genreButton }, () => {
-        console.log('this.state.genreButtonOn', that.state.genreButtonOn);
+      that.setState({ genreButtonOn: true }, () => {
+        console.log('one - that.state.genreButtonOn', that.state.genreButtonOn);
         // placement of this callback() invocation seems wrong
         // callback(null)
         resolve();
@@ -125,8 +125,8 @@ class App extends React.Component {
      return new Promise(function (resolve, reject) {
       if (yearButton) {
         console.log('handlebuttons detects YEAR button is ON!')
-        that.setState({ yearButtonOn: that.yearButton }, () => {
-          console.log('this.state.yearButtonOn', that.state.yearButtonOn);
+        that.setState({ yearButtonOn: true }, () => {
+          console.log('two - this.state.yearButtonOn', that.state.yearButtonOn);
           resolve()
         })
       } else {
@@ -153,17 +153,18 @@ class App extends React.Component {
   }
 
   // invokes handleRandomButtons before invoking the ajax call
-  post() {
+  async post() {
     // made not need this function
-    this.handleGenreButton()
-    .then(this.handleYearButton())
+    await this.handleGenreButton()
+    await this.handleYearButton()
       if (this.state.year.length === 2) {
         let newYear = '19' + this.state.year;
         this.setState({ year: newYear }, () => {
-          console.log('this.state.year')
+          console.log('three - this.state.year')
           this.ajaxCall();
         })
       } else {
+        console.log('three - this.state.....', this.state);
         this.ajaxCall();
       }
   }
