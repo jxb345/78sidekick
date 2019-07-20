@@ -95,34 +95,33 @@ class App extends React.Component {
     })
   }
 
-  handleRandomButtons () {
+  handleRandomButtons() {
 
   }
 
   // checks if 'random year' or 'random genre' are clicked; if so, change state
   // NOTE: the app may not need this function if setState is invoked within showGenreForm and showYearForm functions!!!
- handleGenreButton() {
-   let genreButton = this.genreButton;
-   let that = this;
-   return new Promise(function (resolve, reject) {
-    if (genreButton) {
-      console.log('handlebuttons detects Genre button is ON!')
-      that.setState({ genreButtonOn: true }, () => {
-        console.log('one - that.state.genreButtonOn', that.state.genreButtonOn);
-        // placement of this callback() invocation seems wrong
-        // callback(null)
-        resolve();
-      })
-    } else {
-      resolve()
-    }
-   })
+  handleGenreButton() {
+    let genreButton = this.genreButton;
+    let that = this;
+    return new Promise(function (resolve, reject) {
+      if (genreButton) {
+        console.log('handlebuttons detects Genre button is ON!')
+        that.setState({ genreButtonOn: true }, () => {
+          resolve();
+        })
+      } else {
+        that.setState({ genreButtonOn: false }, () => {
+          resolve();
+        })
+      }
+    })
   }
 
-   handleYearButton () {
-     let yearButton = this.yearButton;
-     let that = this;
-     return new Promise(function (resolve, reject) {
+  handleYearButton() {
+    let yearButton = this.yearButton;
+    let that = this;
+    return new Promise(function (resolve, reject) {
       if (yearButton) {
         console.log('handlebuttons detects YEAR button is ON!')
         that.setState({ yearButtonOn: true }, () => {
@@ -130,20 +129,22 @@ class App extends React.Component {
           resolve()
         })
       } else {
-        resolve()
+        that.setState({ yearButtonOn: false }, () => {
+          resolve()
+        })
       }
-     })
-   }
+    })
+  }
 
 
-    // else {
-    //   let newYear = '19' + this.state.year;
-    //   this.setState( { year: newYear }, () => {
-    //     console.log('this.state.year', this.state.year)
-    //   })
-    // }
-    // console.log('inside of handleRadmon ()', this.state)
-    // callback(null);
+  // else {
+  //   let newYear = '19' + this.state.year;
+  //   this.setState( { year: newYear }, () => {
+  //     console.log('this.state.year', this.state.year)
+  //   })
+  // }
+  // console.log('inside of handleRadmon ()', this.state)
+  // callback(null);
 
 
   // when user clicks the 'play'/submit button
@@ -157,16 +158,16 @@ class App extends React.Component {
     // made not need this function
     await this.handleGenreButton()
     await this.handleYearButton()
-      if (this.state.year.length === 2) {
-        let newYear = '19' + this.state.year;
-        this.setState({ year: newYear }, () => {
-          console.log('three - this.state.year')
-          this.ajaxCall();
-        })
-      } else {
-        console.log('three - this.state.....', this.state);
+    if (this.state.year.length === 2) {
+      let newYear = '19' + this.state.year;
+      this.setState({ year: newYear }, () => {
+        console.log('three - this.state.year')
         this.ajaxCall();
-      }
+      })
+    } else {
+      console.log('three - this.state.....', this.state);
+      this.ajaxCall();
+    }
   }
 
   // hide genre form if "random genre" switch is clicked
