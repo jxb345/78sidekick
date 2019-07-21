@@ -28,13 +28,13 @@ class Form extends React.Component {
         </div>
         {/* form to enter a year to be used in search */}
         <div id="yearForm" style={divStyle}>
-          19<input className="year" type="text" name="year" value={this.props.year} onChange={this.props.handleChangeYear}></input>
+          19<input className="year" type="text" name="year" maxLength="2" value={this.props.year} onChange={this.props.handleChangeYear}></input>
         </div>
         <br></br>
         {/* switch for Random Genre */}
         <div className="checkbox checkbox-switch switch-dark">
           <label>
-            <input type="checkbox" id="randomGenre" onClick={this.props.showHideGenreForm} />
+            <input type="checkbox" id="randomGenre" onClick={this.props.showHideGenreForm} onChange={this.props.handleChangeGenre}/>
             <span></span>
             shuffle genre
             </label>

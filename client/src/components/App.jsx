@@ -5,7 +5,6 @@ import MetaData from './MetaData.jsx'
 import Form from './Form.jsx'
 import { callbackify } from 'util';
 const $ = require('jquery');
-const genres = require('../genres.js');
 
 class App extends React.Component {
   constructor(props) {
@@ -70,18 +69,6 @@ class App extends React.Component {
     })
   }
 
-  // updates state while user fills out 'genre' or 'year' form
-  // this handleChange is for use with the 'input' tag on the Form Component
-  // handleChange(event) {
-  //   let input = event.target.name;
-  //   let value = event.target.value
-  //   console.log('input', input)
-  //   console.log('value', value)
-  //   this.setState({
-  //     [input]: value
-  //   })
-  // }
-
   // this handleChange is for use with the 'select' tag on the Form Componenet
   handleChangeGenre(e) {
     this.setState({ genre: e.target.value }, () => {
@@ -136,17 +123,6 @@ class App extends React.Component {
     })
   }
 
-
-  // else {
-  //   let newYear = '19' + this.state.year;
-  //   this.setState( { year: newYear }, () => {
-  //     console.log('this.state.year', this.state.year)
-  //   })
-  // }
-  // console.log('inside of handleRadmon ()', this.state)
-  // callback(null);
-
-
   // when user clicks the 'play'/submit button
   handleSubmit(event) {
     event.preventDefault();
@@ -178,9 +154,7 @@ class App extends React.Component {
     // this is only needed if handleRandomButtons function is kept
     this.genreButton = !this.genreButton;
     console.log('this.genreButton', this.genreButton)
-    // this.setState( {genreButtonOn: !this.state.genreButtonOn}, () => {
-    //   console.log('this.state.genreButtonOn', this.state.genreButtonOn)
-    // })
+
   }
 
   // hide year form if "random year" switch is clicked
@@ -190,9 +164,6 @@ class App extends React.Component {
     // this is only needed if handleRandomButtons function is kept
     this.yearButton = !this.yearButton;
     console.log('this.yearButton', this.yearButton)
-    // this.setState({ yearButtonOn: !this.state.yearButtonOn }, () => {
-    //   console.log('this.state.yearButtonOn', this.state.yearButtonOn)
-    // })
   }
 
   // concatenates id and audioFile to form complete URL of song file

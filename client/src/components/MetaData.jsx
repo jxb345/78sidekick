@@ -20,7 +20,7 @@ class MetaData extends React.Component {
           <a href={detailsPage} target="_blank">
           <span>"{this.props.title}"</span>
           <br></br>
-         <span>by {this.props.artist}</span>
+         <span>{this.props.artist}</span>
          </a>
         </div>
       )

@@ -9,7 +9,7 @@ h1 {
 
 img {
   float: left;
-  padding-left: 50px;
+  padding-left: 40px;
 }
 
 input[type=text] {
@@ -46,6 +46,7 @@ label {
 a {
   color: white;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .play-button {

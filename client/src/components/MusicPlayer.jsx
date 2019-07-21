@@ -12,16 +12,19 @@ class MusicPlayer extends React.Component {
 
     // provides DOM access to the 'audio' element
     this.audioPlayer = React.createRef();
+    this.playTrack = this.playTrack.bind(this);
+  }
+
+  async playTrack () {
+    console.log('componeentDidUpdate invoked.');
+    await this.audioPlayer.current.pause()
+    await this.audioPlayer.current.load()
+    await this.audioPlayer.current.play()
   }
 
   componentDidUpdate() {
     // need a conditional statement to see if user has click either of the switches so that the musicplayer will
-
-      console.log('cDU');
-      this.audioPlayer.current.pause();
-      this.audioPlayer.current.load();
-      this.audioPlayer.current.play();
-
+    this.playTrack();
 
   }
 
