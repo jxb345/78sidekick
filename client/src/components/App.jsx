@@ -13,12 +13,12 @@ class App extends React.Component {
     this.state = {
       year: '',
       genre: '',
-      identifier: '',  // 78_you-are-my-sunshine_paul-ric...sticker-rice-brothers-gang_gbia0000125a
-      title: '',  // You Are My Sunshine
-      creator: '',  // Paul Rice
+      identifier: '',
+      title: '',
+      creator: '',
       runtime: '',
-      audioFile: '', // _78_you-are-my-sunshine_paul-ric...sticker-rice-brothers-gang_gbia0000125a_01_3.8-ct_eq.flac
-      url: '', // https://archive.org/download/78_you-are-my-sunshine_paul-ric...sticker-rice-brothers-gang_gbia0000125a/_78_you-are-my-sunshine_paul-ric...sticker-rice-brothers-gang_gbia0000125a_01_3.8-ct_eq.flac
+      audioFile: '',
+      url: '',
       genreButtonOn: false,
       yearButtonOn: false,
 
@@ -41,6 +41,8 @@ class App extends React.Component {
     // this is only needed if handleRandomButtons function is kept
     this.genreButton = false;
     this.yearButton = false;
+
+    this.userClick = false;
   }
 
 
@@ -63,11 +65,13 @@ class App extends React.Component {
         },
           () => {
             this.url();
+            this.userClick = false;
             console.log('this.state', this.state);
           })
       }
     })
   }
+
 
   // this handleChange is for use with the 'select' tag on the Form Componenet
   handleChangeGenre(e) {
@@ -131,11 +135,13 @@ class App extends React.Component {
 
   // invokes handleRandomButtons before invoking the ajax call
   async post() {
+    this.userClick = true;
     // made not need this function
     await this.handleGenreButton()
     await this.handleYearButton()
     if (this.state.year.length === 2) {
-      let newYear = '19' + this.state.year;
+      // let newYear = '19' + this.state.year;
+      let newYear = this.state.year;
       this.setState({ year: newYear }, () => {
         console.log('three - this.state.year')
         this.ajaxCall();
@@ -192,7 +198,7 @@ class App extends React.Component {
           </div>
           <div className="musicPlayer">
             <MusicPlayer
-              url={this.state.url} post={this.post}
+              url={this.state.url} post={this.post} userClick={this.userClick}
               genreButtonOn={this.state.genreButtonOn} yearButtonOn={this.state.yearButtonOn}
             />
           </div>

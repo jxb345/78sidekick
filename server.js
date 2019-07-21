@@ -14,14 +14,6 @@ app.use(cors());
 //   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 // });
 
-// test endpoint no longer needed; may delete
-app.get('/test', (req, res) => {
-  models.fetchMetadata('78_my-song-of-the-west_patsy-montana-prairie-ramblers-holmes_gbia0086808b', (err, metadata) => {
-    if (err) { throw err; }
-    res.send(metadata.files);
-  });
-});
-
 app.post('/query', (req, res) => {
   console.log('req.body.data', req.body.data)
   let year = req.body.data.year;
@@ -41,17 +33,20 @@ app.post('/query', (req, res) => {
   }
 
   models.fetchSong(genre, year, (err, result) => {
+    year = '19' + year;
     if (err) { throw err };
-    console.log('result with year', result);
+    console.log('result with year');
     if (result !== undefined) {
       result.url = `https://archive.org/embed/${result.identifer}`;
+      result.year = result.year.toString().slice(2);
       res.send(result);
     } else {
       let fetchWithYearFailed = true;
     if (fetchWithYearFailed) {
       models.fetchNoYearSong(genre, year, (err, result) => {
         if (err) { throw err };
-      console.log('result withOUT year', result);
+      console.log('result withOUT year');
+      result.year = result.year.toString().slice(2);
       result.url = `https://archive.org/embed/${result.identifer}`;
       res.send(result);
       })

@@ -41,7 +41,7 @@ const fetchMetadata = (id, callback) => {
                   // select a random item based on the number of available results
                   let randomIndex = generateRandomIndex(totalResults);
                   console.log('randomIndex inside NoYEar')
-                  let identifier = myJson.response.docs[randomIndex].identifier ;
+                  let identifier = myJson.response.docs[randomIndex].identifier;
                   // fetch specific metadata of item and prepares 'metadata' object to send to client
                   fetchMetadata(identifier, (err, result) => {
                     if (err) { throw err };
