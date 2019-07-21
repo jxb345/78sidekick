@@ -6,7 +6,7 @@ const genres = [
   'Popular Music',
   'Instrumental',
   'Jazz',
-  'acoustic',
+  // 'acoustic', - if 'acoustic' is passed into the 'songNoDateUrl' function, it will return 0 results;
   'Vocal',
   'Latin',
   'Blues',

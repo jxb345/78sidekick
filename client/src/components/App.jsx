@@ -28,7 +28,6 @@ class App extends React.Component {
     this.handleChangeGenre = this.handleChangeGenre.bind(this);
     this.handleChangeYear = this.handleChangeYear.bind(this);
 
-    // may not need these functions
     this.handleYearButton = this.handleYearButton.bind(this);
     this.handleGenreButton = this.handleGenreButton.bind(this);
 
@@ -38,10 +37,8 @@ class App extends React.Component {
     this.showHideYearForm = this.showHideYearForm.bind(this);
     this.url = this.url.bind(this);
 
-    // this is only needed if handleRandomButtons function is kept
     this.genreButton = false;
     this.yearButton = false;
-
     this.userClick = false;
   }
 
@@ -75,6 +72,7 @@ class App extends React.Component {
 
   // this handleChange is for use with the 'select' tag on the Form Componenet
   handleChangeGenre(e) {
+    console.log('e.target.value', e.target.value)
     this.setState({ genre: e.target.value }, () => {
       console.log('this.state.genre', this.state.genre);
     });
@@ -84,10 +82,6 @@ class App extends React.Component {
     this.setState({ year: e.target.value }, () => {
       console.log('this.state.year', this.state.year);
     })
-  }
-
-  handleRandomButtons() {
-
   }
 
   // checks if 'random year' or 'random genre' are clicked; if so, change state
@@ -129,6 +123,14 @@ class App extends React.Component {
 
   // when user clicks the 'play'/submit button
   handleSubmit(event) {
+    if (this.genreButton === false && this.yearButton === false) {
+      if (this.state.year === '') {
+        this.yearButton = true;
+      }
+      if (this.state.genre === '') {
+        this.genreButton = true;
+      }
+    }
     event.preventDefault();
     this.post();
   }
@@ -184,7 +186,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <img src="vinyl-record.jpg" alt="78 Record Plyaer" height="120" width="120"></img>
+        <img src="vinyl-record.jpg" alt="78 Record Player" height="120" width="120"></img>
         <h1>78 sideKick</h1>
         <div className="metaData">
           <MetaData id={this.state.identifier} title={this.state.title} artist={this.state.creator} />
@@ -193,8 +195,10 @@ class App extends React.Component {
           <div className="form">
             <Form
               year={this.state.year} genre={this.state.genre} handleChangeGenre={this.handleChangeGenre}
-              handleChangeYear={this.handleChangeYear} handleSubmit={this.handleSubmit} showHideYearForm={this.showHideYearForm}
-              showHideGenreForm={this.showHideGenreForm} />
+              handleChangeYear={this.handleChangeYear} handleSubmit={this.handleSubmit}
+              showHideYearForm={this.showHideYearForm} showHideGenreForm={this.showHideGenreForm}
+              genreButton={this.genreButton} yearButton={this.yearButton}
+               />
           </div>
           <div className="musicPlayer">
             <MusicPlayer

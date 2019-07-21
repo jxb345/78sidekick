@@ -16,6 +16,7 @@ class Form extends React.Component {
     const divStyle = {
       display: 'block'
     }
+
     return (
       <form onSubmit={this.props.handleSubmit}>
         {/* switch for Random Year */}

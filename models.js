@@ -38,6 +38,7 @@ const fetchMetadata = (id, callback) => {
                 })
                 .then(function (myJson) {
                   let totalResults = myJson.response.docs.length;
+                  console.log('myJson.results', myJson.results);
                   // select a random item based on the number of available results
                   let randomIndex = generateRandomIndex(totalResults);
                   console.log('randomIndex inside NoYEar')

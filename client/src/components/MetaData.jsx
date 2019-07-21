@@ -9,9 +9,9 @@ class MetaData extends React.Component {
   render () {
     let detailsPage = `https://archive.org/details/${this.props.id}`
 
-    if (this.props.title === '' & this.props.artist === '') {
+    if (this.props.title === '' && this.props.artist === '') {
       return <div>
-        {/* Pick a Year and Genre or Just Click 'PLAY'! */}
+        Stream music from <br></br>the Internet Archive's vast 78s collection.
         </div>
     } else {
       return (
