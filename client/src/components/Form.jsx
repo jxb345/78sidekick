@@ -16,6 +16,7 @@ class Form extends React.Component {
     const divStyle = {
       display: 'block'
     }
+
     return (
       <form onSubmit={this.props.handleSubmit}>
         {/* switch for Random Year */}
@@ -23,27 +24,27 @@ class Form extends React.Component {
           <label>
             <input type="checkbox" id="randomYear" onClick={this.props.showHideYearForm} />
             <span></span>
-            random year (1900 - 1960)
+            &nbsp;&nbsp;Shuffle Year (1900 - 1960)
             </label>
         </div>
         {/* form to enter a year to be used in search */}
         <div id="yearForm" style={divStyle}>
-          19<input className="year" type="text" name="year" value={this.props.year} onChange={this.props.handleChangeYear}></input>
+          19<input className="year" type="text" name="year" maxLength="2" value={this.props.year} onChange={this.props.handleChangeYear}></input>
         </div>
         <br></br>
         {/* switch for Random Genre */}
         <div className="checkbox checkbox-switch switch-dark">
           <label>
-            <input type="checkbox" id="randomGenre" onClick={this.props.showHideGenreForm} />
+            <input type="checkbox" id="randomGenre" onClick={this.props.showHideGenreForm} onChange={this.props.handleChangeGenre}/>
             <span></span>
-            random genre
+            &nbsp;&nbsp;&nbsp;  Shuffle Genre
             </label>
         </div>
         {/* form to enter a genre to be used in search */}
         <div id="genreForm" style={divStyle}>
           {/* <input type="text" name="genre" value={this.props.genre} onChange={this.props.handleChange}></input> */}
           <select value={this.props.genre} onChange={this.props.handleChangeGenre}>
-            <option value="default" defaultValue>Pick a Genre</option>
+            <option value="default" defaultValue>Select</option>
             <option value="popular-music">Popular Music</option>
             <option value="instrumental" >Instrumental</option>
             <option value="jazz">Jazz</option>
@@ -54,7 +55,7 @@ class Form extends React.Component {
             <option value="country" >Country</option>
             <option value="polka">Polka</option>
             <option value="hillbilly">Hillbilly</option>
-            <option value="dance" >dance</option>
+            <option value="dance" >Dance</option>
             <option value="swing">Swing</option>
             <option value="ethnic">Ethnic</option>
             <option value="folk">Folk</option>

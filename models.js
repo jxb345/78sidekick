@@ -26,22 +26,23 @@ const fetchMetadata = (id, callback) => {
 }
 
 // // fetches items with a date and based on genre using the IA Advanced Search
-        const fetchNoYearSong = (genre, callback) => {
+        const fetchNoYearSong = (genre, year, callback) => {
           // URL that fetches results from IA; NOTE: passed in variable for 'rows' is '10000' (is this number too high, meaning the API call too "expensive?")
           let songNoDateUrl = `https://archive.org/advancedsearch.php?q=collection%3A%28georgeblood%29+AND+genre%3A%28${genre}%29+AND+YEAR%3A%28-1%29&fl%5B%5D=identifier&sort%5B%5D=&sort%5B%5D=&sort%5B%5D=&rows=50&page=1&output=json` // &callback=callback&save=yes
-              console.log('inside fetchNoYearSong')
+
               try {
                 fetch(songNoDateUrl)
                 .then(function (response) {
-                  console.log('response in no year ', response);
+                  console.log('response withOUT year')
                   return response.json();
                 })
                 .then(function (myJson) {
                   let totalResults = myJson.response.docs.length;
+                  console.log('myJson.results', myJson.results);
                   // select a random item based on the number of available results
                   let randomIndex = generateRandomIndex(totalResults);
                   console.log('randomIndex inside NoYEar')
-                  let identifier = myJson.response.docs[randomIndex].identifier ;
+                  let identifier = myJson.response.docs[randomIndex].identifier;
                   // fetch specific metadata of item and prepares 'metadata' object to send to client
                   fetchMetadata(identifier, (err, result) => {
                     if (err) { throw err };
@@ -52,7 +53,7 @@ const fetchMetadata = (id, callback) => {
                     metadata.runtime = result.metadata.runtime;
                     metadata.identifier = identifier;
                     metadata.genre = genre;
-                    // metadata.year = '[no date]';
+                    metadata.year = year;
                     callback(null, metadata)
                   });
                 });
@@ -63,13 +64,19 @@ const fetchMetadata = (id, callback) => {
 
 // fetches items based on year and genre using the IA Advanced Search
 const fetchSong = (genre, year, callback) => {
+
+// prevents API call from failing if no year is passed in
+if (year === '') {
+  year = generateRandomYear();
+}
+
 // URL that fetches results from IA; NOTE: passed in variable for 'rows' is '10000' (is this number too high, maing the API call too "expensive?")
 let songUrl = `https://archive.org/advancedsearch.php?q=collection%3A%28georgeblood%29+AND+subject%3A%28${genre}%29+AND+YEAR%3A%28${year}%29&fl%5B%5D=identifier&sort%5B%5D=&sort%5B%5D=&sort%5B%5D=&rows=10000&page=1&output=json`
 
     try {
       fetch(songUrl)
       .then(function (response) {
-        console.log('response in WITh year ', response);
+        console.log('response WITH year');
         return response.json();
 
       })

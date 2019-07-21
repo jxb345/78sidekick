@@ -14,22 +14,12 @@ app.use(cors());
 //   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 // });
 
-// test endpoint no longer needed; may delete
-app.get('/test', (req, res) => {
-  models.fetchMetadata('78_my-song-of-the-west_patsy-montana-prairie-ramblers-holmes_gbia0086808b', (err, metadata) => {
-    if (err) { throw err; }
-    res.send(metadata.files);
-  });
-});
-
 app.post('/query', (req, res) => {
-  let fetchWithYearFailed = false;
   console.log('req.body.data', req.body.data)
   let year = req.body.data.year;
   let genre = req.body.data.genre;
   let randomYear = req.body.data.yearButtonOn
   let randomGenre = req.body.data.genreButtonOn;
-  console.log('randomGenre', randomGenre)
 
   // opportunity for lines 34 to 43 to be contained within its own function
   if (randomYear === 'true') {
@@ -38,23 +28,25 @@ app.post('/query', (req, res) => {
   }
 
   if (randomGenre === 'true') {
-    console.log('randomGenre invoked!')
     genre = models.generateRandomGenre();
+    console.log('randomGenre invoked!')
   }
 
-  console.log('genre', genre);
   models.fetchSong(genre, year, (err, result) => {
+    year = '19' + year;
     if (err) { throw err };
-    console.log('result with year', result);
+    console.log('result with year');
     if (result !== undefined) {
       result.url = `https://archive.org/embed/${result.identifer}`;
+      result.year = result.year.toString().slice(2);
       res.send(result);
     } else {
       let fetchWithYearFailed = true;
     if (fetchWithYearFailed) {
-      models.fetchNoYearSong(genre, (err, result) => {
+      models.fetchNoYearSong(genre, year, (err, result) => {
         if (err) { throw err };
-      console.log('result withOUT year', result);
+      console.log('result withOUT year');
+      result.year = result.year.toString().slice(2);
       result.url = `https://archive.org/embed/${result.identifer}`;
       res.send(result);
       })
