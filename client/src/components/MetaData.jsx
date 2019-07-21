@@ -11,7 +11,6 @@ class MetaData extends React.Component {
 
     if (this.props.title === '' && this.props.artist === '') {
       return <div>
-        Stream music from <br></br>the Internet Archive's vast 78s collection.
         </div>
     } else {
       return (
