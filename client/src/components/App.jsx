@@ -50,7 +50,6 @@ class App extends React.Component {
       method: 'POST',
       data: { data: this.state },
       success: (data) => {
-        console.log('data', data)
         this.setState({
           year: data.year,
           genre: data.genre,
@@ -72,7 +71,6 @@ class App extends React.Component {
 
   // this handleChange is for use with the 'select' tag on the Form Componenet
   handleChangeGenre(e) {
-    console.log('e.target.value', e.target.value)
     this.setState({ genre: e.target.value }, () => {
       console.log('this.state.genre', this.state.genre);
     });
@@ -91,7 +89,6 @@ class App extends React.Component {
     let that = this;
     return new Promise(function (resolve, reject) {
       if (genreButton) {
-        console.log('handlebuttons detects Genre button is ON!')
         that.setState({ genreButtonOn: true }, () => {
           resolve();
         })
@@ -108,9 +105,7 @@ class App extends React.Component {
     let that = this;
     return new Promise(function (resolve, reject) {
       if (yearButton) {
-        console.log('handlebuttons detects YEAR button is ON!')
         that.setState({ yearButtonOn: true }, () => {
-          console.log('two - this.state.yearButtonOn', that.state.yearButtonOn);
           resolve()
         })
       } else {
@@ -145,11 +140,9 @@ class App extends React.Component {
       // let newYear = '19' + this.state.year;
       let newYear = this.state.year;
       this.setState({ year: newYear }, () => {
-        console.log('three - this.state.year')
         this.ajaxCall();
       })
     } else {
-      console.log('three - this.state.....', this.state);
       this.ajaxCall();
     }
   }
@@ -158,20 +151,14 @@ class App extends React.Component {
   showHideGenreForm() {
     const genreForm = document.getElementById("genreForm");
     genreForm.style.display = randomGenre.checked ? "none" : "block";
-
-    // this is only needed if handleRandomButtons function is kept
     this.genreButton = !this.genreButton;
-    console.log('this.genreButton', this.genreButton)
-
   }
 
   // hide year form if "random year" switch is clicked
   showHideYearForm() {
     const yearForm = document.getElementById("yearForm");
     yearForm.style.display = randomYear.checked ? "none" : "block";
-    // this is only needed if handleRandomButtons function is kept
     this.yearButton = !this.yearButton;
-    console.log('this.yearButton', this.yearButton)
   }
 
   // concatenates id and audioFile to form complete URL of song file

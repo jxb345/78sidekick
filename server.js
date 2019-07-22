@@ -9,11 +9,6 @@ app.use(express.static(path.resolve(__dirname, "./public")));
 app.use(express.urlencoded( {extended: true} ));
 app.use(cors());
 
-// app.use(function(req, res) {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-// });
-
 app.post('/query', (req, res) => {
   console.log('req.body.data', req.body.data)
   let year = req.body.data.year;
@@ -29,11 +24,13 @@ app.post('/query', (req, res) => {
 
   if (randomGenre === 'true') {
     genre = models.generateRandomGenre();
-    console.log('randomGenre invoked!')
+    console.log('randomGenre invoked!', genre)
   }
 
   models.fetchSong(genre, year, (err, result) => {
-    year = '19' + year;
+    if (year.length === 2) {
+      year = '19' + year;
+    }
     if (err) { throw err };
     console.log('result with year');
     if (result !== undefined) {
