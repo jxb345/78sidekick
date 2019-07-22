@@ -74,6 +74,11 @@ a {
   margin-left: 70px;
 }
 
+button:focus {outline:0;}
+input:focus {outline:0;}
+audio:focus {outline:0;}
+
+
 .skip-button {
   padding-top: 12px;
   padding-bottom: 12px;
