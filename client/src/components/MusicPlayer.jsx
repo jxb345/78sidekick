@@ -4,12 +4,6 @@ class MusicPlayer extends React.Component {
   constructor(props) {
     super(props)
 
-    // possiblly use this state as conidtional in componentDidUpdate
-    // this.state = {
-    //   yearButtonOn: false,
-    //   genreButtonOn: false
-    // }
-
     // provides DOM access to the 'audio' element
     this.audioPlayer = React.createRef();
 
@@ -17,7 +11,6 @@ class MusicPlayer extends React.Component {
   }
 
   async playTrack () {
-    console.log('componentDidUpdate invoked.');
     await this.audioPlayer.current.pause()
     await this.audioPlayer.current.load()
     await this.audioPlayer.current.play()

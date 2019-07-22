@@ -48,7 +48,7 @@ class Form extends React.Component {
             <option value="popular-music">Popular Music</option>
             <option value="instrumental" >Instrumental</option>
             <option value="jazz">Jazz</option>
-            <option value="acoustic">Acoustic</option>
+            {/* <option value="acoustic">Acoustic</option> */}
             <option value="vocal" >Vocal</option>
             <option value="latin">Latin</option>
             <option value="blues">Blues</option>

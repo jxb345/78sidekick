@@ -7,7 +7,6 @@ const findFlac = (files) => {
   const flac = /flac$/&&/^_/;
   for (let i = 0; i < files.length; i += 1) {
     if (flac.test(files[i].original)) {
-      console.log('file i inside if', files[i].original);
       return files[i].original;
     }
   }
@@ -38,10 +37,8 @@ const fetchMetadata = (id, callback) => {
                 })
                 .then(function (myJson) {
                   let totalResults = myJson.response.docs.length;
-                  console.log('myJson.results', myJson.results);
                   // select a random item based on the number of available results
                   let randomIndex = generateRandomIndex(totalResults);
-                  console.log('randomIndex inside NoYEar')
                   let identifier = myJson.response.docs[randomIndex].identifier;
                   // fetch specific metadata of item and prepares 'metadata' object to send to client
                   fetchMetadata(identifier, (err, result) => {
@@ -83,12 +80,11 @@ let songUrl = `https://archive.org/advancedsearch.php?q=collection%3A%28georgebl
       .then(function (myJson) {
         let totalResults = myJson.response.docs.length;
         if (totalResults === 0) {
-          console.log('no results!!!!!!!!!!!!!!!!!!!!!');
+          console.log('no results from API call');
           return callback(null);
         }
         // select a random item based on the number of available results
         let randomIndex = generateRandomIndex(totalResults);
-        console.log('randomIndex', randomIndex);
         let identifier = myJson.response.docs[randomIndex].identifier ;
         // fetch specific metadata of item and prepares 'metadata' object to send to client
         fetchMetadata(identifier, (err, result) => {
