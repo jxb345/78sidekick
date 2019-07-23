@@ -25,7 +25,7 @@ class Form extends React.Component {
           <label>
             <input type="checkbox" id="randomYear" onClick={this.props.showHideYearForm} />
             <span></span>
-            &nbsp;&nbsp;Shuffle Year (1900 - 1960)
+            &nbsp;&nbsp;&nbsp;Shuffle Year (1900 - 60)
             </label>
         </div>
         {/* form to enter a year to be used in search */}
@@ -38,7 +38,7 @@ class Form extends React.Component {
           <label>
             <input type="checkbox" id="randomGenre" onClick={this.props.showHideGenreForm} onChange={this.props.handleChangeGenre}/>
             <span></span>
-            &nbsp;&nbsp;&nbsp;  Shuffle Genre
+            &nbsp;&nbsp;&nbsp;Shuffle Genre
             </label>
         </div>
         {/* form to enter a genre to be used in search */}

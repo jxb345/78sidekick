@@ -7,13 +7,14 @@ class MetaData extends React.Component {
 
 
   render () {
+    const spanStyle = {
+      fontSize: 14,
+    }
     let detailsPage = `https://archive.org/details/${this.props.id}`
     let year;
     if (`${this.props.year}` !== '') {
       year = `(19` +`${this.props.year}` + `)`;
     }
-
-
     if (this.props.title === '' && this.props.artist === '') {
       return <div>
         </div>
@@ -24,9 +25,9 @@ class MetaData extends React.Component {
           <a href={detailsPage} target="_blank">
           <span>"{this.props.title}"</span>
           <br></br>
-         <span>{this.props.artist}</span>
+         <span style={spanStyle} >{this.props.artist}</span>
          <br></br>
-         <span>{year}</span>
+         <span style={spanStyle}>{year}</span>
          </a>
         </div>
       )
