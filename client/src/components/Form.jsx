@@ -18,6 +18,7 @@ class Form extends React.Component {
     }
 
     return (
+      <div className="form-fields">
       <form onSubmit={this.props.handleSubmit}>
         {/* switch for Random Year */}
         <div className="checkbox checkbox-switch switch-dark">
@@ -71,6 +72,7 @@ class Form extends React.Component {
         </div>
         <button className="play-button">PLAY</button>
       </form>
+      </div>
     )
   }
 }

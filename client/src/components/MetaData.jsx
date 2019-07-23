@@ -8,6 +8,11 @@ class MetaData extends React.Component {
 
   render () {
     let detailsPage = `https://archive.org/details/${this.props.id}`
+    let year;
+    if (`${this.props.year}` !== '') {
+      year = `(19` +`${this.props.year}` + `)`;
+    }
+
 
     if (this.props.title === '' && this.props.artist === '') {
       return <div>
@@ -20,6 +25,8 @@ class MetaData extends React.Component {
           <span>"{this.props.title}"</span>
           <br></br>
          <span>{this.props.artist}</span>
+         <br></br>
+         <span>{year}</span>
          </a>
         </div>
       )
