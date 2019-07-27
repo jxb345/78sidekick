@@ -8,7 +8,7 @@ class MetaData extends React.Component {
 
   render () {
     const spanStyle = {
-      fontSize: 14,
+      fontSize: 15,
     }
     let detailsPage = `https://archive.org/details/${this.props.id}`
     let year;

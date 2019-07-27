@@ -13,7 +13,7 @@ class MusicPlayer extends React.Component {
   async playTrack () {
     await this.audioPlayer.current.pause()
     await this.audioPlayer.current.load()
-    await this.audioPlayer.current.play()
+    this.audioPlayer.current.play()
   }
 
   componentDidUpdate() {
