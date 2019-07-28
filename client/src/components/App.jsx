@@ -150,10 +150,14 @@ class App extends React.Component {
   // hide genre form if "random genre" switch is clicked
   showHideGenreForm() {
     const genreForm = document.getElementById("genreForm");
+    const genreLabel = document.getElementsByClassName("label-genre")[0];
     if (genreForm.style.visibility === 'hidden') {
       genreForm.style.visibility = 'visible';
+      genreLabel.style.color = 'lightgrey';
     } else {
       genreForm.style.visibility = 'hidden';
+      genreLabel.style.color = 'black';
+
     }
     this.genreButton = !this.genreButton;
   }
@@ -161,11 +165,13 @@ class App extends React.Component {
   // hide year form if "random year" switch is clicked
   showHideYearForm() {
     const yearForm = document.getElementById("yearForm");
-    const yearLabel = document.getElementsByTagName('label')[0];
+    const yearLabel = document.getElementsByClassName('label-year')[0];
     if (yearForm.style.visibility === 'hidden') {
       yearForm.style.visibility = 'visible';
+      yearLabel.style.color = 'lightgrey'
     } else {
       yearForm.style.visibility = 'hidden';
+      yearLabel.style.color = 'black'
     }
     this.yearButton = !this.yearButton;
   }

@@ -16,13 +16,16 @@ class Form extends React.Component {
     const divStyle = {
       display: 'block'
     }
+    const labelStyle = {
+      color: 'lightgrey'
+    }
 
     return (
       <div className="form-fields">
       <form onSubmit={this.props.handleSubmit}>
         {/* switch for Random Year */}
         <div className="checkbox checkbox-switch switch-dark">
-          <label>
+          <label className="label-year" style={labelStyle}>
             <input type="checkbox" id="randomYear" onClick={this.props.showHideYearForm} />
             <span></span>
             &nbsp;&nbsp;&nbsp;Shuffle Year (1900 - 60)
@@ -35,7 +38,7 @@ class Form extends React.Component {
         <br></br>
         {/* switch for Random Genre */}
         <div className="checkbox checkbox-switch switch-dark">
-          <label>
+        <label className="label-genre" style={labelStyle}>
             <input type="checkbox" id="randomGenre" onClick={this.props.showHideGenreForm} onChange={this.props.handleChangeGenre}/>
             <span></span>
             &nbsp;&nbsp;&nbsp;Shuffle Genre
