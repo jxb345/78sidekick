@@ -174,26 +174,39 @@ class App extends React.Component {
     return (
       <div>
         <img src="vinyl-record.jpg" alt="78 Record Player" height="120" width="120"></img>
-        <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;78 sideKick</h1>
+        <h1>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          78 sideKick
+          </h1>
         <div className="metaData">
           <MetaData
-          id={this.state.identifier} title={this.state.title}
-          artist={this.state.creator} year={this.state.year}
+          id={this.state.identifier}
+          title={this.state.title}
+          artist={this.state.creator}
+          year={this.state.year}
            />
         </div>
         <div className="form-player">
           <div className="form">
             <Form
-              year={this.state.year} genre={this.state.genre} handleChangeGenre={this.handleChangeGenre}
-              handleChangeYear={this.handleChangeYear} handleSubmit={this.handleSubmit}
-              showHideYearForm={this.showHideYearForm} showHideGenreForm={this.showHideGenreForm}
-              genreButton={this.genreButton} yearButton={this.yearButton}
+              year={this.state.year}
+              genre={this.state.genre}
+              handleChangeGenre={this.handleChangeGenre}
+              handleChangeYear={this.handleChangeYear}
+              handleSubmit={this.handleSubmit}
+              showHideYearForm={this.showHideYearForm}
+              showHideGenreForm={this.showHideGenreForm}
+              genreButton={this.genreButton}
+              yearButton={this.yearButton}
                />
           </div>
           <div className="musicPlayer">
             <MusicPlayer
-              url={this.state.url} post={this.post} userClick={this.userClick}
-              genreButtonOn={this.state.genreButtonOn} yearButtonOn={this.state.yearButtonOn}
+              url={this.state.url}
+              post={this.post}
+              userClick={this.userClick}
+              genreButtonOn={this.state.genreButtonOn}
+              yearButtonOn={this.state.yearButtonOn}
             />
           </div>
         </div>

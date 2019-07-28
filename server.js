@@ -4,6 +4,7 @@ const cors = require('cors');
 const app = express();
 const port = 3019;
 const models = require('./models.js');
+const text = require('./about.js');
 
 app.use(express.static(path.resolve(__dirname, "./public")));
 app.use(express.urlencoded( {extended: true} ));
@@ -50,6 +51,11 @@ app.post('/query', (req, res) => {
     }
     }
   })
+})
+
+app.get('/about', (req, res) => {
+  console.log(typeof aboutText)
+  res.send(text.aboutText);
 })
 
 app.listen(port, () => {

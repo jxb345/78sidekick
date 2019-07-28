@@ -35,6 +35,9 @@ class MusicPlayer extends React.Component {
       <div>
       <button className="skip-button" onClick={() => {this.props.post()}}>SKIP</button>
       </div>
+      <p className="about"></p>
+      <p className="about-text">
+      <a href="/about" target="_blank" className="about-link-text">About</a></p>
       </div>
     )
   }
