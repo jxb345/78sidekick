@@ -194,7 +194,7 @@ class App extends React.Component {
         height="120"
         width="120"></img>
         <h1>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           78 sideKick
           </h1>
         <div className="metaData">

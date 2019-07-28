@@ -21,12 +21,11 @@ class MetaData extends React.Component {
       return <div>
         </div>
     } else {
-      console.log('title.length', title.length);
       if (title.length > 30) {
         title = title.slice(0, 30) + '...';
       }
-      if (artist.length > 25) {
-        artist = artist.slice(0, 25) + '...';
+      if (artist.length > 30) {
+        artist = artist.slice(0, 30) + '...';
       }
       return (
         // displays fetched metadata for a given song

@@ -16,19 +16,19 @@ class Form extends React.Component {
     const divStyle = {
       display: 'block'
     }
-    const labelStyle = {
-      color: 'lightgrey'
-    }
+    // const labelStyle = {
+    //   color: 'lightgrey'
+    // }
 
     return (
       <div className="form-fields">
       <form onSubmit={this.props.handleSubmit}>
         {/* switch for Random Year */}
         <div className="checkbox checkbox-switch switch-dark">
-          <label className="label-year" style={labelStyle}>
+          <label className="label-year">
             <input type="checkbox" id="randomYear" onClick={this.props.showHideYearForm} />
             <span></span>
-            &nbsp;&nbsp;&nbsp;Shuffle Year (1900 - 60)
+            &nbsp;&nbsp;&nbsp;Shuffle Year (1900 - 1960)
             </label>
         </div>
         {/* form to enter a year to be used in search */}
@@ -38,7 +38,7 @@ class Form extends React.Component {
         <br></br>
         {/* switch for Random Genre */}
         <div className="checkbox checkbox-switch switch-dark">
-        <label className="label-genre" style={labelStyle}>
+        <label className="label-genre">
             <input type="checkbox" id="randomGenre" onClick={this.props.showHideGenreForm} onChange={this.props.handleChangeGenre}/>
             <span></span>
             &nbsp;&nbsp;&nbsp;Shuffle Genre
@@ -48,7 +48,7 @@ class Form extends React.Component {
         <div id="genreForm" style={divStyle}>
           {/* <input type="text" name="genre" value={this.props.genre} onChange={this.props.handleChange}></input> */}
           <select value={this.props.genre} onChange={this.props.handleChangeGenre}>
-            <option value="default" defaultValue>Select</option>
+            <option value="default" defaultValue>Select Genre</option>
             <option value="popular-music">Popular Music</option>
             <option value="instrumental" >Instrumental</option>
             <option value="jazz">Jazz</option>
