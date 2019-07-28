@@ -43,7 +43,7 @@ class App extends React.Component {
   }
 
 
-  // POST request to  '/query' endpoint in server.js; returns data and changes state
+  // POST request to '/query' endpoint in server.js; returns data and changes state
   ajaxCall() {
     $.ajax({
       url: '/query',
@@ -150,14 +150,23 @@ class App extends React.Component {
   // hide genre form if "random genre" switch is clicked
   showHideGenreForm() {
     const genreForm = document.getElementById("genreForm");
-    genreForm.style.display = randomGenre.checked ? "none" : "block";
+    if (genreForm.style.visibility === 'hidden') {
+      genreForm.style.visibility = 'visible';
+    } else {
+      genreForm.style.visibility = 'hidden';
+    }
     this.genreButton = !this.genreButton;
   }
 
   // hide year form if "random year" switch is clicked
   showHideYearForm() {
     const yearForm = document.getElementById("yearForm");
-    yearForm.style.display = randomYear.checked ? "none" : "block";
+    const yearLabel = document.getElementsByTagName('label')[0];
+    if (yearForm.style.visibility === 'hidden') {
+      yearForm.style.visibility = 'visible';
+    } else {
+      yearForm.style.visibility = 'hidden';
+    }
     this.yearButton = !this.yearButton;
   }
 
@@ -173,7 +182,11 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <img src="vinyl-record.jpg" alt="78 Record Player" height="120" width="120"></img>
+        <img
+        src="vinyl-record.jpg"
+        alt="78 Record Player"
+        height="120"
+        width="120"></img>
         <h1>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           78 sideKick
