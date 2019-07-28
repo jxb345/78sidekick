@@ -16,15 +16,19 @@ class Form extends React.Component {
     const divStyle = {
       display: 'block'
     }
+    // const labelStyle = {
+    //   color: 'lightgrey'
+    // }
 
     return (
+      <div className="form-fields">
       <form onSubmit={this.props.handleSubmit}>
         {/* switch for Random Year */}
         <div className="checkbox checkbox-switch switch-dark">
-          <label>
+          <label className="label-year">
             <input type="checkbox" id="randomYear" onClick={this.props.showHideYearForm} />
             <span></span>
-            &nbsp;&nbsp;Shuffle Year (1900 - 1960)
+            &nbsp;&nbsp;&nbsp;Shuffle Year (1900 - 1960)
             </label>
         </div>
         {/* form to enter a year to be used in search */}
@@ -34,43 +38,44 @@ class Form extends React.Component {
         <br></br>
         {/* switch for Random Genre */}
         <div className="checkbox checkbox-switch switch-dark">
-          <label>
+        <label className="label-genre">
             <input type="checkbox" id="randomGenre" onClick={this.props.showHideGenreForm} onChange={this.props.handleChangeGenre}/>
             <span></span>
-            &nbsp;&nbsp;&nbsp;  Shuffle Genre
+            &nbsp;&nbsp;&nbsp;Shuffle Genre
             </label>
         </div>
         {/* form to enter a genre to be used in search */}
         <div id="genreForm" style={divStyle}>
           {/* <input type="text" name="genre" value={this.props.genre} onChange={this.props.handleChange}></input> */}
           <select value={this.props.genre} onChange={this.props.handleChangeGenre}>
-            <option value="default" defaultValue>Select</option>
-            <option value="popular-music">Popular Music</option>
+            <option value="default" defaultValue>Select Genre</option>
+            {/* <option value="acoustic">Acoustic</option> */}
+            <option value="blues">Blues</option>
+            <option value="christmas">Christmas</option>
+            <option value="comedy">Comedy</option>
+            <option value="country" >Country</option>
+            <option value="cowboy">Cowboy</option>
+            <option value="dance" >Dance</option>
+            <option value="ethnic">Ethnic</option>
+            <option value="film">Film</option>
+            <option value="folk">Folk</option>
+            <option value="gospel" >Gospel</option>
+            <option value="hawaiian">Hawaiian</option>
+            <option value="hillbilly">Hillbilly</option>
             <option value="instrumental" >Instrumental</option>
             <option value="jazz">Jazz</option>
-            {/* <option value="acoustic">Acoustic</option> */}
-            <option value="vocal" >Vocal</option>
             <option value="latin">Latin</option>
-            <option value="blues">Blues</option>
-            <option value="country" >Country</option>
-            <option value="polka">Polka</option>
-            <option value="hillbilly">Hillbilly</option>
-            <option value="dance" >Dance</option>
-            <option value="swing">Swing</option>
-            <option value="ethnic">Ethnic</option>
-            <option value="folk">Folk</option>
             <option value="novelty">Novelty</option>
-            <option value="comedy">Comedy</option>
             <option value="orchestral" >Orchestral</option>
-            <option value="hawaiian">Hawaiian</option>
-            <option value="film">Film</option>
-            <option value="christmas">Christmas</option>
-            <option value="gospel" >Gospel</option>
-            <option value="cowboy">Cowboy</option>
+            <option value="polka">Polka</option>
+            <option value="popular-music">Popular Music</option>
+            <option value="swing">Swing</option>
+            <option value="vocal" >Vocal</option>
           </select>
         </div>
         <button className="play-button">PLAY</button>
       </form>
+      </div>
     )
   }
 }

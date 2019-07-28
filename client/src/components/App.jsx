@@ -43,7 +43,7 @@ class App extends React.Component {
   }
 
 
-  // POST request to  '/query' endpoint in server.js; returns data and changes state
+  // POST request to '/query' endpoint in server.js; returns data and changes state
   ajaxCall() {
     $.ajax({
       url: '/query',
@@ -150,14 +150,29 @@ class App extends React.Component {
   // hide genre form if "random genre" switch is clicked
   showHideGenreForm() {
     const genreForm = document.getElementById("genreForm");
-    genreForm.style.display = randomGenre.checked ? "none" : "block";
+    const genreLabel = document.getElementsByClassName("label-genre")[0];
+    if (genreForm.style.visibility === 'hidden') {
+      genreForm.style.visibility = 'visible';
+      genreLabel.style.color = 'lightgrey';
+    } else {
+      genreForm.style.visibility = 'hidden';
+      genreLabel.style.color = 'black';
+
+    }
     this.genreButton = !this.genreButton;
   }
 
   // hide year form if "random year" switch is clicked
   showHideYearForm() {
     const yearForm = document.getElementById("yearForm");
-    yearForm.style.display = randomYear.checked ? "none" : "block";
+    const yearLabel = document.getElementsByClassName('label-year')[0];
+    if (yearForm.style.visibility === 'hidden') {
+      yearForm.style.visibility = 'visible';
+      yearLabel.style.color = 'lightgrey'
+    } else {
+      yearForm.style.visibility = 'hidden';
+      yearLabel.style.color = 'black'
+    }
     this.yearButton = !this.yearButton;
   }
 
@@ -173,24 +188,44 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <img src="vinyl-record.jpg" alt="78 Record Player" height="120" width="120"></img>
-        <h1>78 sideKick</h1>
+        <img
+        src="vinyl-record.jpg"
+        alt="78 Record Player"
+        height="120"
+        width="120"></img>
+        <h1>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          78 sideKick
+          </h1>
         <div className="metaData">
-          <MetaData id={this.state.identifier} title={this.state.title} artist={this.state.creator} />
+          <MetaData
+          id={this.state.identifier}
+          title={this.state.title}
+          artist={this.state.creator}
+          year={this.state.year}
+           />
         </div>
         <div className="form-player">
           <div className="form">
             <Form
-              year={this.state.year} genre={this.state.genre} handleChangeGenre={this.handleChangeGenre}
-              handleChangeYear={this.handleChangeYear} handleSubmit={this.handleSubmit}
-              showHideYearForm={this.showHideYearForm} showHideGenreForm={this.showHideGenreForm}
-              genreButton={this.genreButton} yearButton={this.yearButton}
+              year={this.state.year}
+              genre={this.state.genre}
+              handleChangeGenre={this.handleChangeGenre}
+              handleChangeYear={this.handleChangeYear}
+              handleSubmit={this.handleSubmit}
+              showHideYearForm={this.showHideYearForm}
+              showHideGenreForm={this.showHideGenreForm}
+              genreButton={this.genreButton}
+              yearButton={this.yearButton}
                />
           </div>
           <div className="musicPlayer">
             <MusicPlayer
-              url={this.state.url} post={this.post} userClick={this.userClick}
-              genreButtonOn={this.state.genreButtonOn} yearButtonOn={this.state.yearButtonOn}
+              url={this.state.url}
+              post={this.post}
+              userClick={this.userClick}
+              genreButtonOn={this.state.genreButtonOn}
+              yearButtonOn={this.state.yearButtonOn}
             />
           </div>
         </div>

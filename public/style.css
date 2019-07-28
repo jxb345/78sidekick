@@ -3,8 +3,8 @@
 h1 {
   font-family: Arial, Helvetica, sans-serif;
   border-bottom: solid 4px;
-  font-size: 38px;
-  width: 550px;
+  font-size: 28px;
+  width: 560px;
 }
 
 p {
@@ -48,14 +48,31 @@ label {
   padding: 7px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 17px;
-  /* color: lightgray; */
-  text-transform: uppercase;
+  color: lightgray;
+  /* text-transform: uppercase; */
 }
 
 a {
   color: white;
   cursor: pointer;
   text-decoration: none;
+}
+
+.about {
+  width: 290px;
+  border-bottom: solid 2px black;
+  margin-top: 20px;
+}
+
+.about-text {
+  font-weight: bold;
+  font-size: 12px;
+  margin-left: 250px;
+  padding-top: 3px;
+}
+
+.about-link-text {
+  color: black;
 }
 
 .play-button {
@@ -73,6 +90,11 @@ a {
   margin-top: 10px;
   margin-left: 70px;
 }
+
+button:focus {outline:0;}
+input:focus {outline:0;}
+audio:focus {outline:0;}
+
 
 .skip-button {
   padding-top: 12px;
@@ -102,7 +124,7 @@ a {
   border: solid 2px;
   border-radius: 10px;
   width: 290px;
-  height: 70px;
+  height: 80px;
   margin-left: 175px;
   margin-bottom: 25px;
   padding-top: 20px;
