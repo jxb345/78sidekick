@@ -71,6 +71,7 @@ class App extends React.Component {
 
   // this handleChange is for use with the 'select' tag on the Form Componenet
   handleChangeGenre(e) {
+    console.log('e.target.value', e.target.value);
     this.setState({ genre: e.target.value }, () => {
       console.log('this.state.genre', this.state.genre);
     });
@@ -118,7 +119,8 @@ class App extends React.Component {
 
   // when user clicks the 'play'/submit button
   handleSubmit(event) {
-    if (this.genreButton === false && this.yearButton === false) {
+    console.log('this.state.genre', this.state.genre)
+    if (this.genreButton === false || this.yearButton === false) {
       if (this.state.year === '') {
         this.yearButton = true;
       }
