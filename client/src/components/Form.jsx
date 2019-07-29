@@ -16,9 +16,13 @@ class Form extends React.Component {
     const divStyle = {
       display: 'block'
     }
-    // const labelStyle = {
-    //   color: 'lightgrey'
-    // }
+
+    let dropDownText;
+    if (this.props.genre === '') {
+      dropDownText = 'Select Genre'
+    } else {
+      dropDownText = this.props.genre;
+    }
 
     return (
       <div className="form-fields">
@@ -39,7 +43,10 @@ class Form extends React.Component {
         {/* switch for Random Genre */}
         <div className="checkbox checkbox-switch switch-dark">
         <label className="label-genre">
-            <input type="checkbox" id="randomGenre" onClick={this.props.showHideGenreForm} onChange={this.props.handleChangeGenre}/>
+            <input type="checkbox" id="randomGenre" onClick={this.props.showHideGenreForm}
+            // CONFIRM THIS: commented out the below onChange event as it seemed un-needed/harmful as there is an onChange online 52
+            // onChange={this.props.handleChangeGenre}
+            />
             <span></span>
             &nbsp;&nbsp;&nbsp;Shuffle Genre
             </label>
@@ -48,7 +55,7 @@ class Form extends React.Component {
         <div id="genreForm" style={divStyle}>
           {/* <input type="text" name="genre" value={this.props.genre} onChange={this.props.handleChange}></input> */}
           <select value={this.props.genre} onChange={this.props.handleChangeGenre}>
-            <option value="default" defaultValue>Select Genre</option>
+            <option value="default" defaultValue>{dropDownText}</option>
             {/* <option value="acoustic">Acoustic</option> */}
             <option value="blues">Blues</option>
             <option value="christmas">Christmas</option>

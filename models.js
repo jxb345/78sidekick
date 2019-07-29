@@ -45,12 +45,12 @@ const fetchMetadata = (id, callback) => {
                     if (err) { throw err };
                     let metadata = {};
                     metadata.file = findFlac(result.files)
-                    metadata.creator = result.metadata.creator[0];
-                    metadata.title = result.metadata.title;
+                    metadata.creator = result.metadata.creator[0] || '';
+                    metadata.title = result.metadata.title || '';
                     metadata.runtime = result.metadata.runtime;
                     metadata.identifier = identifier;
-                    metadata.genre = genre;
-                    metadata.year = year;
+                    metadata.genre = genre || '';
+                    metadata.year = year || '';
                     callback(null, metadata)
                   });
                 });
