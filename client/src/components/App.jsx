@@ -68,6 +68,9 @@ class App extends React.Component {
     })
   }
 
+  handleUserClick() {
+    this.userClick = false;
+  }
 
   // this handleChange is for use with the 'select' tag on the Form Componenet
   handleChangeGenre(e) {
@@ -223,6 +226,7 @@ class App extends React.Component {
           </div>
           <div className="musicPlayer">
             <MusicPlayer
+              handleUserClick={this.handleUserClick}
               url={this.state.url}
               post={this.post}
               userClick={this.userClick}
