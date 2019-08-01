@@ -33,7 +33,7 @@ class MusicPlayer extends React.Component {
       </audio>
       {/* make another POST request if user doesn't like song */}
       <div>
-      <button className="skip-button" onClick={() => {this.props.post()}}>SKIP</button>
+      <button className="skip-button" onClick={() => {this.props.post(); this.audioPlayer.current.pause();}}>SKIP</button>
       </div>
       <p className="about"></p>
       <p className="about-text">
