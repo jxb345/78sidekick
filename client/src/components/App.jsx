@@ -138,7 +138,6 @@ class App extends React.Component {
 
   // invokes handleRandomButtons before invoking the ajax call
   async post() {
-    this.userClick = true;
     // made not need this function
     await this.handleGenreButton()
     await this.handleYearButton()
