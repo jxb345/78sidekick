@@ -36,6 +36,7 @@ class App extends React.Component {
     this.showHideGenreForm = this.showHideGenreForm.bind(this);
     this.showHideYearForm = this.showHideYearForm.bind(this);
     this.url = this.url.bind(this);
+    this.handleUserClick = this.handleUserClick.bind(this);
 
     this.genreButton = false;
     this.yearButton = false;
@@ -61,8 +62,8 @@ class App extends React.Component {
         },
           () => {
             this.url();
-            this.userClick = false;
             console.log('this.state', this.state);
+            this.userClick = true;
           })
       }
     })

@@ -11,14 +11,14 @@ class MusicPlayer extends React.Component {
   }
 
   async playTrack () {
-    await this.audioPlayer.current.pause()
+    this.props.handleUserClick();
     await this.audioPlayer.current.load()
     this.audioPlayer.current.play()
   }
 
   componentDidUpdate() {
     // need a conditional statement to see if user has click either of the switches so that the musicplayer will
-    if (this.props.userClick) {
+    if (this.props.userClick && this.props.url) {
       this.playTrack();
     }
 
