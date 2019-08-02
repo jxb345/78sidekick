@@ -18,7 +18,7 @@ class MusicPlayer extends React.Component {
 
   componentDidUpdate() {
     // need a conditional statement to see if user has click either of the switches so that the musicplayer will
-    if (this.props.userClick && this.props.url) {
+    if (this.props.userClick) {
       this.playTrack();
     }
 
