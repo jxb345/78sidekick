@@ -36,6 +36,7 @@ class App extends React.Component {
     this.showHideGenreForm = this.showHideGenreForm.bind(this);
     this.showHideYearForm = this.showHideYearForm.bind(this);
     this.url = this.url.bind(this);
+    this.handleUserClick = this.handleUserClick.bind(this);
 
     this.genreButton = false;
     this.yearButton = false;
@@ -61,13 +62,16 @@ class App extends React.Component {
         },
           () => {
             this.url();
-            this.userClick = false;
             console.log('this.state', this.state);
+            this.userClick = true;
           })
       }
     })
   }
 
+  handleUserClick() {
+    this.userClick = false;
+  }
 
   // this handleChange is for use with the 'select' tag on the Form Componenet
   handleChangeGenre(e) {
@@ -134,7 +138,6 @@ class App extends React.Component {
 
   // invokes handleRandomButtons before invoking the ajax call
   async post() {
-    this.userClick = true;
     // made not need this function
     await this.handleGenreButton()
     await this.handleYearButton()
@@ -223,6 +226,7 @@ class App extends React.Component {
           </div>
           <div className="musicPlayer">
             <MusicPlayer
+              handleUserClick={this.handleUserClick}
               url={this.state.url}
               post={this.post}
               userClick={this.userClick}
