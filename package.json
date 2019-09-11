@@ -1,7 +1,7 @@
 {
   "name": "78-browser",
   "version": "1.0.0",
-  "license": "MIT License",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git://github.com/jxb345/78sidekick.git"
@@ -16,6 +16,7 @@
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.16.4",
+    "fsevents": "^2.0.7",
     "jest": "^24.8.0",
     "jquery": "^3.4.1",
     "node-fetch": "^2.5.0",
