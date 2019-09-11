@@ -1,6 +1,7 @@
 {
   "name": "78-browser",
   "version": "1.0.0",
+  "license": "MIT License",
   "repository": {
     "type": "git",
     "url": "git://github.com/jxb345/78sidekick.git"
