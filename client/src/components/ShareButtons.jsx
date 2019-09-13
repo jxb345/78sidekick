@@ -8,8 +8,8 @@ class ShareButtons extends React.Component {
   render() {
     let fbShareUrl = `https://facebook.com/sharer/sharer.php?u=https://archive.org/details/${this.props.identifier}`;
     let twitterShareUrl = `https://twitter.com/intent/tweet/?text=Listen%to%20this%20song%20from%20Internet%20Archive's%20digitized%2078s%20collection:&amp;url=https://archive.org/details/${this.props.identifier}`;
-    let tumblrShareUrl = `https://www.tumblr.com/widgets/share/tool?posttype=link&amp;title=Super%20fast%20and%20easy%20Social%20Media%20Sharing%20Buttons.%20No%20JavaScript.%20No%20tracking.&amp;caption=Super%20fast%20and%20easy%20Social%20Media%20Sharing%20Buttons.%20No%20JavaScript.%20No%20tracking.&amp;content=https://archive.org/details/${this.props.identifier}&amp;canonicalUrl=https://archive.org/details/${this.props.identifier}&amp;shareSource=tumblr_share_button`
-    let emailShareUrl = `mailto:?subject=Listen%20to%20this%20song%20from%20Internet%20Archive's%20digitized%2078s%20collection.&amp;body=https://google.com`
+    let tumblrShareUrl = `https://www.tumblr.com/widgets/share/tool?posttype=link&content=https://archive.org/details/${this.props.identifier}&canonicalUrl=https://archive.org/details/${this.props.identifier}&amp;shareSource=tumblr_share_button`
+    let emailShareUrl = `mailto:?subject=Listen%20to%20this%20song%20from%20Internet%20Archive's%20digitized%2078s%20collection&body=https://archive.org/details/${this.props.identifier}`
 
     return (
       <div>
