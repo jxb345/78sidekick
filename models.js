@@ -2,15 +2,27 @@
 const fetch = require('node-fetch');
 const genres = require('./client/src/genres.js')
 
-// uses a regex to find a flac file for a given item
-const findFlac = (files) => {
-  const flac = /flac$/&&/^_/;
-  for (let i = 0; i < files.length; i += 1) {
-    if (flac.test(files[i].original)) {
-      return files[i].original;
+// two options: find the flac file OR file the mp3 file
+  // uses a regex to find a flac file for a given item
+  const findFlac = (files) => {
+    // const flac = /mp3$/&&/^_/;
+    const flac = /flac$/&&/^_/;
+    for (let i = 0; i < files.length; i += 1) {
+      if (flac.test(files[i].original)) {
+        return files[i].original;
+      }
     }
   }
-}
+
+  // uses a regex to find a mp3 file fo a given item
+  const findMp3 = (files) => {
+    const mp3 = /^_/&&/mp3$/;
+    for (let i = 0; i < files.length; i += 1) {
+      if (mp3.test(files[i].name)) {
+        return files[i].name;
+      }
+    }
+  }
 
 // fetches metadata from a specific item using the IA URL according to their formula
 const fetchMetadata = (id, callback) => {
@@ -44,7 +56,7 @@ const fetchMetadata = (id, callback) => {
                   fetchMetadata(identifier, (err, result) => {
                     if (err) { throw err };
                     let metadata = {};
-                    metadata.file = findFlac(result.files)
+                    metadata.file = findMp3(result.files)
                     metadata.creator = result.metadata.creator[0] || '';
                     metadata.title = result.metadata.title || '';
                     metadata.runtime = result.metadata.runtime;
@@ -90,7 +102,7 @@ let songUrl = `https://archive.org/advancedsearch.php?q=collection%3A%28georgebl
         fetchMetadata(identifier, (err, result) => {
           if (err) { throw err };
           let metadata = {};
-          metadata.file = findFlac(result.files)
+          metadata.file = findMp3(result.files)
           metadata.creator = result.metadata.creator[0];
           metadata.title = result.metadata.title;
           metadata.runtime = result.metadata.runtime;
