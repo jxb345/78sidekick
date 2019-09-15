@@ -185,14 +185,14 @@ class App extends React.Component {
   url() {
     let id = this.state.identifier;
     let audioFile = this.state.audioFile;
+
     let fullUrl = `https://archive.org/download/${id}/${audioFile}`
     console.log('fullurl', fullUrl)
     this.setState({ url: fullUrl })
   }
 
   render() {
-      console.log('this.state.audioFile', this.state.audioFile)
-
+    let flacUrl = "https://archive.org/download/" + this.state.identifier + "/" + this.state.audioFile.slice(0, -3) + "flac";
     return (
       <div>
         <img
@@ -243,7 +243,7 @@ class App extends React.Component {
             />
         </div>
         <div>
-        [<a href={this.state.audioFile} download>Download Flac</a>]
+        [<a href={flacUrl} download target="_blank">Download Flac</a>]
         </div>
       </div>
     )
