@@ -39,7 +39,7 @@ const fetchMetadata = (id, callback) => {
 // // fetches items with a date and based on genre using the IA Advanced Search
         const fetchNoYearSong = (genre, year, callback) => {
           // URL that fetches results from IA; NOTE: passed in variable for 'rows' is '10000' (is this number too high, meaning the API call too "expensive?")
-          let songNoDateUrl = `https://archive.org/advancedsearch.php?q=collection%3A%28georgeblood%29+AND+genre%3A%28${genre}%29+AND+YEAR%3A%28-1%29&fl%5B%5D=identifier&sort%5B%5D=&sort%5B%5D=&sort%5B%5D=&rows=50&page=1&output=json` // &callback=callback&save=yes
+          let songNoDateUrl = `https://archive.org/advancedsearch.php?q=collection%3A%28georgeblood%29+AND+genre%3A%28${genre}%29+AND+YEAR%3A%28-1%29&fl%5B%5D=identifier&sort%5B%5D=&sort%5B%5D=&sort%5B%5D=&rows=100000&page=1&output=json` // &callback=callback&save=yes
 
               try {
                 fetch(songNoDateUrl)
