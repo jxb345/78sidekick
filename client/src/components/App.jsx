@@ -242,9 +242,10 @@ class App extends React.Component {
             identifier={this.state.identifier}
             />
         </div>
+        {/* File is available for download within the audio player (by clicking on the three dots, though it's the mp3, not flac file)
         <div>
-        [<a href={flacUrl} download target="_blank">Download Flac</a>]
-        </div>
+        <a href={flacUrl} download target="_blank">Download Flac</a>
+        </div> */}
       </div>
     )
   }
