@@ -110,7 +110,12 @@ let songUrl = `https://archive.org/advancedsearch.php?q=collection%3A%28georgebl
           if (err) { throw err };
           let metadata = {};
           metadata.file = findMp3(result.files)
-          metadata.creator = result.metadata.creator[0] || '';
+          if (result.metadata.creator == null) {
+            metadata.creator = '';
+          } else {
+            // I tried to use the 'or' operator (||) if creator was undefined, but error still occurred
+            metadata.creator = result.metadata.creator[0]
+          }
           metadata.title = result.metadata.title;
           metadata.runtime = result.metadata.runtime;
           metadata.identifier = identifier;
