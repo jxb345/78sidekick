@@ -44,7 +44,6 @@ class App extends React.Component {
     this.userClick = false;
   }
 
-
   // POST request to '/query' endpoint in server.js; returns data and changes state
   ajaxCall() {
     $.ajax({
@@ -192,6 +191,7 @@ class App extends React.Component {
   }
 
   render() {
+      console.log('this.state.audioFile', this.state.audioFile)
 
     return (
       <div>
@@ -241,6 +241,9 @@ class App extends React.Component {
           <ShareButtons
             identifier={this.state.identifier}
             />
+        </div>
+        <div>
+        [<a href={this.state.audioFile} download>Download Flac</a>]
         </div>
       </div>
     )

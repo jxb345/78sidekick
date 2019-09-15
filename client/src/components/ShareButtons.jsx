@@ -42,7 +42,6 @@ class ShareButtons extends React.Component {
             </div>
           </a>
         </div>
-
       </div>
 
     )
