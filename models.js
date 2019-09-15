@@ -78,8 +78,12 @@ const fetchSong = (genre, year, callback) => {
 if (year === '') {
   year = generateRandomYear();
 }
+
+if (year.length === 2) {
+  year = '19' + year;
+}
 console.log('genre', genre);
-console.log('year', year);
+console.log('year------', year);
 // URL that fetches results from IA; NOTE: passed in variable for 'rows' is '10000' (is this number too high, maing the API call too "expensive?")
 let songUrl = `https://archive.org/advancedsearch.php?q=collection%3A%28georgeblood%29+AND+subject%3A%28${genre}%29+AND+YEAR%3A%28${year}%29&fl%5B%5D=identifier&sort%5B%5D=&sort%5B%5D=&sort%5B%5D=&rows=10000&page=1&output=json`
 
@@ -99,13 +103,14 @@ let songUrl = `https://archive.org/advancedsearch.php?q=collection%3A%28georgebl
         }
         // select a random item based on the number of available results
         let randomIndex = generateRandomIndex(totalResults);
+        console.log('randomIndex', randomIndex)
         let identifier = myJson.response.docs[randomIndex].identifier ;
         // fetch specific metadata of item and prepares 'metadata' object to send to client
         fetchMetadata(identifier, (err, result) => {
           if (err) { throw err };
           let metadata = {};
           metadata.file = findMp3(result.files)
-          metadata.creator = result.metadata.creator[0];
+          metadata.creator = result.metadata.creator[0] || '';
           metadata.title = result.metadata.title;
           metadata.runtime = result.metadata.runtime;
           metadata.identifier = identifier;
