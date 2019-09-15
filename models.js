@@ -39,7 +39,7 @@ const fetchMetadata = (id, callback) => {
 // // fetches items with a date and based on genre using the IA Advanced Search
         const fetchNoYearSong = (genre, year, callback) => {
           // URL that fetches results from IA; NOTE: passed in variable for 'rows' is '10000' (is this number too high, meaning the API call too "expensive?")
-          let songNoDateUrl = `https://archive.org/advancedsearch.php?q=collection%3A%28georgeblood%29+AND+genre%3A%28${genre}%29+AND+YEAR%3A%28-1%29&fl%5B%5D=identifier&sort%5B%5D=&sort%5B%5D=&sort%5B%5D=&rows=100000&page=1&output=json` // &callback=callback&save=yes
+          let songNoDateUrl = `https://archive.org/advancedsearch.php?q=collection%3A%28georgeblood%29+AND+genre%3A%28${genre}%29+AND+YEAR%3A%28-1%29&fl%5B%5D=identifier&sort%5B%5D=&sort%5B%5D=&sort%5B%5D=&rows=10000&page=1&output=json` // &callback=callback&save=yes
 
               try {
                 fetch(songNoDateUrl)
@@ -80,7 +80,7 @@ if (year === '') {
 }
 
 // URL that fetches results from IA; NOTE: passed in variable for 'rows' is '10000' (is this number too high, maing the API call too "expensive?")
-let songUrl = `https://archive.org/advancedsearch.php?q=collection%3A%28georgeblood%29+AND+subject%3A%28${genre}%29+AND+YEAR%3A%28${year}%29&fl%5B%5D=identifier&sort%5B%5D=&sort%5B%5D=&sort%5B%5D=&rows=100000&page=1&output=json`
+let songUrl = `https://archive.org/advancedsearch.php?q=collection%3A%28georgeblood%29+AND+subject%3A%28${genre}%29+AND+YEAR%3A%28${year}%29&fl%5B%5D=identifier&sort%5B%5D=&sort%5B%5D=&sort%5B%5D=&rows=10000&page=1&output=json`
 
     try {
       fetch(songUrl)
@@ -91,6 +91,7 @@ let songUrl = `https://archive.org/advancedsearch.php?q=collection%3A%28georgebl
       })
       .then(function (myJson) {
         let totalResults = myJson.response.docs.length;
+        console.log('myJson.response', myJson.response)
         if (totalResults === 0) {
           console.log('no results from API call');
           return callback(null);

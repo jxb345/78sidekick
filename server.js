@@ -33,8 +33,8 @@ app.post('/query', (req, res) => {
       year = '19' + year;
     }
     if (err) { throw err };
-    console.log('result with year');
     if (result !== undefined) {
+      console.log('result with year');
       result.url = `https://archive.org/embed/${result.identifer}`;
       result.year = result.year.toString().slice(2);
       res.send(result);
