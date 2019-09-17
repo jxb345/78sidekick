@@ -11,6 +11,8 @@ app.use(express.urlencoded( {extended: true} ));
 app.use(cors());
 
 app.post('/query', (req, res) => {
+  let start = Date.now()
+
   console.log('req.body.data', req.body.data)
   let year = req.body.data.year;
   let genre = req.body.data.genre;
@@ -37,6 +39,8 @@ app.post('/query', (req, res) => {
       console.log('result with year');
       result.url = `https://archive.org/embed/${result.identifer}`;
       result.year = result.year.toString().slice(2);
+      let end = Date.now();
+      console.log('elapsed', (end - start) / 1000.0);
       res.send(result);
     } else {
       let fetchWithYearFailed = true;

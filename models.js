@@ -96,24 +96,24 @@ let songUrl = `https://archive.org/advancedsearch.php?q=collection%3A%28georgebl
       })
       .then(function (myJson) {
         let totalResults = myJson.response.docs.length;
-        console.log('myJson.response', myJson.response)
+        console.log('myJson.response.numFound:', myJson.response.numFound)
         if (totalResults === 0) {
           console.log('no results from API call');
           return callback(null);
         }
         // select a random item based on the number of available results
         let randomIndex = generateRandomIndex(totalResults);
-        console.log('randomIndex', randomIndex)
         let identifier = myJson.response.docs[randomIndex].identifier ;
         // fetch specific metadata of item and prepares 'metadata' object to send to client
         fetchMetadata(identifier, (err, result) => {
           if (err) { throw err };
           let metadata = {};
           metadata.file = findMp3(result.files)
+          // 'if' statement to check if creator not present
           if (result.metadata.creator == null) {
             metadata.creator = '';
           } else {
-            // I tried to use the 'or' operator (||) if creator was undefined, but error still occurred
+            // the following can still result in error: metadata.creator = result.metadata.creator[0] || ''
             metadata.creator = result.metadata.creator[0]
           }
           metadata.title = result.metadata.title;
