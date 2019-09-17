@@ -194,59 +194,113 @@ class App extends React.Component {
   render() {
     let flacUrl = "https://archive.org/download/" + this.state.identifier + "/" + this.state.audioFile.slice(0, -3) + "flac";
     return (
-      <div>
-        <img
-        src="vinyl-record.jpg"
-        alt="78 Record Player"
-        height="120"
-        width="120"></img>
-        <h1>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          78 sideKick
-          </h1>
+
+      <div className="wrapper">
+        <div>
+          <img
+            src="vinyl-record.jpg"
+            alt="an icon of a record"
+            height="120"
+            width="120"
+            />
+        </div>
+        <div>
+          <h1>78 sideKick</h1>
+        </div>
         <div className="metaData">
           <MetaData
-          id={this.state.identifier}
-          title={this.state.title}
-          artist={this.state.creator}
-          year={this.state.year}
-           />
-        </div>
-        <div className="form-player">
-          <div className="form">
-            <Form
-              year={this.state.year}
-              genre={this.state.genre}
-              handleChangeGenre={this.handleChangeGenre}
-              handleChangeYear={this.handleChangeYear}
-              handleSubmit={this.handleSubmit}
-              showHideYearForm={this.showHideYearForm}
-              showHideGenreForm={this.showHideGenreForm}
-              genreButton={this.genreButton}
-              yearButton={this.yearButton}
-               />
-          </div>
-          <div className="musicPlayer">
-            <MusicPlayer
-              handleUserClick={this.handleUserClick}
-              url={this.state.url}
-              post={this.post}
-              userClick={this.userClick}
-              genreButtonOn={this.state.genreButtonOn}
-              yearButtonOn={this.state.yearButtonOn}
+            id={this.state.identifier}
+            title={this.state.title}
+            artist={this.state.creator}
+            year={this.state.year}
             />
-          </div>
+        </div>
+        {/* //   <div className="form-player"> */}
+        <div className="form">
+        <Form
+          year={this.state.year}
+          genre={this.state.genre}
+          handleChangeGenre={this.handleChangeGenre}
+          handleChangeYear={this.handleChangeYear}
+          handleSubmit={this.handleSubmit}
+          showHideYearForm={this.showHideYearForm}
+          showHideGenreForm={this.showHideGenreForm}
+          genreButton={this.genreButton}
+          yearButton={this.yearButton}
+            />
+        </div>
+        <div className="musicPlayer">
+        <MusicPlayer
+          handleUserClick={this.handleUserClick}
+          url={this.state.url}
+          post={this.post}
+          userClick={this.userClick}
+          genreButtonOn={this.state.genreButtonOn}
+          yearButtonOn={this.state.yearButtonOn}
+        />
         </div>
         <div className="shareButtons">
-          <ShareButtons
-            identifier={this.state.identifier}
-            />
+        <ShareButtons
+          identifier={this.state.identifier}
+          />
         </div>
-        {/* File is available for download within the audio player (by clicking on the three dots, though it's the mp3, not flac file)
-        <div>
-        <a href={flacUrl} download target="_blank">Download Flac</a>
-        </div> */}
+        <div></div>
+        <div></div>
+
       </div>
+      // <div>
+      //   <img
+      //   src="vinyl-record.jpg"
+      //   alt="78 Record Player"
+      //   height="120"
+      //   width="120"></img>
+      //   <h1>
+      //     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      //     78 sideKick
+      //     </h1>
+      //   <div className="metaData">
+      //     <MetaData
+      //     id={this.state.identifier}
+      //     title={this.state.title}
+      //     artist={this.state.creator}
+      //     year={this.state.year}
+      //      />
+      //   </div>
+      //   <div className="form-player">
+      //     <div className="form">
+      //       <Form
+      //         year={this.state.year}
+      //         genre={this.state.genre}
+      //         handleChangeGenre={this.handleChangeGenre}
+      //         handleChangeYear={this.handleChangeYear}
+      //         handleSubmit={this.handleSubmit}
+      //         showHideYearForm={this.showHideYearForm}
+      //         showHideGenreForm={this.showHideGenreForm}
+      //         genreButton={this.genreButton}
+      //         yearButton={this.yearButton}
+      //          />
+      //     </div>
+      //     <div className="musicPlayer">
+      //       <MusicPlayer
+      //         handleUserClick={this.handleUserClick}
+      //         url={this.state.url}
+      //         post={this.post}
+      //         userClick={this.userClick}
+      //         genreButtonOn={this.state.genreButtonOn}
+      //         yearButtonOn={this.state.yearButtonOn}
+      //       />
+      //     </div>
+      //   </div>
+      //   <div className="shareButtons">
+      //     <ShareButtons
+      //       identifier={this.state.identifier}
+      //       />
+      //   </div>
+      //   {/* File is available for download within the audio player (by clicking on the three dots, though it's the mp3, not flac file)
+      //   <div>
+      //   <a href={flacUrl} download target="_blank">Download Flac</a>
+      //   </div> */}
+      // </div>
     )
   }
 }
