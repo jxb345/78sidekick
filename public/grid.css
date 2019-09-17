@@ -1,7 +1,7 @@
 .wrapper {
-  max-width: 990px;
+  max-width: 600px;
   display: grid;
   grid-template-rows: 100px 400px repeat(200px, 4);
-  grid-template-columns: repeat(320px, 3);
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   grid-gap: 20px;
 }
