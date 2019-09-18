@@ -13,10 +13,7 @@ p {
   text-transform: uppercase;
 }
 
-img {
-  float: left;
-  padding-left: 40px;
-}
+
 
 input[type=text] {
   width: 20px;
@@ -104,6 +101,15 @@ audio:focus {outline:0;}
 
 .form {
   margin-left: 185px;
+}
+
+.image-question {
+  padding-left: 140px;
+}
+
+.image-vinyl {
+  float: left;
+  padding-left: 40px;
 }
 
 .metaData {

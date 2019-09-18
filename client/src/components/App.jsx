@@ -197,7 +197,7 @@ class App extends React.Component {
 
 
       <div>
-        <img
+        <img className="image-vinyl"
         src="vinyl-record.jpg"
         alt="78 Record Player"
         height="120"
@@ -205,7 +205,13 @@ class App extends React.Component {
         <h1>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           78 sideKick
-          </h1>
+          <img
+        className="image-question"
+        src="small-question-mark.jpg"
+        alt="78 Record Player"
+        height="20"
+        width="20"></img>
+        </h1>
         <div className="metaData">
           <MetaData
           id={this.state.identifier}
