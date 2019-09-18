@@ -205,8 +205,10 @@ class App extends React.Component {
             />
         </div>
         <div>
+          <div></div>
           <h1>78 sideKick</h1>
         </div>
+        <div></div>
         <div className="metaData">
           <MetaData
             id={this.state.identifier}
@@ -215,6 +217,8 @@ class App extends React.Component {
             year={this.state.year}
             />
         </div>
+        <div></div>
+
         {/* //   <div className="form-player"> */}
         <div className="form">
         <Form
@@ -229,6 +233,8 @@ class App extends React.Component {
           yearButton={this.yearButton}
             />
         </div>
+        <div></div>
+
         <div className="musicPlayer">
         <MusicPlayer
           handleUserClick={this.handleUserClick}
@@ -239,6 +245,7 @@ class App extends React.Component {
           yearButtonOn={this.state.yearButtonOn}
         />
         </div>
+        <div></div>
         <div className="shareButtons">
         <ShareButtons
           identifier={this.state.identifier}
