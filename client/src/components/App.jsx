@@ -26,6 +26,7 @@ class App extends React.Component {
       url: '',
       genreButtonOn: false,
       yearButtonOn: false,
+      noYear: false,
 
     }
 
@@ -63,6 +64,7 @@ class App extends React.Component {
           creator: data.creator,
           runtime: data.runtime,
           audioFile: data.file,
+          noYear: data.noYear,
         },
           () => {
             this.url();
@@ -208,7 +210,7 @@ class App extends React.Component {
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           78 sideKick
           <Link to="/info"
-            >
+            target="_blank" >
           <img
           className="image-question"
           src="small-question-mark.jpg"
@@ -226,6 +228,7 @@ class App extends React.Component {
           title={this.state.title}
           artist={this.state.creator}
           year={this.state.year}
+          noYear={this.state.noYear}
            />
         </div>
         <div className="form-player">

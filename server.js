@@ -43,6 +43,7 @@ app.post('/query', (req, res) => {
       result.year = result.year.toString().slice(2);
       end = Date.now();
       console.log('elapsed', (end - start) / 1000.0);
+      result.noYear = false;
       res.send(result);
     } else {
       let fetchWithYearFailed = true;
@@ -52,6 +53,7 @@ app.post('/query', (req, res) => {
       console.log('result withOUT year');
       result.year = result.year.toString().slice(2);
       result.url = `https://archive.org/embed/${result.identifer}`;
+      result.noYear = true;
       end = Date.now();
       console.log('elapsed', (end - start) / 1000.0);
       res.send(result);

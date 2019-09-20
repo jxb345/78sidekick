@@ -14,18 +14,20 @@ class MetaData extends React.Component {
     }
     let detailsPage = `https://archive.org/details/${this.props.id}`
     let year;
-    if (`${this.props.year}` !== '') {
+    if (this.props.noYear) {
+      year = `[Date Unknown]`;
+    } else if (`${this.props.year}` !== '') {
       year = `(19` +`${this.props.year}` + `)`;
     }
     if (title === '' && artist === '') {
       return <div>
         </div>
     } else {
-      if (title.length > 28) {
-        title = title.slice(0, 28) + '...';
+      if (title.length > 26) {
+        title = title.slice(0, 26) + '...';
       }
-      if (artist.length > 28) {
-        artist = artist.slice(0, 28) + '...';
+      if (artist.length > 26) {
+        artist = artist.slice(0, 26) + '...';
       }
       return (
         // displays fetched metadata for a given song
