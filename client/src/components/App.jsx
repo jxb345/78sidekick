@@ -1,8 +1,12 @@
 import 'react';
+import { BrowserRouter as Route, Router, Link } from 'react-router-dom';
+import { createBrowserHistory} from 'history';
+const customHistory = createBrowserHistory();
 import { strictEqual } from 'assert';
 import MusicPlayer from './MusicPlayer.jsx';
 import MetaData from './MetaData.jsx'
 import Form from './Form.jsx'
+// import Info from './Info.jsx'
 import { callbackify } from 'util';
 import ShareButtons from './ShareButtons.jsx';
 const $ = require('jquery');
@@ -193,9 +197,9 @@ class App extends React.Component {
 
   render() {
     let flacUrl = "https://archive.org/download/" + this.state.identifier + "/" + this.state.audioFile.slice(0, -3) + "flac";
+
     return (
-
-
+      <Router history={customHistory}>
       <div>
         <img className="image-vinyl"
         src="vinyl-record.jpg"
@@ -205,12 +209,16 @@ class App extends React.Component {
         <h1>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           78 sideKick
+          <Link to="/info"
+          target="_blank">
           <img
-        className="image-question"
-        src="small-question-mark.jpg"
-        alt="78 Record Player"
-        height="20"
-        width="20"></img>
+          className="image-question"
+          src="small-question-mark.jpg"
+          alt="78 Record Player"
+          height="20"
+          width="20">
+          </img>
+        </Link>
         </h1>
         <div className="metaData">
           <MetaData
@@ -254,7 +262,10 @@ class App extends React.Component {
         <div>
         <a href={flacUrl} download target="_blank">Download Flac</a>
         </div> */}
+      <Route path="/info/" component={Info} />
       </div>
+      </Router>
+
     )
   }
 }
