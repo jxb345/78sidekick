@@ -1,4 +1,7 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { createBrowserHistory } from "history";
+const customHistory = createBrowserHistory();
 
 class MusicPlayer extends React.Component {
   constructor(props) {

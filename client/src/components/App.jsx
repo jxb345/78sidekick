@@ -1,5 +1,5 @@
 import 'react';
-import { BrowserRouter as Route, Router, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { createBrowserHistory } from "history";
 const customHistory = createBrowserHistory();
 import { strictEqual } from 'assert';
@@ -196,18 +196,6 @@ class App extends React.Component {
   }
 
   render() {
-    let flacUrl = "https://archive.org/download/" + this.state.identifier + "/" + this.state.audioFile.slice(0, -3) + "flac";
-    class Info extends React.Component {
-
-      render() {
-        return (
-         <div>
-           <h2>Info</h2>
-         </div>
-       );
-      }
-    }
-
     return (
       <Router history={customHistory}>
       <div>
@@ -220,7 +208,7 @@ class App extends React.Component {
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           78 sideKick
           <Link to="/info"
-          target="_blank">
+            >
           <img
           className="image-question"
           src="small-question-mark.jpg"
@@ -229,6 +217,8 @@ class App extends React.Component {
           width="20">
           </img>
         </Link>
+          <Route path="/info" component={Info} />
+          {/* <Route path="/" component={App} /> */}
         </h1>
         <div className="metaData">
           <MetaData
@@ -268,7 +258,7 @@ class App extends React.Component {
             identifier={this.state.identifier}
             />
         </div>
-      <Route path='/info/' component={Info} />
+        {console.log('Info', Info)}
       </div>
       </Router>
 

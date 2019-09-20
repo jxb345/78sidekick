@@ -7,7 +7,7 @@ class Info extends React.Component {
 
   render() {
     return (
-      <div>Info</div>
+      <div>Infodfsdf</div>
     )
   }
 }

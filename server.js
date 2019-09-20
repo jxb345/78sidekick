@@ -10,9 +10,6 @@ app.use(express.static(path.resolve(__dirname, "./public")));
 app.use(express.urlencoded( {extended: true} ));
 app.use(cors());
 
-app.get('*', function (request, response){
-  response.sendFile(path.resolve(__dirname, 'public', 'index.html'))
-})
 
 app.post('/query', (req, res) => {
   let start = Date.now();
