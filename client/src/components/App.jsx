@@ -6,7 +6,7 @@ import { strictEqual } from 'assert';
 import MusicPlayer from './MusicPlayer.jsx';
 import MetaData from './MetaData.jsx'
 import Form from './Form.jsx'
-// import Info from './Info.jsx'
+import Info from './Info.jsx'
 import { callbackify } from 'util';
 import ShareButtons from './ShareButtons.jsx';
 const $ = require('jquery');
@@ -262,7 +262,7 @@ class App extends React.Component {
         <div>
         <a href={flacUrl} download target="_blank">Download Flac</a>
         </div> */}
-      <Route path="/info/" component={Info} />
+      <Route path='/info/' component={Info} />
       </div>
       </Router>
 
