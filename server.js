@@ -10,8 +10,13 @@ app.use(express.static(path.resolve(__dirname, "./public")));
 app.use(express.urlencoded( {extended: true} ));
 app.use(cors());
 
+app.get('*', function (request, response){
+  response.sendFile(path.resolve(__dirname, 'public', 'index.html'))
+})
+
 app.post('/query', (req, res) => {
-  let start = Date.now()
+  let start = Date.now();
+  let end;
 
   console.log('req.body.data', req.body.data)
   let year = req.body.data.year;
@@ -39,7 +44,7 @@ app.post('/query', (req, res) => {
       console.log('result with year');
       result.url = `https://archive.org/embed/${result.identifer}`;
       result.year = result.year.toString().slice(2);
-      let end = Date.now();
+      end = Date.now();
       console.log('elapsed', (end - start) / 1000.0);
       res.send(result);
     } else {
@@ -50,6 +55,8 @@ app.post('/query', (req, res) => {
       console.log('result withOUT year');
       result.year = result.year.toString().slice(2);
       result.url = `https://archive.org/embed/${result.identifer}`;
+      end = Date.now();
+      console.log('elapsed', (end - start) / 1000.0);
       res.send(result);
       })
     }

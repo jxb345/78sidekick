@@ -1,6 +1,6 @@
 import 'react';
 import { BrowserRouter as Route, Router, Link } from 'react-router-dom';
-import { createBrowserHistory} from 'history';
+import { createBrowserHistory } from "history";
 const customHistory = createBrowserHistory();
 import { strictEqual } from 'assert';
 import MusicPlayer from './MusicPlayer.jsx';
@@ -197,6 +197,16 @@ class App extends React.Component {
 
   render() {
     let flacUrl = "https://archive.org/download/" + this.state.identifier + "/" + this.state.audioFile.slice(0, -3) + "flac";
+    class Info extends React.Component {
+
+      render() {
+        return (
+         <div>
+           <h2>Info</h2>
+         </div>
+       );
+      }
+    }
 
     return (
       <Router history={customHistory}>
@@ -207,7 +217,7 @@ class App extends React.Component {
         height="120"
         width="120"></img>
         <h1>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           78 sideKick
           <Link to="/info"
           target="_blank">
@@ -258,10 +268,6 @@ class App extends React.Component {
             identifier={this.state.identifier}
             />
         </div>
-        {/* File is available for download within the audio player (by clicking on the three dots, though it's the mp3, not flac file)
-        <div>
-        <a href={flacUrl} download target="_blank">Download Flac</a>
-        </div> */}
       <Route path='/info/' component={Info} />
       </div>
       </Router>
@@ -271,7 +277,6 @@ class App extends React.Component {
 }
 
 export default App;
-
 
 
 
