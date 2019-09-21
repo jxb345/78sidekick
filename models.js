@@ -141,9 +141,9 @@ const generateRandomGenre = () => {
 
 // selects a result at random based on total number of results from API call
 const generateRandomIndex = (totalResults) => {
-  let randomYear = Math.random() * (totalResults - 0) + 0;
-  randomYear = Math.floor(randomYear);
-  return randomYear;
+  let randomIndex = Math.random() * (totalResults - 0) + 0;
+  randomIndex = Math.floor(randomIndex);
+  return randomIndex;
 }
 
 // uses available years to select a random year if corresponding switch is turn ON
