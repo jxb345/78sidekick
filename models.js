@@ -5,7 +5,6 @@ const genres = require('./client/src/genres.js')
 // two options: find the flac file OR file the mp3 file
   // uses a regex to find a flac file for a given item
   const findFlac = (files) => {
-    // const flac = /mp3$/&&/^_/;
     const flac = /flac$/&&/^_/;
     for (let i = 0; i < files.length; i += 1) {
       if (flac.test(files[i].original)) {
@@ -15,6 +14,9 @@ const genres = require('./client/src/genres.js')
   }
 
   // uses a regex to find a mp3 file fo a given item
+  // refactor regex expression below (mp3) to find the .mp3 file with an underscore (_) at the beginning of the file (like findFlac)
+  // as the regex is written for mp3, it locates the .mp3 file that includes spaces and marks of punctuation; specifically, question
+  // marks and commas can cause the app to error when attempting to play one of these songs
   const findMp3 = (files) => {
     const mp3 = /^_/&&/mp3$/;
     for (let i = 0; i < files.length; i += 1) {
@@ -56,7 +58,7 @@ const fetchMetadata = (id, callback) => {
                   fetchMetadata(identifier, (err, result) => {
                     if (err) { throw err };
                     let metadata = {};
-                    metadata.file = findFlac(result.files)
+                    metadata.file = findMp3(result.files)
                     metadata.creator = result.metadata.creator[0] || '';
                     metadata.title = result.metadata.title || '';
                     metadata.runtime = result.metadata.runtime;
@@ -108,7 +110,7 @@ let songUrl = `https://archive.org/advancedsearch.php?q=collection%3A%28georgebl
         fetchMetadata(identifier, (err, result) => {
           if (err) { throw err };
           let metadata = {};
-          metadata.file = findFlac(result.files)
+          metadata.file = findMp3(result.files)
           // 'if' statement to check if creator not present
           if (result.metadata.creator == null) {
             metadata.creator = '';

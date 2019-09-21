@@ -1,7 +1,7 @@
 import 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { createBrowserHistory } from "history";
-const customHistory = createBrowserHistory();
+const history = createBrowserHistory();
 import { strictEqual } from 'assert';
 import MusicPlayer from './MusicPlayer.jsx';
 import MetaData from './MetaData.jsx'
@@ -198,8 +198,10 @@ class App extends React.Component {
   }
 
   render() {
+    console.log('history location', history.location)
+
     return (
-      <Router history={customHistory}>
+      <Router history={history}>
       <div>
         <img className="image-vinyl"
         src="vinyl-record.jpg"
@@ -220,7 +222,6 @@ class App extends React.Component {
           </img>
         </Link>
           <Route path="/info" component={Info} />
-          {/* <Route path="/" component={App} /> */}
         </h1>
         <div className="metaData">
           <MetaData
@@ -261,7 +262,6 @@ class App extends React.Component {
             identifier={this.state.identifier}
             />
         </div>
-        {console.log('Info', Info)}
       </div>
       </Router>
 
