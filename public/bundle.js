@@ -86,6 +86,18 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./client/src/components/About.jsx":
+/*!*****************************************!*\
+  !*** ./client/src/components/About.jsx ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\n\nconst About = () => {\n  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", null, \"about\");\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (About);\n\n//# sourceURL=webpack:///./client/src/components/About.jsx?");
+
+/***/ }),
+
 /***/ "./client/src/components/App.jsx":
 /*!***************************************!*\
   !*** ./client/src/components/App.jsx ***!
@@ -118,7 +130,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\n\nclass Info extends React.Component {\n  constructor(props) {\n    super(props);\n  }\n\n  render() {\n    return React.createElement(\"div\", null, React.createElement(\"div\", null, \"Infodfsdf\"));\n  }\n\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Info);\n\n//# sourceURL=webpack:///./client/src/components/Info.jsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\n\nclass Info extends React.Component {\n  constructor(props) {\n    super(props);\n  }\n\n  render() {\n    return React.createElement(\"div\", null, React.createElement(\"div\", null, React.createElement(\"h3\", null, \"What\"), React.createElement(\"h3\", null, \"How\"), React.createElement(\"h3\", null, \"Who\")));\n  }\n\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Info);\n\n//# sourceURL=webpack:///./client/src/components/Info.jsx?");
 
 /***/ }),
 
@@ -158,6 +170,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
 
 /***/ }),
 
+/***/ "./client/src/components/Wrapper.jsx":
+/*!*******************************************!*\
+  !*** ./client/src/components/Wrapper.jsx ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/esm/react-router-dom.js\");\n/* harmony import */ var history__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! history */ \"./node_modules/history/esm/history.js\");\n/* harmony import */ var _App_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./App.jsx */ \"./client/src/components/App.jsx\");\n/* harmony import */ var _Info_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Info.jsx */ \"./client/src/components/Info.jsx\");\n/* harmony import */ var _About_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./About.jsx */ \"./client/src/components/About.jsx\");\n\n\n\n\n\n\nconst history = Object(history__WEBPACK_IMPORTED_MODULE_2__[\"createBrowserHistory\"])();\n\nclass Wrapper extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {\n  render() {\n    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__[\"BrowserRouter\"], {\n      history: history\n    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__[\"Link\"], {\n      to: _App_jsx__WEBPACK_IMPORTED_MODULE_3__[\"default\"]\n    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__[\"Route\"], {\n      exact: true,\n      path: \"/\",\n      component: _App_jsx__WEBPACK_IMPORTED_MODULE_3__[\"default\"]\n    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__[\"Link\"], {\n      to: _Info_jsx__WEBPACK_IMPORTED_MODULE_4__[\"default\"],\n      target: \"_blank\"\n    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__[\"Route\"], {\n      path: \"/info\",\n      component: _Info_jsx__WEBPACK_IMPORTED_MODULE_4__[\"default\"]\n    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__[\"Link\"], {\n      to: _About_jsx__WEBPACK_IMPORTED_MODULE_5__[\"default\"]\n    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__[\"Route\"], {\n      path: \"/path\",\n      component: _About_jsx__WEBPACK_IMPORTED_MODULE_5__[\"default\"]\n    }));\n  }\n\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Wrapper);\n\n//# sourceURL=webpack:///./client/src/components/Wrapper.jsx?");
+
+/***/ }),
+
 /***/ "./client/src/index.jsx":
 /*!******************************!*\
   !*** ./client/src/index.jsx ***!
@@ -166,7 +190,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _components_App_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/App.jsx */ \"./client/src/components/App.jsx\");\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/esm/react-router-dom.js\");\n/* harmony import */ var history__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! history */ \"./node_modules/history/esm/history.js\");\n\n\n\n\nconst history = Object(history__WEBPACK_IMPORTED_MODULE_3__[\"createBrowserHistory\"])(); // render App component on client\n\nReactDOM.render(React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__[\"BrowserRouter\"], {\n  history: history\n}, React.createElement(_components_App_jsx__WEBPACK_IMPORTED_MODULE_1__[\"default\"], null)), document.getElementById(\"root\"));\n\n//# sourceURL=webpack:///./client/src/index.jsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _components_App_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/App.jsx */ \"./client/src/components/App.jsx\");\n/* harmony import */ var _components_Wrapper_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Wrapper.jsx */ \"./client/src/components/Wrapper.jsx\");\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/esm/react-router-dom.js\");\n/* harmony import */ var history__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! history */ \"./node_modules/history/esm/history.js\");\n\n\n\n\n\nconst history = Object(history__WEBPACK_IMPORTED_MODULE_4__[\"createBrowserHistory\"])(); // render App component on client\n\nReactDOM.render( // <Router history={history}>\nReact.createElement(_components_Wrapper_jsx__WEBPACK_IMPORTED_MODULE_2__[\"default\"], null), // </Router>,\ndocument.getElementById(\"root\"));\n\n//# sourceURL=webpack:///./client/src/index.jsx?");
 
 /***/ }),
 

@@ -8,7 +8,13 @@ class Info extends React.Component {
   render() {
     return (
       <div>
-        <div>Infodfsdf</div>
+        <div>
+            <h3>What</h3>
+
+            <h3>How</h3>
+            <h3>Who</h3>
+
+        </div>
 
       </div>
     )
