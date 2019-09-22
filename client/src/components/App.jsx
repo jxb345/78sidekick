@@ -198,8 +198,6 @@ class App extends React.Component {
   }
 
   render() {
-    console.log('history location', history.location)
-
     return (
       <Router history={history}>
       <div>
