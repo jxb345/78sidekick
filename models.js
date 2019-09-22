@@ -43,7 +43,7 @@ const fetchMetadata = (id, callback) => {
           // URL that fetches results from IA; NOTE: passed in variable for 'rows' is '10000' (is this number too high, meaning the API call too "expensive?")
           let songNoDateUrl = `https://archive.org/advancedsearch.php?q=collection%3A%28georgeblood%29+AND+genre%3A%28${genre}%29+AND+YEAR%3A%28-1%29&fl%5B%5D=identifier&sort%5B%5D=&sort%5B%5D=&sort%5B%5D=&rows=10000&page=1&output=json` // &callback=callback&save=yes
 
-              try {
+
                 fetch(songNoDateUrl)
                 .then(function (response) {
                   console.log('response withOUT year')
@@ -67,10 +67,10 @@ const fetchMetadata = (id, callback) => {
                     metadata.year = year || '';
                     callback(null, metadata)
                   });
+                })
+                .catch(function(err) {
+                  console.log('Fetch Error :-S', err);
                 });
-              } catch(err) {
-                console.error(`try/catch(${err})`)
-              }
           }
 
 // fetches items based on year and genre using the IA Advanced Search
@@ -87,9 +87,8 @@ if (year.length === 2) {
 console.log('genre', genre);
 console.log('year------', year);
 // URL that fetches results from IA; NOTE: passed in variable for 'rows' is '10000' (is this number too high, maing the API call too "expensive?")
-let songUrl = `https://archive.org/advancedsearch.php?q=collection%3A%28georgeblood%29+AND+subject%3A%28${genre}%29+AND+YEAR%3A%28${year}%29&fl%5B%5D=identifier&sort%5B%5D=&sort%5B%5D=&sort%5B%5D=&rows=10000&page=1&output=json`
+let songUrl = `https://archie.org/advancedsearch.php?q=collection%3A%28georgeblood%29+AND+subject%3A%28${genre}%29+AND+YEAR%3A%28${year}%29&fl%5B%5D=identifier&sort%5B%5D=&sort%5B%5D=&sort%5B%5D=&rows=10000&page=1&output=json`
 
-    try {
       fetch(songUrl)
       .then(function (response) {
         console.log('response WITH year');
@@ -125,13 +124,11 @@ let songUrl = `https://archive.org/advancedsearch.php?q=collection%3A%28georgebl
           metadata.year = year;
           callback(null, metadata)
         });
+      })
+      .catch(function(err) {
+        console.log('Fetch Error :-S', err);
       });
-    } catch(err) {
-      console.error(`try/catch(${err})`)
-    }
 }
-
-
 // selects a random genre from a genres array in genres.js
 const generateRandomGenre = () => {
   let randomIndex = Math.random() * (21 - 0) + 0;
@@ -154,5 +151,6 @@ const generateRandomYear = () => {
   randomYear = Math.floor(randomYear);
   return randomYear;
 }
+
 
 module.exports = { fetchNoYearSong, fetchMetadata, fetchSong, generateRandomYear, generateRandomGenre }
