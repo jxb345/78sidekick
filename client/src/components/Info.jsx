@@ -7,7 +7,10 @@ class Info extends React.Component {
 
   render() {
     return (
-      <div>Infodfsdf</div>
+      <div>
+        <div>Infodfsdf</div>
+
+      </div>
     )
   }
 }

@@ -14,7 +14,7 @@ const genres = require('./client/src/genres.js')
   }
 
   // uses a regex to find a mp3 file fo a given item
-  // refactor regex expression below (mp3) to find the .mp3 file with an underscore (_) at the beginning of the file (like findFlac)
+  // TO DO: refactor regex expression below (mp3) to find the .mp3 file with an underscore (_) at the beginning of the file (like findFlac)
   // as the regex is written for mp3, it locates the .mp3 file that includes spaces and marks of punctuation; specifically, question
   // marks and commas can cause the app to error when attempting to play one of these songs
   const findMp3 = (files) => {

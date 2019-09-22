@@ -199,7 +199,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <Router history={history}>
+      // <Router history={history}>
       <div>
         <img className="image-vinyl"
         src="vinyl-record.jpg"
@@ -209,8 +209,7 @@ class App extends React.Component {
         <h1>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           78 sideKick
-          <Link to="/info"
-            target="_blank" >
+          <Link to="/info">
           <img
           className="image-question"
           src="small-question-mark.jpg"
@@ -220,6 +219,7 @@ class App extends React.Component {
           </img>
         </Link>
           <Route path="/info" component={Info} />
+          {/* <Route exact={true} path="/" component={App} /> */}
         </h1>
         <div className="metaData">
           <MetaData
@@ -261,8 +261,8 @@ class App extends React.Component {
             />
         </div>
       </div>
-      </Router>
 
+     /* </Router> */
     )
   }
 }
