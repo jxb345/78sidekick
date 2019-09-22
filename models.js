@@ -58,7 +58,7 @@ const fetchMetadata = (id, callback) => {
                   fetchMetadata(identifier, (err, result) => {
                     if (err) { throw err };
                     let metadata = {};
-                    metadata.file = findMp3(result.files)
+                    metadata.file = findFlac(result.files)
                     metadata.creator = result.metadata.creator[0] || '';
                     metadata.title = result.metadata.title || '';
                     metadata.runtime = result.metadata.runtime;
@@ -109,7 +109,7 @@ let songUrl = `https://archive.org/advancedsearch.php?q=collection%3A%28georgebl
         fetchMetadata(identifier, (err, result) => {
           if (err) { throw err };
           let metadata = {};
-          metadata.file = findMp3(result.files)
+          metadata.file = findFlac(result.files)
           // 'if' statement to check if creator not present
           if (result.metadata.creator == null) {
             metadata.creator = '';
