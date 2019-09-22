@@ -203,7 +203,7 @@ class App extends React.Component {
       <div>
         <img className="image-vinyl"
         src="vinyl-record.jpg"
-        alt="78 Record Player"
+        alt="Illustration of a 78"
         height="120"
         width="120"></img>
         <h1>
@@ -212,8 +212,8 @@ class App extends React.Component {
           <Link to="/info">
           <img
           className="image-question"
-          src="small-question-mark.jpg"
-          alt="78 Record Player"
+          src="info-icon.png"
+          alt="Informational Icon"
           height="20"
           width="20">
           </img>
