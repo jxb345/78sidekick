@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { createBrowserHistory } from "history";
 const customHistory = createBrowserHistory();
+import About from './About.jsx';
 
 class MusicPlayer extends React.Component {
   constructor(props) {
@@ -40,7 +41,11 @@ class MusicPlayer extends React.Component {
       </div>
       <p className="about"></p>
       <p className="about-text">
-      <a href="/about" target="_blank" className="about-link-text">About</a></p>
+      <Link to="/about">
+         About
+        </Link>
+          <Route path="/about" component={About} />
+      </p>
       </div>
     )
   }

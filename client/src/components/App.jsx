@@ -219,7 +219,6 @@ class App extends React.Component {
           </img>
         </Link>
           <Route path="/info" component={Info} />
-          {/* <Route exact={true} path="/" component={App} /> */}
         </h1>
         <div className="metaData">
           <MetaData

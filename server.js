@@ -63,11 +63,6 @@ app.post('/query', (req, res) => {
   })
 })
 
-app.get('/about', (req, res) => {
-  console.log(typeof aboutText)
-  res.send(text.aboutText);
-})
-
 app.listen(port, () => {
   console.log(`listening on ${port}`)
 });
