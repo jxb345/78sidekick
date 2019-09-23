@@ -112,6 +112,18 @@ audio:focus {outline:0;}
   padding-left: 40px;
 }
 
+.info-text {
+  color: black;
+}
+
+.info-text a {
+  color: black;
+}
+
+.info-text p {
+  text-transform: none;
+}
+
 .metaData {
   border: solid 2px;
   border-radius: 10px;
@@ -162,6 +174,21 @@ audio:focus {outline:0;}
 .year {
   margin-left: 4px;
 }
+
+.how-what-who {
+  border-style: solid;
+  background: black;
+  color: white;
+  padding: 10px;
+  text-transform: lowercase;
+  font-size: 22px;
+  width: 560px;
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif
+
+}
+
+
 
 
 /* sharing buttons css */
