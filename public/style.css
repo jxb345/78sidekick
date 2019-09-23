@@ -1,7 +1,7 @@
 /* note: width properties are hard-coded; consider changing them to a "%" */
 
 h1 {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Georgia, 'Times New Roman', Times, serif;
   border-bottom: solid 3px;
   font-size: 28px;
   width: 560px;
@@ -114,10 +114,14 @@ audio:focus {outline:0;}
 
 .info-text {
   color: black;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  text-transform: none;
+
 }
 
 .info-text a {
   color: black;
+  font-weight: 600;
 }
 
 .info-text p {

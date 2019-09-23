@@ -208,7 +208,7 @@ class App extends React.Component {
         width="120"></img>
         <h1>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          78 sideKick
+          sidekick 78
           <Link to="/info">
           <img
           className="image-question"
