@@ -170,6 +170,22 @@ audio:focus {outline:0;}
   margin-top: 5px;
 }
 
+.return-button {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 7px;
+  background-color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 13px;
+  color: white;
+  cursor: pointer;
+  margin-left: 233px;
+  margin-top: 5px;
+}
+
 #yearForm {
   margin-left: 70px;
   font-weight: bold;
