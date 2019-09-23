@@ -186,10 +186,10 @@ audio:focus {outline:0;}
   padding: 10px;
   text-transform: lowercase;
   font-size: 22px;
-  width: 560px;
+  width: 540px;
   text-align: center;
-  font-family: Georgia, 'Times New Roman', Times, serif
-
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin-bottom: 10px;
 }
 
 

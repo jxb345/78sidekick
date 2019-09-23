@@ -9,6 +9,10 @@ class Info extends React.Component {
     return (
       <div>
         <div>
+        <h1>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          sidekick 78
+        </h1>
           <h3 className="how-what-who">What</h3>
             <p className="info-text">
               <strong>YEAR</strong>
@@ -43,8 +47,8 @@ class Info extends React.Component {
             </p>
           <h3 className="how-what-who">Who</h3>
           <p className="info-text">
-            sideKick 78 was built by a passionate Jesse Bell who immensely enjoys listening <br/>
-             to art, and also with generous contributions from <a href="https://github.com/auramix">Scott Josephson</a>.
+            sideKick 78 was built by a passionate Jesse Bell who immensely enjoys art <br/>
+            through headphones, and also generous contributions from <a href="https://github.com/auramix">Scott Josephson</a>.
           </p>
 
 
