@@ -54,11 +54,11 @@ class Info extends React.Component {
             </p>
           <h3 className="how-what-who">Who</h3>
           <p className="info-text">
-            sideKick 78 was built by a passionate Jesse Bell who immensely enjoys art <br/>
-            through headphones, and also generous contributions from <a href="https://github.com/auramix">Scott Josephson</a>.
+            sideKick 78 was built by a passionate Jesse Bell who immensely enjoys listening <br/>
+            to art through headphones, and also with generous contributions from <br/>
+           <a href="https://github.com/auramix">Scott Josephson</a>.
           </p>
         </div>
-        <br/>
         <br/>
           <input className="return-button" type="button" onClick={() => {this.goBack();}} value="RETURN" />
       </div>
