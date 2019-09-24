@@ -14,7 +14,7 @@ class MusicPlayer extends React.Component {
     this.playTrack = this.playTrack.bind(this);
   }
 
-  async playTrack () {
+  async playTrack() {
     this.props.handleUserClick();
     await this.audioPlayer.current.load()
     this.audioPlayer.current.play()
@@ -32,20 +32,15 @@ class MusicPlayer extends React.Component {
     return (
       <div>
         {/* audio player */}
-        <audio controls ref={this.audioPlayer} onEnded={()=> { this.props.post()}}>
-        <source src={this.props.url} crossOrigin="anonymous"></source>
-      </audio>
-      {/* make another POST request if user doesn't like song */}
-      <div>
-      <button className="skip-button" onClick={() => {this.props.post(); this.audioPlayer.current.pause();}}>SKIP</button>
-      </div>
-      <p className="about"></p>
-      <p className="about-text">
-      <Link to="/about">
-         About
-        </Link>
-          <Route path="/about" component={About} />
-      </p>
+        <audio controls ref={this.audioPlayer} onEnded={() => { this.props.post() }}>
+          <source src={this.props.url} crossOrigin="anonymous"></source>
+        </audio>
+        {/* make another POST request if user doesn't like song */}
+        <div>
+          <button className="skip-button" onClick={() => { this.props.post(); this.audioPlayer.current.pause(); }}>SKIP</button>
+        </div>
+        <p className="about"></p>
+        <p className="about-text"></p>
       </div>
     )
   }
