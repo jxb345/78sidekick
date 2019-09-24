@@ -10,6 +10,14 @@ app.use(express.static(path.resolve(__dirname, "./public")));
 app.use(express.urlencoded( {extended: true} ));
 app.use(cors());
 
+// .get request included to prevent a 404 if user reloads on /info
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, "./public/index.html"), (err) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+  })
+})
 
 app.post('/query', (req, res) => {
   let start = Date.now();
