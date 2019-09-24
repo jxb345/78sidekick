@@ -22,7 +22,7 @@ class Info extends React.Component {
         </h1>
           <h3 className="how-what-who">What</h3>
             <p className="info-text">
-              <strong>YEAR</strong>
+              <strong>YEAR*</strong>
               <ul>
                 <li>
                   Click the "Shuffle Year" toggle switch to listen to songs from 1900 - 1960.
