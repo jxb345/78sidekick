@@ -212,10 +212,10 @@ class App extends React.Component {
           <Link to="/info">
           <img
           className="image-question"
-          src="info-icon.png"
+          src="info-ic.png"
           alt="Informational Icon"
-          height="20"
-          width="20">
+          height="25"
+          width="25">
           </img>
         </Link>
           <Route path="/info" component={Info} />
