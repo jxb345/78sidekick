@@ -43,7 +43,13 @@ class Info extends React.Component {
                 </li>
               </ul>
               <strong>*</strong> Genres may not be available for every year, so when a particular genre <br/>
-              &nbsp;&nbsp;&nbsp;does not have a corresponding year, "[Date Unknown]" will appear.
+              &nbsp;&nbsp;&nbsp;does not have a corresponding year, "[Date Unknown]" will appear. <br/>
+              <br/>
+              <strong>DOWNLOAD</strong>
+                <ul>
+                  <li>Click the three vertical dots on the right side of the audio player <br/>
+                  to download a .flac file of the song playing.</li>
+                </ul>
           </p>
 
           <h3 className="how-what-who">How</h3>
