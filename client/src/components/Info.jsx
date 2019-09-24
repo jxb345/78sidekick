@@ -54,8 +54,8 @@ class Info extends React.Component {
 
           <h3 className="how-what-who">How</h3>
             <p className="info-text">
-              sideKick 78 uses the <a href="https://archive.org/">Internet Archive</a> APIs to search 100,000+ digitzied 78s <br/>
-              from the <a href="https://archive.org/details/georgeblood">George Blood collection</a>. This digitization effort was generously <br/>
+              sideKick 78 uses the <a href="https://archive.org/" target="_blank">Internet Archive</a> APIs to search 100,000+ digitzied 78s <br/>
+              from the <a href="https://archive.org/details/georgeblood" target="_blank">George Blood collection</a>. This digitization effort was generously <br/>
               funded by the Kahle-Austin Foundation. <br></br>
             </p>
           <h3 className="how-what-who">Who</h3>
