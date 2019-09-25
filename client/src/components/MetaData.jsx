@@ -17,7 +17,7 @@ class MetaData extends React.Component {
     if (this.props.gettingSong) {
       artist = "Getting Next Song...";
       title = '';
-      year = '';
+      year = ''
     }
     else if (this.props.noYear) {
       year = `[Date Unknown]`;
@@ -40,7 +40,7 @@ class MetaData extends React.Component {
         // than X number of characters
         <div id="metadata">
           <a href={detailsPage} target="_blank">
-          <span>"{title}"</span>
+          <span>{title}</span>
           <br></br>
          <span style={spanStyle} >{artist}</span>
          <br></br>

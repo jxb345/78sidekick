@@ -71,7 +71,12 @@ class App extends React.Component {
             this.url();
             console.log('this.state', this.state);
             this.userClick = true;
-            this.setState({ gettingSong: false}, () => {
+            const quote = '\"';
+            let quotedSong = quote + this.state.title + quote;
+            this.setState({
+              gettingSong: false,
+              title: quotedSong
+             }, () => {
               console.log('gettingSong at end of ajax()', this.state.gettingSong);
             })
           })
