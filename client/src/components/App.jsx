@@ -27,6 +27,7 @@ class App extends React.Component {
       genreButtonOn: false,
       yearButtonOn: false,
       noYear: false,
+      gettingSong: false
 
     }
 
@@ -70,6 +71,9 @@ class App extends React.Component {
             this.url();
             console.log('this.state', this.state);
             this.userClick = true;
+            this.setState({ gettingSong: false}, () => {
+              console.log('gettingSong at end of ajax()', this.state.gettingSong);
+            })
           })
       }
     })
@@ -144,7 +148,9 @@ class App extends React.Component {
 
   // invokes handleRandomButtons before invoking the ajax call
   async post() {
-    // made not need this function
+    this.setState({ gettingSong: true}, () => {
+      console.log('gettingSong at begin of post()', this.state.gettingSong);
+    })
     await this.handleGenreButton()
     await this.handleYearButton()
     if (this.state.year.length === 2) {
@@ -227,6 +233,7 @@ class App extends React.Component {
           artist={this.state.creator}
           year={this.state.year}
           noYear={this.state.noYear}
+          gettingSong={this.state.gettingSong}
            />
         </div>
         <div className="form-player">
