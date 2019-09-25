@@ -10,7 +10,7 @@ class MetaData extends React.Component {
     let title = `${this.props.title}`;
     let artist = `${this.props.artist}`;
     const spanStyle = {
-      fontSize: 15,
+      fontSize: 16,
     }
     let detailsPage = `https://archive.org/details/${this.props.id}`
     let year;
@@ -28,11 +28,11 @@ class MetaData extends React.Component {
       return <div>
         </div>
     } else {
-      if (title.length > 26) {
-        title = title.slice(0, 26) + '...';
+      if (title.length > 25) {
+        title = title.slice(0, 25) + '...\"';
       }
-      if (artist.length > 26) {
-        artist = artist.slice(0, 26) + '...';
+      if (artist.length > 25) {
+        artist = artist.slice(0, 25) + '...';
       }
       return (
         // displays fetched metadata for a given song
