@@ -10,12 +10,12 @@ class MetaData extends React.Component {
     let title = `${this.props.title}`;
     let artist = `${this.props.artist}`;
     const spanStyle = {
-      fontSize: 16,
+      fontSize: 15,
     }
     let detailsPage = `https://archive.org/details/${this.props.id}`
     let year;
     if (this.props.gettingSong) {
-      artist = "Getting Next Song...";
+      artist = "*** Getting Next Song ***";
       title = '';
       year = ''
     }
