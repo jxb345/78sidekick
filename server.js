@@ -74,3 +74,5 @@ app.post('/query', (req, res) => {
 app.listen(port, () => {
   console.log(`listening on ${port}`)
 });
+
+module.exports = { port };

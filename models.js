@@ -59,7 +59,7 @@ const fetchMetadata = (id, callback) => {
                     if (err) { throw err };
                     let metadata = {};
                     metadata.file = findFlac(result.files)
-                    metadata.creator = result.metadata.creator[0] || '';
+                    metadata.creator = result.metadata.creator[0] || '[Artist Unknown]';
                     metadata.title = result.metadata.title || '';
                     metadata.runtime = result.metadata.runtime;
                     metadata.identifier = identifier;
