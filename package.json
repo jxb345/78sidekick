@@ -16,7 +16,6 @@
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.16.4",
-    "fsevents": "^2.0.7",
     "jest": "^24.8.0",
     "jquery": "^3.4.1",
     "node-fetch": "^2.5.0",

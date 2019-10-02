@@ -112,7 +112,7 @@ let songUrl = `https://archive.org/advancedsearch.php?q=collection%3A%28georgebl
           metadata.file = findFlac(result.files)
           // 'if' statement to check if creator not present
           if (result.metadata.creator == null) {
-            metadata.creator = '';
+            metadata.creator = '[Artist Unknown]';
           } else {
             // the following can still result in error: metadata.creator = result.metadata.creator[0] || ''
             metadata.creator = result.metadata.creator[0]
