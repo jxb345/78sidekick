@@ -212,7 +212,7 @@ class App extends React.Component {
     return (
       // <Router history={history}>
       <div className="grid">
-        {/* <img className="image-vinyl"
+        <img className="image-vinyl"
         src="vinyl-record.jpg"
         alt="Illustration of a 78"
         height="120"
@@ -230,7 +230,7 @@ class App extends React.Component {
           </img>
         </Link>
           <Route path="/info" component={Info} />
-        </h1> */}
+        </h1>
         <div className="metaData">
           <MetaData
           id={this.state.identifier}
@@ -241,7 +241,7 @@ class App extends React.Component {
           gettingSong={this.state.gettingSong}
            />
         </div>
-        {/* <div className="form-player">
+        <div className="form-player">
           <div className="form">
             <Form
               year={this.state.year}
@@ -254,7 +254,7 @@ class App extends React.Component {
               genreButton={this.genreButton}
               yearButton={this.yearButton}
                />
-          </div> */}
+          </div>
           <div className="musicPlayer">
             <MusicPlayer
               handleUserClick={this.handleUserClick}
@@ -265,12 +265,12 @@ class App extends React.Component {
               yearButtonOn={this.state.yearButtonOn}
             />
           </div>
-        {/* </div> */}
-        {/* <div className="shareButtons">
+        </div>
+        <div className="shareButtons">
           <ShareButtons
             identifier={this.state.identifier}
             />
-        </div> */}
+        </div>
       </div>
 
      /* </Router> */

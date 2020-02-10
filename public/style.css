@@ -1,10 +1,10 @@
 /* note: width properties are hard-coded; consider changing them to a "%" */
 
-/* h1 {
+h1 {
   font-family: Georgia, 'Times New Roman', Times, serif;
   border-bottom: solid 3px;
   font-size: 28px;
-  width: 560px;
+  /* width: 560px; */
 }
 
 p {
@@ -97,35 +97,46 @@ audio:focus {outline:0;}
 
 .form-player {
   font-family: Arial, Helvetica, sans-serif
-} */
+}
 
-/* .form {
+.form {
   margin-left: 185px;
-} */
+}
 
 .grid {
-  max-width: 800px;
+  max-width: 600px;
   display: grid;
-  grid-template-columns: 800px;
+  grid-template-columns: 600px;
   grid-template-rows: 200px 200px;
   margin: 45px auto;
 }
 
-.test {
-  background-color: black;
-  color: white;
+
+.form-player {
+  font-family: Arial, Helvetica, sans-serif
 }
-/*
+
+.form {
+  margin-left: 185px;
+}
+
+
+.musicPlayer {
+  margin-top: 30px;
+  margin-left: 160px;
+}
+
+
 .image-question {
   padding-left: 140px;
-} */
+}
 
 /* .image-vinyl {
   float: left;
   padding-left: 40px;
 } */
 
-/* .info-text {
+.info-text {
   color: black;
   font-family: Georgia, 'Times New Roman', Times, serif;
   text-transform: none;
@@ -141,7 +152,7 @@ audio:focus {outline:0;}
   text-transform: none;
 }
 
-.metaData {
+ .metaData {
   border: solid 2px;
   border-radius: 10px;
   width: 260px;
@@ -158,16 +169,12 @@ audio:focus {outline:0;}
 
 }
 
-.musicPlayer {
-  margin-top: 30px;
-  margin-left: 160px;
-} */
 
-/* .shareButtons {
+.shareButtons {
   padding-left: 190px;
-} */
+}
 
-/* .skip-button {
+.skip-button {
   padding-top: 12px;
   padding-bottom: 12px;
   padding-left: 25px;
@@ -197,9 +204,9 @@ audio:focus {outline:0;}
   cursor: pointer;
   margin-left: 233px;
   margin-top: 5px;
-} */
+}
 
-/* #yearForm {
+#yearForm {
   margin-left: 70px;
   font-weight: bold;
 }
@@ -224,12 +231,12 @@ audio:focus {outline:0;}
 #metadata {
   font-family: Georgia, 'Times New Roman', Times, serif
 }
- */
+
 
 
 
 /* sharing buttons css */
-/* .resp-sharing-button__link,
+.resp-sharing-button__link,
 .resp-sharing-button__icon {
   display: inline-block
 }
@@ -257,16 +264,16 @@ audio:focus {outline:0;}
 .resp-sharing-button--small svg {
   margin: 0;
   vertical-align: middle
-} */
+}
 
 /* Non solid icons get a stroke */
-/* .resp-sharing-button__icon {
+.resp-sharing-button__icon {
   stroke: #fff;
   fill: none
-} */
+}
 
 /* Solid icons get a fill */
-/* .resp-sharing-button__icon--solid,
+.resp-sharing-button__icon--solid,
 .resp-sharing-button__icon--solidcircle {
   fill: #fff;
   stroke: none
@@ -429,4 +436,4 @@ background-color: #FF6600
 .resp-sharing-button--pinterest:active {
   background-color: #8c0615;
   border-color: #8c0615;
-} */
+}
