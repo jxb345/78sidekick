@@ -4,7 +4,7 @@ h1 {
   font-family: Georgia, 'Times New Roman', Times, serif;
   border-bottom: solid 3px;
   font-size: 28px;
-  padding-left: 230px;
+  padding-left: 180px;
 }
 
 p {
@@ -95,7 +95,7 @@ audio:focus {outline:0;}
 }
 
 .form {
-  margin-left: 185px;
+  margin-left: 120px;
 }
 
 .grid {
@@ -108,7 +108,7 @@ audio:focus {outline:0;}
 
 .musicPlayer {
   margin-top: 30px;
-  margin-left: 160px;
+  margin-left: 100px;
 }
 
 .image-question {
@@ -142,7 +142,7 @@ audio:focus {outline:0;}
   border-radius: 10px;
   width: 260px;
   height: 80px;
-  margin-left: 175px;
+  margin-left: 120px;
   margin-bottom: 25px;
   padding-top: 20px;
   background-color: black;
@@ -156,7 +156,7 @@ audio:focus {outline:0;}
 
 
 .shareButtons {
-  padding-left: 190px;
+  padding-left: 120px;
 }
 
 .skip-button {
