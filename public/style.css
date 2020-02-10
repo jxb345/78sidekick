@@ -4,7 +4,7 @@ h1 {
   font-family: Georgia, 'Times New Roman', Times, serif;
   border-bottom: solid 3px;
   font-size: 28px;
-  /* width: 560px; */
+  padding-left: 220px;
 }
 
 p {
@@ -12,8 +12,6 @@ p {
   margin: 3px;
   text-transform: uppercase;
 }
-
-
 
 input[type=text] {
   width: 20px;
@@ -92,9 +90,6 @@ button:focus {outline:0;}
 input:focus {outline:0;}
 audio:focus {outline:0;}
 
-
-
-
 .form-player {
   font-family: Arial, Helvetica, sans-serif
 }
@@ -104,22 +99,12 @@ audio:focus {outline:0;}
 }
 
 .grid {
-  max-width: 600px;
+  max-width: 550px;
   display: grid;
-  grid-template-columns: 600px;
-  grid-template-rows: 200px 200px;
-  margin: 45px auto;
+  grid-template-columns: 550px;
+  grid-template-rows: 40px 100px 125px 365px;
+  margin: 20px auto;
 }
-
-
-.form-player {
-  font-family: Arial, Helvetica, sans-serif
-}
-
-.form {
-  margin-left: 185px;
-}
-
 
 .musicPlayer {
   margin-top: 30px;
