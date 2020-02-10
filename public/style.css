@@ -4,7 +4,7 @@ h1 {
   font-family: Georgia, 'Times New Roman', Times, serif;
   border-bottom: solid 3px;
   font-size: 28px;
-  padding-left: 220px;
+  padding-left: 230px;
 }
 
 p {
@@ -99,11 +99,11 @@ audio:focus {outline:0;}
 }
 
 .grid {
-  max-width: 550px;
+  max-width: 500px;
   display: grid;
-  grid-template-columns: 550px;
-  grid-template-rows: 40px 100px 125px 365px;
-  margin: 20px auto;
+  grid-template-columns: 500px;
+  grid-template-rows: 100px;
+  margin: 5px auto;
 }
 
 .musicPlayer {
@@ -111,15 +111,15 @@ audio:focus {outline:0;}
   margin-left: 160px;
 }
 
-
 .image-question {
-  padding-left: 140px;
+  padding-left: 80px;
 }
 
-/* .image-vinyl {
+.image-vinyl {
   float: left;
-  padding-left: 40px;
-} */
+  padding-top: 90px;
+  /* padding-left: 40px; */
+}
 
 .info-text {
   color: black;

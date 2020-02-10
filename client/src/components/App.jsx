@@ -215,8 +215,10 @@ class App extends React.Component {
         <img className="image-vinyl"
         src="vinyl-record.jpg"
         alt="Illustration of a 78"
-        height="80"
-        width="80"></img>
+        height="60"
+        width="60"></img>
+        <div>
+
         <h1>
           sidekick 78
           <Link to="/info">
@@ -230,6 +232,7 @@ class App extends React.Component {
         </Link>
           <Route path="/info" component={Info} />
         </h1>
+        </div>
         <div className="metaData">
           <MetaData
           id={this.state.identifier}
