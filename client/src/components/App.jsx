@@ -212,15 +212,15 @@ class App extends React.Component {
     return (
       // <Router history={history}>
       <div className="grid">
-
         <div>
-        <img className="image-vinyl"
-        src="vinyl-record.jpg"
-        alt="Illustration of a 78"
-        height="60"
-        width="60"></img>
+          <img className="image-vinyl"
+          src="vinyl-record.jpg"
+          alt="Illustration of a 78"
+          height="60"
+          width="60">
+          </img>
           <h1>
-            sidekick 78
+            78 sidekick
             <Link to="/info">
             <img
             className="image-question"
