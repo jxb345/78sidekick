@@ -22,7 +22,7 @@ class Info extends React.Component {
         </h1>
           <h3 className="how-what-who">What</h3>
             <p className="info-text">
-              <strong>YEAR*</strong>
+              <strong>YEAR</strong>
               <ul>
                 <li>
                   Click the "Shuffle Year" toggle switch to listen to songs from 1900 - 1960.
@@ -42,19 +42,20 @@ class Info extends React.Component {
                   >> (i.e., "Jazz")
                 </li>
               </ul>
-              <strong>*</strong> Genres may not be available for every year, so when a particular genre <br/>
-              does not have a corresponding year, "[Date Unknown]" will appear. <br/>
+              <i>NOTE: </i>Genres may not be available for every year, so when a particular genre
+              does not have a corresponding year, then [Date Unknown] will appear.
+              <br/>
               <br/>
               <strong>DOWNLOAD</strong>
                 <ul>
-                  <li>Click the three vertical dots on the right side of the audio player <br/>
+                  <li>Click the three vertical dots on the right side of the audio player
                   to download a .flac file of the song playing.</li>
                 </ul>
           </p>
 
           <h3 className="how-what-who">How</h3>
             <p className="info-text">
-              78 sideKick uses the <a href="https://archive.org/" target="_blank">Internet Archive</a> APIs to search 100,000+ digitzied 78s
+              78 sideKick uses the <a href="https://archive.org/" target="_blank">Internet Archive</a> APIs to search 160,000+ digitzied 78s
               from the <a href="https://archive.org/details/georgeblood" target="_blank">George Blood collection</a>. This digitization effort was generously
               funded by the Kahle-Austin Foundation. <br></br>
             </p>

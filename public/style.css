@@ -119,7 +119,7 @@ audio:focus {outline:0;}
 }
 
 .image-question {
-  padding-left: 95px;
+  padding-left: 98px;
 }
 
 .image-vinyl {
@@ -216,7 +216,7 @@ audio:focus {outline:0;}
   text-transform: lowercase;
   text-align: center;
   font-size: 22px;
-  width: 100%;
+  width: 95%;
   text-align: center;
   font-family: Georgia, 'Times New Roman', Times, serif;
   margin-bottom: 10px;

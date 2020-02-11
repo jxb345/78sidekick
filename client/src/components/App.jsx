@@ -76,7 +76,7 @@ class App extends React.Component {
             this.setState({
               gettingSong: false,
               title: quotedSong
-             }, () => {
+            }, () => {
               console.log('gettingSong at end of ajax()', this.state.gettingSong);
             })
           })
@@ -153,7 +153,7 @@ class App extends React.Component {
 
   // invokes handleRandomButtons before invoking the ajax call
   async post() {
-    this.setState({ gettingSong: true}, () => {
+    this.setState({ gettingSong: true }, () => {
       console.log('gettingSong at begin of post()', this.state.gettingSong);
     })
     await this.handleGenreButton()
@@ -214,69 +214,70 @@ class App extends React.Component {
       <div className="grid">
         <div>
           <img className="image-vinyl"
-          src="vinyl-record.jpg"
-          alt="Illustration of a 78"
-          height="60"
-          width="60">
+            src="vinyl-record.jpg"
+            alt="Illustration of a 78"
+            height="60"
+            width="60">
           </img>
           <h1>
             78 sideKick
             <Link to="/info">
-            <img
-            className="image-question"
-            src="info-ic.png"
-            alt="Informational Icon"
-            height="25"
-            width="25">
-            </img>
-          </Link>
+              <img
+                className="image-question"
+                src="info-ic.png"
+                alt="Informational Icon"
+                height="25"
+                width="25">
+              </img>
+            </Link>
             <Route path="/info" component={Info} />
           </h1>
-        </div>
 
-        <div className="metaData">
-          <MetaData
-          id={this.state.identifier}
-          title={this.state.title}
-          artist={this.state.creator}
-          year={this.state.year}
-          noYear={this.state.noYear}
-          gettingSong={this.state.gettingSong}
-           />
-        </div>
-        <div className="form-player">
-          <div className="form">
-            <Form
+          <div className="metaData">
+            <MetaData
+              id={this.state.identifier}
+              title={this.state.title}
+              artist={this.state.creator}
               year={this.state.year}
-              genre={this.state.genre}
-              handleChangeGenre={this.handleChangeGenre}
-              handleChangeYear={this.handleChangeYear}
-              handleSubmit={this.handleSubmit}
-              showHideYearForm={this.showHideYearForm}
-              showHideGenreForm={this.showHideGenreForm}
-              genreButton={this.genreButton}
-              yearButton={this.yearButton}
-               />
-          </div>
-          <div className="musicPlayer">
-            <MusicPlayer
-              handleUserClick={this.handleUserClick}
-              url={this.state.url}
-              post={this.post}
-              userClick={this.userClick}
-              genreButtonOn={this.state.genreButtonOn}
-              yearButtonOn={this.state.yearButtonOn}
+              noYear={this.state.noYear}
+              gettingSong={this.state.gettingSong}
             />
           </div>
-        </div>
-        <div className="shareButtons">
-          <ShareButtons
-            identifier={this.state.identifier}
+
+          <div className="form-player">
+            <div className="form">
+              <Form
+                year={this.state.year}
+                genre={this.state.genre}
+                handleChangeGenre={this.handleChangeGenre}
+                handleChangeYear={this.handleChangeYear}
+                handleSubmit={this.handleSubmit}
+                showHideYearForm={this.showHideYearForm}
+                showHideGenreForm={this.showHideGenreForm}
+                genreButton={this.genreButton}
+                yearButton={this.yearButton}
+              />
+            </div>
+            <div className="musicPlayer">
+              <MusicPlayer
+                handleUserClick={this.handleUserClick}
+                url={this.state.url}
+                post={this.post}
+                userClick={this.userClick}
+                genreButtonOn={this.state.genreButtonOn}
+                yearButtonOn={this.state.yearButtonOn}
+              />
+            </div>
+          </div>
+          <div className="shareButtons">
+            <ShareButtons
+              identifier={this.state.identifier}
             />
+          </div>
         </div>
       </div>
 
-     /* </Router> */
+      /* </Router> */
     )
   }
 }
