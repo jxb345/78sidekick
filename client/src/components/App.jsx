@@ -220,7 +220,7 @@ class App extends React.Component {
           width="60">
           </img>
           <h1>
-            78 sidekick
+            78 sideKick
             <Link to="/info">
             <img
             className="image-question"

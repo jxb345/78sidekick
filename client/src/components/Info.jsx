@@ -18,8 +18,7 @@ class Info extends React.Component {
         <div className="grid">
         <div>
         <h1>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          sidekick 78
+           78 sideKick
         </h1>
           <h3 className="how-what-who">What</h3>
             <p className="info-text">
@@ -44,7 +43,7 @@ class Info extends React.Component {
                 </li>
               </ul>
               <strong>*</strong> Genres may not be available for every year, so when a particular genre <br/>
-              &nbsp;&nbsp;&nbsp;does not have a corresponding year, "[Date Unknown]" will appear. <br/>
+              does not have a corresponding year, "[Date Unknown]" will appear. <br/>
               <br/>
               <strong>DOWNLOAD</strong>
                 <ul>
@@ -55,20 +54,24 @@ class Info extends React.Component {
 
           <h3 className="how-what-who">How</h3>
             <p className="info-text">
-              sideKick 78 uses the <a href="https://archive.org/" target="_blank">Internet Archive</a> APIs to search 100,000+ digitzied 78s <br/>
-              from the <a href="https://archive.org/details/georgeblood" target="_blank">George Blood collection</a>. This digitization effort was generously <br/>
+              78 sideKick uses the <a href="https://archive.org/" target="_blank">Internet Archive</a> APIs to search 100,000+ digitzied 78s
+              from the <a href="https://archive.org/details/georgeblood" target="_blank">George Blood collection</a>. This digitization effort was generously
               funded by the Kahle-Austin Foundation. <br></br>
             </p>
           <h3 className="how-what-who">Who</h3>
           <p className="info-text">
-            sideKick 78 was built by a passionate <a href="https://jessebell.dev" target="_blank">Jesse Bell</a> who immensely enjoys <br/>
-            listening to art through headphones, and also with generous contributions <br/>
+          78 sideKick was built by a passionate <a href="https://jessebell.dev" target="_blank">Jesse Bell</a> who immensely enjoys
+            listening to art through headphones, and also with generous contributions
             from <a href="https://github.com/auramix">Scott Josephson</a>.
           </p>
+          <div>
+          <input className="return-button" type="button" onClick={() => {this.goBack();}} value="RETURN" />
+        </div>
         </div>
         <br/>
-          <input className="return-button" type="button" onClick={() => {this.goBack();}} value="RETURN" />
+
           </div>
+
       </div>
     )
   }

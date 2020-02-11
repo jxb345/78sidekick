@@ -119,7 +119,7 @@ audio:focus {outline:0;}
 }
 
 .image-question {
-  padding-left: 100px;
+  padding-left: 95px;
 }
 
 .image-vinyl {
@@ -194,8 +194,9 @@ audio:focus {outline:0;}
   font-size: 13px;
   color: white;
   cursor: pointer;
-  margin-left: 233px;
-  margin-top: 5px;
+  margin-left: 190px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 #yearForm {
@@ -213,8 +214,9 @@ audio:focus {outline:0;}
   color: white;
   padding: 10px;
   text-transform: lowercase;
+  text-align: center;
   font-size: 22px;
-  width: 540px;
+  width: 100%;
   text-align: center;
   font-family: Georgia, 'Times New Roman', Times, serif;
   margin-bottom: 10px;
