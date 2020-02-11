@@ -32,7 +32,7 @@ class Form extends React.Component {
           <label className="label-year">
             <input type="checkbox" id="randomYear" onClick={this.props.showHideYearForm} />
             <span></span>
-            &nbsp;&nbsp;&nbsp;Shuffle Year (1900 - 1960)
+            &nbsp;&nbsp;&nbsp;Shuffle Year (1900 - 60)
             </label>
         </div>
         {/* form to enter a year to be used in search */}

@@ -212,27 +212,28 @@ class App extends React.Component {
     return (
       // <Router history={history}>
       <div className="grid">
+
+        <div>
         <img className="image-vinyl"
         src="vinyl-record.jpg"
         alt="Illustration of a 78"
         height="60"
         width="60"></img>
-        <div>
-
-        <h1>
-          sidekick 78
-          <Link to="/info">
-          <img
-          className="image-question"
-          src="info-ic.png"
-          alt="Informational Icon"
-          height="25"
-          width="25">
-          </img>
-        </Link>
-          <Route path="/info" component={Info} />
-        </h1>
+          <h1>
+            sidekick 78
+            <Link to="/info">
+            <img
+            className="image-question"
+            src="info-ic.png"
+            alt="Informational Icon"
+            height="25"
+            width="25">
+            </img>
+          </Link>
+            <Route path="/info" component={Info} />
+          </h1>
         </div>
+
         <div className="metaData">
           <MetaData
           id={this.state.identifier}
