@@ -1,10 +1,15 @@
 /* note: width properties are hard-coded; consider changing them to a "%" */
 
+body {
+  margin: 0;
+}
+
 h1 {
   font-family: Georgia, 'Times New Roman', Times, serif;
   border-bottom: solid 3px;
   font-size: 28px;
-  width: 560px;
+  padding-left: 160px;
+  /* margin: 3px; */
 }
 
 p {
@@ -13,13 +18,11 @@ p {
   text-transform: uppercase;
 }
 
-
-
 input[type=text] {
   width: 20px;
   border: solid 1px gray;
   border-radius: 5px;
-  /* padding: 4px 10px 10px 20px; */
+  padding: 4px 10px 10px 20px;
   padding-left: 10px;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -46,7 +49,7 @@ label {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 17px;
   color: lightgray;
-  /* text-transform: uppercase; */
+  text-transform: uppercase;
 }
 
 a {
@@ -56,9 +59,10 @@ a {
 }
 
 .about {
-  width: 290px;
+  width: 240px;
   border-bottom: solid 2px black;
   margin-top: 20px;
+  margin-left: 17px;
 }
 
 .about-text {
@@ -85,31 +89,43 @@ a {
   color: white;
   cursor: pointer;
   margin-top: 10px;
-  margin-left: 70px;
+  margin-left: 75px;
 }
 
 button:focus {outline:0;}
 input:focus {outline:0;}
 audio:focus {outline:0;}
 
-
-
-
 .form-player {
   font-family: Arial, Helvetica, sans-serif
 }
 
 .form {
-  margin-left: 185px;
+  margin-left: 115px;
+}
+
+.grid {
+  max-width: 450px;
+  display: grid;
+  grid-template-columns: 450px;
+  grid-template-rows: 100px;
+  margin: 0px auto;
+  padding-top: 35px;
+}
+
+.musicPlayer {
+  margin-top: 30px;
+  margin-left: 90px;
 }
 
 .image-question {
-  padding-left: 140px;
+  padding-left: 102px;
 }
 
 .image-vinyl {
   float: left;
-  padding-left: 40px;
+  padding-top: 15px;
+  padding-left: 25px;
 }
 
 .info-text {
@@ -128,12 +144,12 @@ audio:focus {outline:0;}
   text-transform: none;
 }
 
-.metaData {
+ .metaData {
   border: solid 2px;
   border-radius: 10px;
   width: 260px;
   height: 80px;
-  margin-left: 175px;
+  margin-left: 110px;
   margin-bottom: 25px;
   padding-top: 20px;
   background-color: black;
@@ -145,13 +161,9 @@ audio:focus {outline:0;}
 
 }
 
-.musicPlayer {
-  margin-top: 30px;
-  margin-left: 160px;
-}
 
 .shareButtons {
-  padding-left: 190px;
+  padding-left: 120px;
 }
 
 .skip-button {
@@ -166,7 +178,7 @@ audio:focus {outline:0;}
   font-size: 13px;
   color: white;
   cursor: pointer;
-  margin-left: 98px;
+  margin-left: 100px;
   margin-top: 5px;
 }
 
@@ -182,8 +194,9 @@ audio:focus {outline:0;}
   font-size: 13px;
   color: white;
   cursor: pointer;
-  margin-left: 233px;
-  margin-top: 5px;
+  margin-left: 190px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 #yearForm {
@@ -201,8 +214,9 @@ audio:focus {outline:0;}
   color: white;
   padding: 10px;
   text-transform: lowercase;
+  text-align: center;
   font-size: 22px;
-  width: 540px;
+  width: 95%;
   text-align: center;
   font-family: Georgia, 'Times New Roman', Times, serif;
   margin-bottom: 10px;
