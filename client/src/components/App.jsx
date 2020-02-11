@@ -216,8 +216,8 @@ class App extends React.Component {
           <img className="image-vinyl"
             src="vinyl-record.jpg"
             alt="Illustration of a 78"
-            height="60"
-            width="60">
+            height="70"
+            width="70">
           </img>
           <h1>
             78 sideKick
