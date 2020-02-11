@@ -15,6 +15,7 @@ class Info extends React.Component {
   render() {
     return (
       <div>
+        <div className="grid">
         <div>
         <h1>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -67,6 +68,7 @@ class Info extends React.Component {
         </div>
         <br/>
           <input className="return-button" type="button" onClick={() => {this.goBack();}} value="RETURN" />
+          </div>
       </div>
     )
   }
