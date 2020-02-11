@@ -4,7 +4,8 @@ h1 {
   font-family: Georgia, 'Times New Roman', Times, serif;
   border-bottom: solid 3px;
   font-size: 28px;
-  padding-left: 180px;
+  padding-left: 170px;
+  margin: 3px;
 }
 
 p {
@@ -112,13 +113,13 @@ audio:focus {outline:0;}
 }
 
 .image-question {
-  padding-left: 80px;
+  padding-left: 130px;
 }
 
 .image-vinyl {
   float: left;
-  padding-top: 90px;
-  /* padding-left: 40px; */
+  padding-top: 75px;
+  /* padding-left: px; */
 }
 
 .info-text {
