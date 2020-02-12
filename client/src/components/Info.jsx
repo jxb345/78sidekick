@@ -46,10 +46,11 @@ class Info extends React.Component {
               does not have a corresponding year, then [Date Unknown] will appear.
               <br/>
               <br/>
-              <strong>DOWNLOAD</strong>
+              <strong>DOWNLOAD FLAC AUDIO FILE</strong>
                 <ul>
-                  <li>Click the three vertical dots on the right side of the audio player
-                  to download a .flac file of the song playing.</li>
+                  <li><i>Chrome</i>: Click the three vertical dots on the right side of the audio player.</li>
+                  <li><i>Firefox</i>: Right-click on the audio player and select 'Save Audio As..' </li>
+                  <li><i>Safari</i>: Right-click on the audio player and select 'Download Audio As...'</li>
                 </ul>
           </p>
 
