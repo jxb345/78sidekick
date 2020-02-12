@@ -141,10 +141,11 @@ class App extends React.Component {
     console.log('this.state.genre', this.state.genre)
     if (this.genreButton === false || this.yearButton === false) {
       if (this.state.year === '') {
-        this.yearButton = true;
+        // this.yearButton = true;
+        this.showHideYearForm();
       }
       if (this.state.genre === '') {
-        this.genreButton = true;
+        this.showHideGenreForm();
       }
     }
     event.preventDefault();
@@ -226,8 +227,8 @@ class App extends React.Component {
                 className="image-question"
                 src="info-ic.png"
                 alt="Informational Icon"
-                height="22"
-                width="22">
+                height="20"
+                width="20">
               </img>
             </Link>
             <Route path="/info" component={Info} />
