@@ -194,7 +194,7 @@ audio:focus {outline:0;}
   font-size: 13px;
   color: white;
   cursor: pointer;
-  margin-left: 190px;
+  margin-left: 175px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
@@ -230,6 +230,7 @@ audio:focus {outline:0;}
 
 
 /* sharing buttons css */
+/* credit: https://sharingbuttons.io/ */
 .resp-sharing-button__link,
 .resp-sharing-button__icon {
   display: inline-block
@@ -306,7 +307,7 @@ audio:focus {outline:0;}
 }
 
 .resp-sharing-button--reddit {
-  background-color: #5f99cf
+  background-color: #ff4301
 }
 
 .resp-sharing-button--reddit:hover {

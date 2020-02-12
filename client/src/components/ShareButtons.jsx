@@ -9,6 +9,7 @@ class ShareButtons extends React.Component {
     let fbShareUrl = `https://facebook.com/sharer/sharer.php?u=https://archive.org/details/${this.props.identifier}`;
     let twitterShareUrl = `https://twitter.com/intent/tweet/?text=Listen%20to%20this%20song%20from%20Internet%20Archive's%20digitized%2078s%20collection:&amp;url=https://archive.org/details/${this.props.identifier}`;
     let tumblrShareUrl = `https://www.tumblr.com/widgets/share/tool?posttype=link&content=https://archive.org/details/${this.props.identifier}&canonicalUrl=https://archive.org/details/${this.props.identifier}&amp;shareSource=tumblr_share_button`
+    let redditShareUrl = `https://reddit.com/submit/?url=https://archive.org/details/${this.props.identifier}&amp;resubmit=true&amp;title=Super%20fast%20and%20easy%20Social%20Media%20Sharing%20Buttons.%20No%20JavaScript.%20No%20tracking.`
     let emailShareUrl = `mailto:?subject=Listen%20to%20this%20song%20from%20Internet%20Archive's%20digitized%2078s%20collection&body=https://archive.org/details/${this.props.identifier}`
 
     return (
@@ -31,6 +32,14 @@ class ShareButtons extends React.Component {
           <a class="resp-sharing-button__link" href={tumblrShareUrl} target="_blank" rel="noopener" aria-label="">
             <div class="resp-sharing-button resp-sharing-button--tumblr resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.5.5v5h5v4h-5V15c0 5 3.5 4.4 6 2.8v4.4c-6.7 3.2-12 0-12-4.2V9.5h-3V6.7c1-.3 2.2-.7 3-1.3.5-.5 1-1.2 1.4-2 .3-.7.6-1.7.7-3h3.8z" /></svg>
+            </div>
+            </div>
+          </a>
+
+
+          <a class="resp-sharing-button__link" href={redditShareUrl} target="_blank" rel="noopener" aria-label="">
+            <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 11.5c0-1.65-1.35-3-3-3-.96 0-1.86.48-2.42 1.24-1.64-1-3.75-1.64-6.07-1.72.08-1.1.4-3.05 1.52-3.7.72-.4 1.73-.24 3 .5C17.2 6.3 18.46 7.5 20 7.5c1.65 0 3-1.35 3-3s-1.35-3-3-3c-1.38 0-2.54.94-2.88 2.22-1.43-.72-2.64-.8-3.6-.25-1.64.94-1.95 3.47-2 4.55-2.33.08-4.45.7-6.1 1.72C4.86 8.98 3.96 8.5 3 8.5c-1.65 0-3 1.35-3 3 0 1.32.84 2.44 2.05 2.84-.03.22-.05.44-.05.66 0 3.86 4.5 7 10 7s10-3.14 10-7c0-.22-.02-.44-.05-.66 1.2-.4 2.05-1.54 2.05-2.84zM2.3 13.37C1.5 13.07 1 12.35 1 11.5c0-1.1.9-2 2-2 .64 0 1.22.32 1.6.82-1.1.85-1.92 1.9-2.3 3.05zm3.7.13c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm9.8 4.8c-1.08.63-2.42.96-3.8.96-1.4 0-2.74-.34-3.8-.95-.24-.13-.32-.44-.2-.68.15-.24.46-.32.7-.18 1.83 1.06 4.76 1.06 6.6 0 .23-.13.53-.05.67.2.14.23.06.54-.18.67zm.2-2.8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm5.7-2.13c-.38-1.16-1.2-2.2-2.3-3.05.38-.5.97-.82 1.6-.82 1.1 0 2 .9 2 2 0 .84-.53 1.57-1.3 1.87z" /></svg>
             </div>
             </div>
           </a>
