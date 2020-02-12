@@ -1,6 +1,6 @@
 <h3>78 sideKick</h3>
 
-![image](https://user-images.githubusercontent.com/3860515/64738412-f9f74380-d4a3-11e9-87b7-0709e0707734.png)
+![image](https://user-images.githubusercontent.com/3860515/74379321-6f8d7580-4d9c-11ea-8ef5-e6a3c483868d.png)
 
 ### Initial Setup
 Complete this step ONCE before starting the application for the first time:
