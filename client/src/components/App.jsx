@@ -152,6 +152,14 @@ class App extends React.Component {
     this.post();
   }
 
+  // temp id holder
+    // declare object
+    // iterate through object
+      // if (id === audioFiles.id)
+        // setState: identifier, creator, year, audiofile, genre
+        // return
+
+
   // invokes handleRandomButtons before invoking the ajax call
   async post() {
     this.setState({ gettingSong: true }, () => {
