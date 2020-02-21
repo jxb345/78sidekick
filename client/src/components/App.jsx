@@ -27,7 +27,9 @@ class App extends React.Component {
       genreButtonOn: false,
       yearButtonOn: false,
       noYear: false,
-      gettingSong: false
+      gettingSong: false,
+      foundIds: [],
+      yearGenre: '',
 
     }
 
@@ -40,6 +42,7 @@ class App extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.post = this.post.bind(this);
+    this.metadataPost = this.metadataPost.bind(this);
     this.showHideGenreForm = this.showHideGenreForm.bind(this);
     this.showHideYearForm = this.showHideYearForm.bind(this);
     this.url = this.url.bind(this);
@@ -52,6 +55,13 @@ class App extends React.Component {
 
   // POST request to '/query' endpoint in server.js; returns data and changes state
   ajaxCall() {
+
+    // idea:
+      // when a request is made for a genre and year, the server.js file also send back all Ids from that last search
+      // these ids are saved in an array(?) in State (excluding the Id of the currently playing song)
+      // before the next song is fetch, IF the genre and year reamin the same, the app will grab the flac for the first id in the arr
+      // * this process will continue (the app grab the flac file for the next Id in the arr) as long as the year/genre remain unchanged
+
     $.ajax({
       url: '/query',
       method: 'POST',
@@ -66,10 +76,11 @@ class App extends React.Component {
           runtime: data.runtime,
           audioFile: data.file,
           noYear: data.noYear,
+          foundIds: data.foundIds
         },
           () => {
             this.url();
-            console.log('this.state', this.state);
+            console.log('this.state.foundIds', this.state.foundIds);
             this.userClick = true;
             const quote = '\"';
             let quotedSong = quote + this.state.title + quote;
@@ -148,26 +159,52 @@ class App extends React.Component {
       }
     }
     event.preventDefault();
+    console.log('this.state.year', this.state.year)
+    console.log('this.state.genre', this.state.genre);
     this.post();
+  }
+
+  metadataPost () {
+    let songIndex = 0;
+    let neededSongInfo;
+    neededSongInfo = this.state.foundIds[songIndex].identifier;
+
+      this.setState ( { yearGenre: yearGenreConcat }, () => {
+        $.ajax ( {
+          url: '/metadata',
+          method: 'POST',
+          data: { data: neededSongInfo },
+          success: () => {
+            console.log('success metadata post')
+          }
+        })
+      })
   }
 
   // invokes handleRandomButtons before invoking the ajax call
   async post() {
-    this.setState({ gettingSong: true }, () => {
-      console.log('gettingSong at begin of post()', this.state.gettingSong);
-    })
-    await this.handleGenreButton()
-    await this.handleYearButton()
-    if (this.state.year.length === 2) {
-      // let newYear = '19' + this.state.year;
-      let newYear = this.state.year;
-      this.setState({ year: newYear }, () => {
-        this.ajaxCall();
-      })
-    } else {
-      this.ajaxCall();
-    }
+    if (this.state.year !== '' && this.state.genre !== '') {
+      let yearGenreConcat = this.state.year + this.state.genre;
+      if (yearGenreConcat === this.state.yearGenre) {
+        this.metadataPost();
+      } else {
+        this.setState({ gettingSong: true }, () => {
+          console.log('gettingSong at begin of post()', this.state.gettingSong);
+        })
+        await this.handleGenreButton()
+        await this.handleYearButton()
+        if (this.state.year.length === 2) {
+          // let newYear = '19' + this.state.year;
+          let newYear = this.state.year;
+          this.setState({ year: newYear }, () => {
+            this.ajaxCall();
+          })
+        } else {
+          this.ajaxCall();
+        }
+      }
   }
+}
 
   // hide genre form if "random genre" switch is clicked
   showHideGenreForm() {

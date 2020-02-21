@@ -97,14 +97,26 @@ let songUrl = `https://archive.org/advancedsearch.php?q=collection%3A%28georgebl
       })
       .then(function (myJson) {
         let totalResults = myJson.response.docs.length;
-        console.log('myJson.response.numFound:', myJson.response.numFound)
         if (totalResults === 0) {
           console.log('no results from API call');
           return callback(null);
         }
         // select a random item based on the number of available results
         let randomIndex = generateRandomIndex(totalResults);
-        let identifier = myJson.response.docs[randomIndex].identifier ;
+        let identifier = myJson.response.docs[randomIndex].identifier;
+
+        // below code grabs a chunk of IDs to prevent multiple Advanced Searches if user doesn't change genre/years
+        // todo: separate following code in own function
+        let startSong;
+        let lastSong = randomIndex;
+        if (lastSong < 25) {
+          startSong = randomIndex + 1;
+          lastSong = startSong + 25;
+        }  else {
+          startSong = randomIndex - 25;
+        }
+        let foundIds =  myJson.response.docs.slice(startSong, lastSong);
+
         // fetch specific metadata of item and prepares 'metadata' object to send to client
         fetchMetadata(identifier, (err, result) => {
           if (err) { throw err };
@@ -122,6 +134,7 @@ let songUrl = `https://archive.org/advancedsearch.php?q=collection%3A%28georgebl
           metadata.identifier = identifier;
           metadata.genre = genre;
           metadata.year = year;
+          metadata.foundIds = foundIds;
           callback(null, metadata)
         });
       })
@@ -153,4 +166,4 @@ const generateRandomYear = () => {
 }
 
 
-module.exports = { fetchNoYearSong, fetchMetadata, fetchSong, generateRandomYear, generateRandomGenre }
+module.exports = { fetchNoYearSong, fetchMetadata, fetchSong, generateRandomYear, generateRandomGenre, findFlac }

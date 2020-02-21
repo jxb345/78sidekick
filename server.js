@@ -71,6 +71,30 @@ app.post('/query', (req, res) => {
   })
 })
 
+app.post('/metadata', (req, res) => {
+  console.log('req.body.data------ metadata', req.body.data)
+  models.fetchMetadata(req.body.data, (err, result) => {
+    if (err) { throw err };
+    let metadata = {};
+    metadata.file = models.findFlac(result.files)
+    // 'if' statement to check if creator not present
+    if (result.metadata.creator == null) {
+      metadata.creator = '[Artist Unknown]';
+    } else {
+      // the following can still result in error: metadata.creator = result.metadata.creator[0] || ''
+      metadata.creator = result.metadata.creator[0]
+    }
+    metadata.title = result.metadata.title;
+    metadata.runtime = result.metadata.runtime;
+    metadata.identifier = req.body.data;
+    // metadata.genre = genre;
+    // metadata.year = year;
+    // metadata.foundIds = foundIds;
+    // callback(null, metadata)
+    res.send(metadata)
+  });
+})
+
 app.listen(port, () => {
   console.log(`listening on ${port}`)
 });
