@@ -32,11 +32,12 @@ class MusicPlayer extends React.Component {
     return (
       <div>
         {/* audio player */}
-        <audio controls ref={this.audioPlayer} onEnded={() => { this.props.post() }}>
+        <audio controls style={{margin: "0 auto", display: "block"}} ref={this.audioPlayer} onEnded={() => { this.props.post() }}>
           <source src={this.props.url} crossOrigin="anonymous"></source>
         </audio>
         {/* make another POST request if user doesn't like song */}
-        <div>
+
+        <div style={{marginLeft: "70px"}} >
           <button className="skip-button" onClick={() => { this.props.post(); this.audioPlayer.current.pause(); }}>SKIP</button>
         </div>
         <p className="about"></p>
