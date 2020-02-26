@@ -62,7 +62,7 @@ class Info extends React.Component {
             </p>
           <h3 className="how-what-who">Who</h3>
           <p className="info-text">
-          78 sideKick was built by <a href="https://jessebell.dev" target="_blank">Jesse Bell</a> who immensely enjoys
+          78 sideKick was built by <a href="https://www.jessebell.dev" target="_blank">Jesse Bell</a> who immensely enjoys
             listening to art through headphones, and also with generous contributions
             from <a href="https://github.com/auramix">Scott Josephson</a>.
           </p>
