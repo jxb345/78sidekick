@@ -39,7 +39,7 @@ class MetaData extends React.Component {
         // need to limit song title if it is longer
         // than X number of characters
         <div id="metadata">
-          <a href={detailsPage} target="_blank">
+          <a href={detailsPage} target="_blank" rel="noopener">
           <span>{title}</span>
           <br></br>
          <span style={spanStyle} >{artist}</span>

@@ -15,7 +15,7 @@ class Wrapper extends React.Component {
       <Router history={history}>
         <Link to={App}></Link>
         <Route exact={true} path="/" component={App} />
-        <Link to={Info} target="_blank"></Link>
+        <Link to={Info} target="_blank" rel="noopener"></Link>
         <Route path="/info" component={Info} />
       </Router>
     )
