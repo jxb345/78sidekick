@@ -41,7 +41,10 @@ select {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   text-align-last:center;
+}
 
+.select-selected {
+  background: black;
 }
 
 label {
@@ -103,6 +106,36 @@ audio:focus {outline:0;}
 .form {
   margin-left: 115px;
 }
+
+/* styling select element in Form.jsx */
+/* .custom-select {
+  position: relative;
+  font-family: Arial;
+}
+
+
+.select-selected {
+  background-color: black;
+}
+
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+} */
+
+/* Point the arrow upwards when the select box is open (active): */
+/* .select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+} */
+
+/* end of styling select element in Form.jsx */
 
 .grid {
   max-width: 450px;
