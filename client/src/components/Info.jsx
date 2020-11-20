@@ -56,13 +56,13 @@ class Info extends React.Component {
 
           <h3 className="how-what-who">How</h3>
             <p className="info-text">
-              78 sideKick uses the <a href="https://archive.org/" target="_blank" rel="noopener">Internet Archive</a> APIs to search 160,000+ digitzied 78s
+              78 sideKick uses the <a href="https://archive.org/" target="_blank" rel="noopener">Internet Archive</a> APIs to search 210,000+ digitzied 78s
               from the <a href="https://archive.org/details/georgeblood" target="_blank" rel="noopener">George Blood collection</a>. This digitization effort was generously
               funded by the Kahle-Austin Foundation. <br></br>
             </p>
           <h3 className="how-what-who">Who</h3>
           <p className="info-text">
-          78 sideKick was built by <a href="https://www.jessebell.dev" target="_blank" rel="noopener">Jesse Bell</a> who immensely enjoys
+          78 sideKick was built by <a href="https://github.com/jxb345/" target="_blank" rel="noopener">Jesse Bell</a> who immensely enjoys
             listening to art through headphones, and also with generous contributions
             from <a href="https://github.com/auramix" target="_blank" rel="noopener">Scott Josephson</a>.
           </p>
